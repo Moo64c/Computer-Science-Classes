@@ -1,0 +1,9 @@
+main:
+1. user logs in.
+2. user can send commands via interface.
+3. user can log out.
+
+queueing thread:
+1. wakes up every 1-2 second.
+2. checks if socket is opened.
+3. sends queue request via socket and prints result.

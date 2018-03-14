@@ -1,0 +1,41 @@
+***This the current users list
+John
+Paul
+George
+Ringo
+Yoko
+Martin
+
+***This the current groups list
+Beatles
+John&Yoko
+
+***These are the current details of the group - John&Yoko
+John&Yoko
+John
+
+***This is the current converstaion at John's phone in the group - John&Yoko
+John&Yoko
+John:Love me do
+
+***This is the current converstaion at John's phone in the group - Beatles
+Beatles
+John:Hey George
+George:Hey Ringo
+John:I like Yoko
+
+***This is the current converstaion list at John's phone
+John&Yoko
+Beatles
+
+***These are all the messages containing the text 'He' in John's phone in the group - Beatles
+John:Hey George
+George:Hey Ringo
+
+***This the current groups list
+Beatles
+John&Yoko
+
+***This the current groups list
+John&Yoko
+

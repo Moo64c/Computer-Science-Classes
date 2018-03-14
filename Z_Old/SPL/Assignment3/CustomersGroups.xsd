@@ -1,0 +1,53 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CustomersGroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="CustomerGroups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CustomerGroupDetails" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="GroupManagerName"/>
+                    <xs:element name="Customers">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Customer" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="Name"/>
+                                <xs:element type="xs:string" name="Vandalism"/>
+                                <xs:element type="xs:byte" name="MinimumDamage"/>
+                                <xs:element type="xs:byte" name="MaximumDamage"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="RentalRequests">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Request" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="Type"/>
+                                <xs:element type="xs:byte" name="Size"/>
+                                <xs:element type="xs:byte" name="Duration"/>
+                              </xs:sequence>
+                              <xs:attribute type="xs:byte" name="id" use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

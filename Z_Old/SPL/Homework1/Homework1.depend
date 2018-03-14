@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1414526509 source:/home/amir/cs/SPL/Homework1/main.cpp
+	<iostream>
+	"include/homework1.h"
+
+1414527118 /home/amir/cs/SPL/Homework1/include/homework1.h
+	<cmath>
+	<iostream>
+	<vector>
+

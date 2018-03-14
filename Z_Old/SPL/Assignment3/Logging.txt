@@ -1,0 +1,2074 @@
+Jan 04, 2015 12:44:58 AM assignment3.Driver main
+INFO: begining parsing
+Jan 04, 2015 12:44:58 AM assignment3.Management setNumberOfRequestsNotHandled
+INFO: Total number of requests in this run: 15
+Jan 04, 2015 12:44:58 AM assignment3.Management launchRunnableCustomerGroupManagers
+INFO: created group manager
+Jan 04, 2015 12:44:58 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 1 - getting new request
+Jan 04, 2015 12:44:58 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - getting new request
+Jan 04, 2015 12:44:58 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - adding request to queue: 	RentalRequest ID:3		Type:Cottage		Size:5		Duration:2		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:44:58 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - waiting for request fullfilement 	RentalRequest ID:3		Type:Cottage		Size:5		Duration:2		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:44:58 AM assignment3.Management launchRunnableCustomerGroupManagers
+INFO: created group manager
+Jan 04, 2015 12:44:58 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 1 - adding request to queue: 	RentalRequest ID:1		Type:Apartment		Size:3		Duration:5		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:44:58 AM assignment3.Management launchRunnableCustomerGroupManagers
+INFO: created group manager
+Jan 04, 2015 12:44:58 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 3 - getting new request
+Jan 04, 2015 12:44:58 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 1 - waiting for request fullfilement 	RentalRequest ID:1		Type:Apartment		Size:3		Duration:5		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:44:58 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 3 - adding request to queue: 	RentalRequest ID:10		Type:House		Size:4		Duration:2		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:44:58 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 4 - getting new request
+Jan 04, 2015 12:44:58 AM assignment3.Management launchRunnableCustomerGroupManagers
+INFO: created group manager
+Jan 04, 2015 12:44:58 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 3 - waiting for request fullfilement 	RentalRequest ID:10		Type:House		Size:4		Duration:2		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:44:58 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 5 - getting new request
+Jan 04, 2015 12:44:58 AM assignment3.Management launchRunnableCustomerGroupManagers
+INFO: created group manager
+Jan 04, 2015 12:44:58 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 4 - adding request to queue: 	RentalRequest ID:12		Type:Apartment		Size:2		Duration:4		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:44:58 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 4 - waiting for request fullfilement 	RentalRequest ID:12		Type:Apartment		Size:2		Duration:4		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:44:58 AM assignment3.Management launchRunnableClerks
+INFO: created clerk
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush started a shift.
+Jan 04, 2015 12:44:58 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 5 - adding request to queue: 	RentalRequest ID:14		Type:House		Size:5		Duration:1		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting sync
+Jan 04, 2015 12:44:58 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 5 - waiting for request fullfilement 	RentalRequest ID:14		Type:House		Size:5		Duration:1		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting take from queue
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush taken from queue
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush succeeded sync
+Jan 04, 2015 12:44:58 AM assignment3.Management launchRunnableClerks
+INFO: created clerk
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk run
+INFO: Ken Harush walking to house, too far for today.
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton started a shift.
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton attempting sync
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I started a shift.
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton attempting take from queue
+Jan 04, 2015 12:44:58 AM assignment3.Management launchRunnableClerks
+INFO: created clerk
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton taken from queue
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting sync
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton succeeded sync
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die started a shift.
+Jan 04, 2015 12:44:58 AM assignment3.Management launchRunnableClerks
+INFO: created clerk
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk run
+INFO: Paula Bitton walking to house, too far for today.
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting take from queue
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott started a shift.
+Jan 04, 2015 12:44:58 AM assignment3.Management launchRunnableClerks
+INFO: created clerk
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting sync
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott attempting sync
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I taken from queue
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I succeeded sync
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott attempting take from queue
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk run
+INFO: Leonidas I walking to house, too far for today.
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott taken from queue
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott succeeded sync
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting take from queue
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott waiting for an asset to become available
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die taken from queue
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die succeeded sync
+Jan 04, 2015 12:44:58 AM assignment3.RunnableClerk run
+INFO: Paula Die waiting for an asset to become available
+Jan 04, 2015 12:45:06 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:45:06 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:45:06 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:45:22 AM assignment3.RunnableClerk run
+INFO: Leonidas I walking to house, too far for today.
+Jan 04, 2015 12:45:22 AM assignment3.RunnableClerk run
+INFO: Paula Die waiting for an asset to become available
+Jan 04, 2015 12:45:22 AM assignment3.RunnableClerk run
+INFO: Paula Bitton walking to house, too far for today.
+Jan 04, 2015 12:45:22 AM assignment3.RunnableClerk run
+INFO: Ken Harush walking to house, too far for today.
+Jan 04, 2015 12:45:22 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott waiting for an asset to become available
+Jan 04, 2015 12:45:30 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:45:30 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:45:30 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:45:46 AM assignment3.RunnableClerk run
+INFO: Ken Harush walking to house, too far for today.
+Jan 04, 2015 12:45:46 AM assignment3.RunnableClerk run
+INFO: Paula Die waiting for an asset to become available
+Jan 04, 2015 12:45:46 AM assignment3.RunnableClerk run
+INFO: Paula Bitton walking to house, too far for today.
+Jan 04, 2015 12:45:46 AM assignment3.RunnableClerk run
+INFO: Leonidas I walking to house, too far for today.
+Jan 04, 2015 12:45:46 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott waiting for an asset to become available
+Jan 04, 2015 12:45:54 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:45:54 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:45:54 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:46:10 AM assignment3.RunnableClerk run
+INFO: Leonidas I walking to house, too far for today.
+Jan 04, 2015 12:46:10 AM assignment3.RunnableClerk run
+INFO: Paula Bitton walking to house, too far for today.
+Jan 04, 2015 12:46:10 AM assignment3.RunnableClerk run
+INFO: Paula Die waiting for an asset to become available
+Jan 04, 2015 12:46:10 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott waiting for an asset to become available
+Jan 04, 2015 12:46:16 AM assignment3.RunnableClerk run
+INFO: Ken Harush got to the house
+Jan 04, 2015 12:46:16 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush started a shift.
+Jan 04, 2015 12:46:16 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - simulating stay
+Jan 04, 2015 12:46:16 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting sync
+Jan 04, 2015 12:46:16 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting take from queue
+Jan 04, 2015 12:46:16 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 1	Vandlism:FIXED	Damage:[1.0:5.0]
+Jan 04, 2015 12:46:16 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 2	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:46:16 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 1 stay in asset: 48 seconds
+Jan 04, 2015 12:46:16 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 2 stay in asset: 48 seconds
+Jan 04, 2015 12:46:16 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 3	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:46:16 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 4	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:46:16 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 3 stay in asset: 48 seconds
+Jan 04, 2015 12:46:16 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 5	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:46:16 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 4 stay in asset: 48 seconds
+Jan 04, 2015 12:46:16 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 5 stay in asset: 48 seconds
+Jan 04, 2015 12:46:18 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:46:18 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:46:18 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:46:18 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:46:34 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush started a shift.
+Jan 04, 2015 12:46:34 AM assignment3.RunnableClerk run
+INFO: Paula Bitton walking to house, too far for today.
+Jan 04, 2015 12:46:34 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott waiting for an asset to become available
+Jan 04, 2015 12:46:34 AM assignment3.RunnableClerk run
+INFO: Paula Die waiting for an asset to become available
+Jan 04, 2015 12:46:34 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting sync
+Jan 04, 2015 12:46:34 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting take from queue
+Jan 04, 2015 12:46:42 AM assignment3.RunnableClerk run
+INFO: Leonidas I got to the house
+Jan 04, 2015 12:46:42 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:46:42 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 3 - simulating stay
+Jan 04, 2015 12:46:42 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 3 - created customer: Customer: Name:Customer 1	Vandlism:ARBITRARY	Damage:[5.0:8.0]
+Jan 04, 2015 12:46:42 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:46:42 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:46:42 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 1 stay in asset: 48 seconds
+Jan 04, 2015 12:46:42 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 3 - created customer: Customer: Name:Customer 2	Vandlism:ARBITRARY	Damage:[5.0:8.0]
+Jan 04, 2015 12:46:42 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:46:42 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 2 stay in asset: 48 seconds
+Jan 04, 2015 12:46:42 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 3 - created customer: Customer: Name:Customer 3	Vandlism:ARBITRARY	Damage:[5.0:7.0]
+Jan 04, 2015 12:46:42 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 3 - created customer: Customer: Name:Customer 4	Vandlism:ARBITRARY	Damage:[5.0:7.0]
+Jan 04, 2015 12:46:42 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 3 stay in asset: 48 seconds
+Jan 04, 2015 12:46:42 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 4 stay in asset: 48 seconds
+Jan 04, 2015 12:46:58 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush started a shift.
+Jan 04, 2015 12:46:58 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I started a shift.
+Jan 04, 2015 12:46:58 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott waiting for an asset to become available
+Jan 04, 2015 12:46:58 AM assignment3.RunnableClerk run
+INFO: Paula Die waiting for an asset to become available
+Jan 04, 2015 12:46:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting sync
+Jan 04, 2015 12:46:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting sync
+Jan 04, 2015 12:46:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting take from queue
+Jan 04, 2015 12:47:04 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 1	Vandlism:FIXED	Damage:[1.0:5.0]finished stay
+Jan 04, 2015 12:47:04 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 2	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:47:04 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 3	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:47:04 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 4	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:47:04 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 5	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:47:04 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - generating damaged report for damage: 5.0
+Jan 04, 2015 12:47:04 AM assignment3.Management addDamageReport
+INFO: requests to be fulfilled: 10
+Jan 04, 2015 12:47:04 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - getting new request
+Jan 04, 2015 12:47:04 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - adding request to queue: 	RentalRequest ID:4		Type:Cottage		Size:5		Duration:2		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:47:04 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - waiting for request fullfilement 	RentalRequest ID:4		Type:Cottage		Size:5		Duration:2		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:47:04 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I taken from queue
+Jan 04, 2015 12:47:04 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I succeeded sync
+Jan 04, 2015 12:47:04 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting take from queue
+Jan 04, 2015 12:47:04 AM assignment3.RunnableClerk run
+INFO: Leonidas I walking to house, too far for today.
+Jan 04, 2015 12:47:06 AM assignment3.RunnableClerk run
+INFO: Paula Bitton got to the house
+Jan 04, 2015 12:47:06 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:47:06 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 1 - simulating stay
+Jan 04, 2015 12:47:06 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 1 - created customer: Customer: Name:Customer 1	Vandlism:ARBITRARY	Damage:[10.0:20.0]
+Jan 04, 2015 12:47:06 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 1 - created customer: Customer: Name:Customer 2	Vandlism:FIXED	Damage:[1.0:9.0]
+Jan 04, 2015 12:47:06 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 1 stay in asset: 120 seconds
+Jan 04, 2015 12:47:06 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 2 stay in asset: 120 seconds
+Jan 04, 2015 12:47:06 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 1 - created customer: Customer: Name:Customer 3	Vandlism:FIXED	Damage:[1.0:9.0]
+Jan 04, 2015 12:47:06 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 3 stay in asset: 120 seconds
+Jan 04, 2015 12:47:12 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:47:12 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:47:12 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:47:28 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush started a shift.
+Jan 04, 2015 12:47:28 AM assignment3.RunnableClerk run
+INFO: Leonidas I walking to house, too far for today.
+Jan 04, 2015 12:47:28 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton started a shift.
+Jan 04, 2015 12:47:28 AM assignment3.RunnableClerk run
+INFO: Paula Die waiting for an asset to become available
+Jan 04, 2015 12:47:28 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott waiting for an asset to become available
+Jan 04, 2015 12:47:28 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton attempting sync
+Jan 04, 2015 12:47:28 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting sync
+Jan 04, 2015 12:47:28 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton attempting take from queue
+Jan 04, 2015 12:47:30 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 1	Vandlism:ARBITRARY	Damage:[5.0:8.0]finished stay
+Jan 04, 2015 12:47:30 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 2	Vandlism:ARBITRARY	Damage:[5.0:8.0]finished stay
+Jan 04, 2015 12:47:30 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 3	Vandlism:ARBITRARY	Damage:[5.0:7.0]finished stay
+Jan 04, 2015 12:47:30 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 4	Vandlism:ARBITRARY	Damage:[5.0:7.0]finished stay
+Jan 04, 2015 12:47:30 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 3 - generating damaged report for damage: 24.800017367713366
+Jan 04, 2015 12:47:30 AM assignment3.Management addDamageReport
+INFO: requests to be fulfilled: 9
+Jan 04, 2015 12:47:30 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 3 - getting new request
+Jan 04, 2015 12:47:30 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 3 - adding request to queue: 	RentalRequest ID:11		Type:Loft		Size:4		Duration:2		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:47:30 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 3 - waiting for request fullfilement 	RentalRequest ID:11		Type:Loft		Size:4		Duration:2		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:47:30 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton taken from queue
+Jan 04, 2015 12:47:30 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton succeeded sync
+Jan 04, 2015 12:47:30 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting take from queue
+Jan 04, 2015 12:47:30 AM assignment3.RunnableClerk run
+INFO: Paula Bitton walking to house, too far for today.
+Jan 04, 2015 12:47:36 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:47:38 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:47:38 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:47:38 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:47:54 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush started a shift.
+Jan 04, 2015 12:47:54 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott waiting for an asset to become available
+Jan 04, 2015 12:47:54 AM assignment3.RunnableClerk run
+INFO: Leonidas I walking to house, too far for today.
+Jan 04, 2015 12:47:54 AM assignment3.RunnableClerk run
+INFO: Paula Bitton walking to house, too far for today.
+Jan 04, 2015 12:47:54 AM assignment3.RunnableClerk run
+INFO: Paula Die walking to house, too far for today.
+Jan 04, 2015 12:47:54 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting sync
+Jan 04, 2015 12:47:54 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting take from queue
+Jan 04, 2015 12:48:02 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:48:02 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die finished a shift.
+Jan 04, 2015 12:48:02 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:48:02 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:48:02 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:48:18 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush started a shift.
+Jan 04, 2015 12:48:18 AM assignment3.RunnableClerk run
+INFO: Paula Bitton walking to house, too far for today.
+Jan 04, 2015 12:48:18 AM assignment3.RunnableClerk run
+INFO: Paula Die walking to house, too far for today.
+Jan 04, 2015 12:48:18 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott waiting for an asset to become available
+Jan 04, 2015 12:48:18 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting sync
+Jan 04, 2015 12:48:18 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting take from queue
+Jan 04, 2015 12:48:24 AM assignment3.RunnableClerk run
+INFO: Leonidas I got to the house
+Jan 04, 2015 12:48:24 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I started a shift.
+Jan 04, 2015 12:48:24 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - simulating stay
+Jan 04, 2015 12:48:24 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting sync
+Jan 04, 2015 12:48:24 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 1	Vandlism:FIXED	Damage:[1.0:5.0]
+Jan 04, 2015 12:48:24 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 2	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:48:24 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 1 stay in asset: 48 seconds
+Jan 04, 2015 12:48:24 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 2 stay in asset: 48 seconds
+Jan 04, 2015 12:48:24 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 3	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:48:24 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 4	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:48:24 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 3 stay in asset: 48 seconds
+Jan 04, 2015 12:48:24 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 4 stay in asset: 48 seconds
+Jan 04, 2015 12:48:24 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 5	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:48:24 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 5 stay in asset: 48 seconds
+Jan 04, 2015 12:48:26 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:48:26 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die finished a shift.
+Jan 04, 2015 12:48:26 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:48:26 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting take from queue
+Jan 04, 2015 12:48:26 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:48:28 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:48:28 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:48:44 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I started a shift.
+Jan 04, 2015 12:48:44 AM assignment3.RunnableClerk run
+INFO: Paula Die walking to house, too far for today.
+Jan 04, 2015 12:48:44 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush started a shift.
+Jan 04, 2015 12:48:44 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott waiting for an asset to become available
+Jan 04, 2015 12:48:44 AM assignment3.RunnableClerk run
+INFO: Paula Bitton walking to house, too far for today.
+Jan 04, 2015 12:48:44 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting sync
+Jan 04, 2015 12:48:44 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting sync
+Jan 04, 2015 12:48:44 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting take from queue
+Jan 04, 2015 12:48:52 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die finished a shift.
+Jan 04, 2015 12:48:52 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:48:52 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:48:52 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting take from queue
+Jan 04, 2015 12:48:52 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:49:00 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:49:00 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:49:06 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 1	Vandlism:ARBITRARY	Damage:[10.0:20.0]finished stay
+Jan 04, 2015 12:49:06 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 2	Vandlism:FIXED	Damage:[1.0:9.0]finished stay
+Jan 04, 2015 12:49:06 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 3	Vandlism:FIXED	Damage:[1.0:9.0]finished stay
+Jan 04, 2015 12:49:06 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 1 - generating damaged report for damage: 26.875492258094976
+Jan 04, 2015 12:49:06 AM assignment3.Management addDamageReport
+INFO: requests to be fulfilled: 8
+Jan 04, 2015 12:49:06 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 1 - getting new request
+Jan 04, 2015 12:49:06 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 1 - adding request to queue: 	RentalRequest ID:2		Type:Hut		Size:3		Duration:3		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:49:06 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 1 - waiting for request fullfilement 	RentalRequest ID:2		Type:Hut		Size:3		Duration:3		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:49:12 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 1	Vandlism:FIXED	Damage:[1.0:5.0]finished stay
+Jan 04, 2015 12:49:12 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 2	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:49:12 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 3	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:49:12 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 4	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:49:12 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 5	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:49:12 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - generating damaged report for damage: 5.0
+Jan 04, 2015 12:49:12 AM assignment3.Management addDamageReport
+INFO: requests to be fulfilled: 8
+Jan 04, 2015 12:49:12 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - getting new request
+Jan 04, 2015 12:49:12 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - adding request to queue: 	RentalRequest ID:5		Type:Cottage		Size:5		Duration:1		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:49:12 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - waiting for request fullfilement 	RentalRequest ID:5		Type:Cottage		Size:5		Duration:1		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:49:16 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I started a shift.
+Jan 04, 2015 12:49:16 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush started a shift.
+Jan 04, 2015 12:49:16 AM assignment3.RunnableClerk run
+INFO: Paula Bitton walking to house, too far for today.
+Jan 04, 2015 12:49:16 AM assignment3.RunnableClerk run
+INFO: Paula Die walking to house, too far for today.
+Jan 04, 2015 12:49:16 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott walking to house, too far for today.
+Jan 04, 2015 12:49:16 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting sync
+Jan 04, 2015 12:49:16 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting sync
+Jan 04, 2015 12:49:16 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting take from queue
+Jan 04, 2015 12:49:16 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush taken from queue
+Jan 04, 2015 12:49:16 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush succeeded sync
+Jan 04, 2015 12:49:16 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting take from queue
+Jan 04, 2015 12:49:16 AM assignment3.RunnableClerk run
+INFO: Ken Harush walking to house, too far for today.
+Jan 04, 2015 12:49:16 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I taken from queue
+Jan 04, 2015 12:49:16 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I succeeded sync
+Jan 04, 2015 12:49:16 AM assignment3.RunnableClerk run
+INFO: Leonidas I walking to house, too far for today.
+Jan 04, 2015 12:49:24 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:49:24 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die finished a shift.
+Jan 04, 2015 12:49:24 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott finished a shift.
+Jan 04, 2015 12:49:24 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:49:24 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:49:40 AM assignment3.RunnableClerk run
+INFO: Leonidas I walking to house, too far for today.
+Jan 04, 2015 12:49:40 AM assignment3.RunnableClerk run
+INFO: Ken Harush walking to house, too far for today.
+Jan 04, 2015 12:49:40 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott walking to house, too far for today.
+Jan 04, 2015 12:49:40 AM assignment3.RunnableClerk run
+INFO: Paula Bitton walking to house, too far for today.
+Jan 04, 2015 12:49:48 AM assignment3.RunnableClerk run
+INFO: Paula Die got to the house
+Jan 04, 2015 12:49:48 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die finished a shift.
+Jan 04, 2015 12:49:48 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:49:48 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott finished a shift.
+Jan 04, 2015 12:49:48 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 5 - simulating stay
+Jan 04, 2015 12:49:48 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:49:48 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:49:48 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 5 - created customer: Customer: Name:Customer 1	Vandlism:ARBITRARY	Damage:[2.0:7.0]
+Jan 04, 2015 12:49:48 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 5 - created customer: Customer: Name:Customer 2	Vandlism:ARBITRARY	Damage:[2.0:7.0]
+Jan 04, 2015 12:49:48 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 1 stay in asset: 24 seconds
+Jan 04, 2015 12:49:48 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 2 stay in asset: 24 seconds
+Jan 04, 2015 12:49:48 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 5 - created customer: Customer: Name:Customer 3	Vandlism:FIXED	Damage:[10.0:20.0]
+Jan 04, 2015 12:49:48 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 5 - created customer: Customer: Name:Customer 4	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:49:48 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 3 stay in asset: 24 seconds
+Jan 04, 2015 12:49:48 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 5 - created customer: Customer: Name:Customer 5	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:49:48 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 4 stay in asset: 24 seconds
+Jan 04, 2015 12:49:48 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 5 stay in asset: 24 seconds
+Jan 04, 2015 12:50:04 AM assignment3.RunnableClerk run
+INFO: Ken Harush walking to house, too far for today.
+Jan 04, 2015 12:50:04 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die started a shift.
+Jan 04, 2015 12:50:04 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting sync
+Jan 04, 2015 12:50:04 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting take from queue
+Jan 04, 2015 12:50:04 AM assignment3.RunnableClerk run
+INFO: Leonidas I walking to house, too far for today.
+Jan 04, 2015 12:50:04 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott walking to house, too far for today.
+Jan 04, 2015 12:50:10 AM assignment3.RunnableClerk run
+INFO: Paula Bitton got to the house
+Jan 04, 2015 12:50:10 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton started a shift.
+Jan 04, 2015 12:50:10 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 3 - simulating stay
+Jan 04, 2015 12:50:10 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton attempting sync
+Jan 04, 2015 12:50:10 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 3 - created customer: Customer: Name:Customer 1	Vandlism:ARBITRARY	Damage:[5.0:8.0]
+Jan 04, 2015 12:50:10 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 3 - created customer: Customer: Name:Customer 2	Vandlism:ARBITRARY	Damage:[5.0:8.0]
+Jan 04, 2015 12:50:10 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 3 - created customer: Customer: Name:Customer 3	Vandlism:ARBITRARY	Damage:[5.0:7.0]
+Jan 04, 2015 12:50:10 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 2 stay in asset: 48 seconds
+Jan 04, 2015 12:50:10 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 1 stay in asset: 48 seconds
+Jan 04, 2015 12:50:10 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 3 - created customer: Customer: Name:Customer 4	Vandlism:ARBITRARY	Damage:[5.0:7.0]
+Jan 04, 2015 12:50:10 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 3 stay in asset: 48 seconds
+Jan 04, 2015 12:50:10 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 4 stay in asset: 48 seconds
+Jan 04, 2015 12:50:12 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:50:12 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 1	Vandlism:ARBITRARY	Damage:[2.0:7.0]finished stay
+Jan 04, 2015 12:50:12 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton attempting take from queue
+Jan 04, 2015 12:50:12 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:50:12 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott finished a shift.
+Jan 04, 2015 12:50:12 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 2	Vandlism:ARBITRARY	Damage:[2.0:7.0]finished stay
+Jan 04, 2015 12:50:12 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:50:12 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die finished a shift.
+Jan 04, 2015 12:50:12 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 3	Vandlism:FIXED	Damage:[10.0:20.0]finished stay
+Jan 04, 2015 12:50:12 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 4	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:50:12 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 5	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:50:12 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 5 - generating damaged report for damage: 24.40156144820387
+Jan 04, 2015 12:50:12 AM assignment3.Management addDamageReport
+INFO: management - created damage report: total damage: 49.20157881591724DamageReport for asset:Asset 4	damage caused:24.40156144820387
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Disinfectant	Quantity:10
+Jan 04, 2015 12:50:12 AM assignment3.Management addDamageReport
+INFO: requests to be fulfilled: 6
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Disinfectant	Quantity:10
+Jan 04, 2015 12:50:12 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 5 - getting new request
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Floor Cleaner	Quantity:15
+Jan 04, 2015 12:50:12 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 5 - adding request to queue: 	RentalRequest ID:15		Type:Loft		Size:5		Duration:3		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Floor Cleaner	Quantity:15
+Jan 04, 2015 12:50:12 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton taken from queue
+Jan 04, 2015 12:50:12 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 5 - waiting for request fullfilement 	RentalRequest ID:15		Type:Loft		Size:5		Duration:3		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:50:12 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton succeeded sync
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Paper Towel	Quantity:15
+Jan 04, 2015 12:50:12 AM assignment3.RunnableClerk run
+INFO: Paula Bitton waiting for an asset to become available
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Paper Towel	Quantity:15
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Trash Bag	Quantity:25
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Trash Bag	Quantity:25
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring tools.RepairToolInformation Name:Drill	Quantity:5
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Drill	Quantity:5
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring tools.RepairToolInformation Name:Hammer	Quantity:3
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Hammer	Quantity:3
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring tools.RepairToolInformation Name:Jacksaw	Quantity:2
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Jacksaw	Quantity:2
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring tools.RepairToolInformation Name:Pliers	Quantity:3
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Pliers	Quantity:3
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring tools.RepairToolInformation Name:Screw Driver	Quantity:2
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Screw Driver	Quantity:2
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Disinfectant	Quantity:10
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Disinfectant	Quantity:10
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Floor Cleaner	Quantity:15
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Floor Cleaner	Quantity:15
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Paper Towel	Quantity:15
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Paper Towel	Quantity:15
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Trash Bag	Quantity:25
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Trash Bag	Quantity:25
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Drill	Quantity:5
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Hammer	Quantity:3
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Jacksaw	Quantity:2
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Pliers	Quantity:3
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Screw Driver	Quantity:2
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Nails	Quantity:10
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Nails	Quantity:10
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Screws	Quantity:5
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Screws	Quantity:5
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Hammer	Quantity:1
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Screw Driver	Quantity:2
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Nails	Quantity:10
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Nails	Quantity:10
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Sand Cloth	Quantity:1
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Sand Cloth	Quantity:1
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Screws	Quantity:5
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Screws	Quantity:5
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Drill	Quantity:1
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Hammer	Quantity:1
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Screw Driver	Quantity:2
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Glass Cleaner	Quantity:2
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Glass Cleaner	Quantity:2
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Paper Towel	Quantity:20
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Paper Towel	Quantity:20
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Trash Bag	Quantity:2
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Trash Bag	Quantity:2
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Hammer	Quantity:2
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Pliers	Quantity:2
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Screw Driver	Quantity:2
+Jan 04, 2015 12:50:12 AM assignment3.RunnableMaintanceRequest run
+INFO: Fixing an asset 
+Asset Name: Asset 4	Type:House	Location:[20.0:15.0]
+Status:UNAVAILABLE	Cost:50.0	Size:5 takes 0.676521708718862 seconds
+Jan 04, 2015 12:50:13 AM assignment3.RunnableMaintanceRequest run
+INFO: Releasing RepairToolInformation Name:Drill	Quantity:5 Drill
+Jan 04, 2015 12:50:13 AM assignment3.RunnableMaintanceRequest run
+INFO: Released RepairToolInformation Name:Drill	Quantity:5 Drill
+Jan 04, 2015 12:50:13 AM assignment3.RunnableMaintanceRequest run
+INFO: Releasing RepairToolInformation Name:Hammer	Quantity:3 Hammer
+Jan 04, 2015 12:50:13 AM assignment3.RunnableMaintanceRequest run
+INFO: Released RepairToolInformation Name:Hammer	Quantity:3 Hammer
+Jan 04, 2015 12:50:13 AM assignment3.RunnableMaintanceRequest run
+INFO: Releasing RepairToolInformation Name:Jacksaw	Quantity:2 Jacksaw
+Jan 04, 2015 12:50:13 AM assignment3.RunnableMaintanceRequest run
+INFO: Released RepairToolInformation Name:Jacksaw	Quantity:2 Jacksaw
+Jan 04, 2015 12:50:13 AM assignment3.RunnableMaintanceRequest run
+INFO: Releasing RepairToolInformation Name:Pliers	Quantity:3 Pliers
+Jan 04, 2015 12:50:13 AM assignment3.RunnableMaintanceRequest run
+INFO: Released RepairToolInformation Name:Pliers	Quantity:3 Pliers
+Jan 04, 2015 12:50:13 AM assignment3.RunnableMaintanceRequest run
+INFO: Releasing RepairToolInformation Name:Screw Driver	Quantity:2 Screw Driver
+Jan 04, 2015 12:50:13 AM assignment3.RunnableMaintanceRequest run
+INFO: Released RepairToolInformation Name:Screw Driver	Quantity:2 Screw Driver
+Jan 04, 2015 12:50:13 AM assignment3.RunnableMaintanceRequest run
+INFO: Returning asset to full health
+Jan 04, 2015 12:50:28 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die started a shift.
+Jan 04, 2015 12:50:28 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott walking to house, too far for today.
+Jan 04, 2015 12:50:28 AM assignment3.RunnableClerk run
+INFO: Paula Bitton waiting for an asset to become available
+Jan 04, 2015 12:50:28 AM assignment3.RunnableClerk run
+INFO: Ken Harush walking to house, too far for today.
+Jan 04, 2015 12:50:28 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting sync
+Jan 04, 2015 12:50:28 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting take from queue
+Jan 04, 2015 12:50:34 AM assignment3.RunnableClerk run
+INFO: Leonidas I got to the house
+Jan 04, 2015 12:50:34 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I started a shift.
+Jan 04, 2015 12:50:34 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - simulating stay
+Jan 04, 2015 12:50:34 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting sync
+Jan 04, 2015 12:50:34 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 1	Vandlism:FIXED	Damage:[1.0:5.0]
+Jan 04, 2015 12:50:34 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 2	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:50:34 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 1 stay in asset: 24 seconds
+Jan 04, 2015 12:50:34 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 2 stay in asset: 24 seconds
+Jan 04, 2015 12:50:34 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 3	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:50:34 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 4	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:50:34 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 3 stay in asset: 24 seconds
+Jan 04, 2015 12:50:34 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 4 stay in asset: 24 seconds
+Jan 04, 2015 12:50:34 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 5	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:50:34 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 5 stay in asset: 24 seconds
+Jan 04, 2015 12:50:36 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott finished a shift.
+Jan 04, 2015 12:50:36 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:50:36 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting take from queue
+Jan 04, 2015 12:50:36 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:50:36 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die finished a shift.
+Jan 04, 2015 12:50:38 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:50:38 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:50:54 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I started a shift.
+Jan 04, 2015 12:50:54 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott walking to house, too far for today.
+Jan 04, 2015 12:50:54 AM assignment3.RunnableClerk run
+INFO: Ken Harush walking to house, too far for today.
+Jan 04, 2015 12:50:54 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die started a shift.
+Jan 04, 2015 12:50:54 AM assignment3.RunnableClerk run
+INFO: Paula Bitton waiting for an asset to become available
+Jan 04, 2015 12:50:54 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting sync
+Jan 04, 2015 12:50:54 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting sync
+Jan 04, 2015 12:50:54 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting take from queue
+Jan 04, 2015 12:50:58 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 2	Vandlism:ARBITRARY	Damage:[5.0:8.0]finished stay
+Jan 04, 2015 12:50:58 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 1	Vandlism:ARBITRARY	Damage:[5.0:8.0]finished stay
+Jan 04, 2015 12:50:58 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 3	Vandlism:ARBITRARY	Damage:[5.0:7.0]finished stay
+Jan 04, 2015 12:50:58 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 4	Vandlism:ARBITRARY	Damage:[5.0:7.0]finished stay
+Jan 04, 2015 12:50:58 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 3 - generating damaged report for damage: 26.640615217715023
+Jan 04, 2015 12:50:58 AM assignment3.Management addDamageReport
+INFO: requests to be fulfilled: 5
+Jan 04, 2015 12:50:58 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 1	Vandlism:FIXED	Damage:[1.0:5.0]finished stay
+Jan 04, 2015 12:50:58 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 2	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:50:58 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 3 - finished cleanly.
+Jan 04, 2015 12:50:58 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 3	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:50:58 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 4	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:50:58 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 5	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:50:58 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - generating damaged report for damage: 5.0
+Jan 04, 2015 12:50:58 AM assignment3.Management addDamageReport
+INFO: requests to be fulfilled: 5
+Jan 04, 2015 12:50:58 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - getting new request
+Jan 04, 2015 12:50:58 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - adding request to queue: 	RentalRequest ID:6		Type:Cottage		Size:5		Duration:3		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:50:58 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - waiting for request fullfilement 	RentalRequest ID:6		Type:Cottage		Size:5		Duration:3		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:50:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die taken from queue
+Jan 04, 2015 12:50:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die succeeded sync
+Jan 04, 2015 12:50:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting take from queue
+Jan 04, 2015 12:50:58 AM assignment3.RunnableClerk run
+INFO: Paula Die walking to house, too far for today.
+Jan 04, 2015 12:51:02 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott finished a shift.
+Jan 04, 2015 12:51:02 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:51:06 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:51:06 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die finished a shift.
+Jan 04, 2015 12:51:06 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:51:22 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I started a shift.
+Jan 04, 2015 12:51:22 AM assignment3.RunnableClerk run
+INFO: Paula Die walking to house, too far for today.
+Jan 04, 2015 12:51:22 AM assignment3.RunnableClerk run
+INFO: Paula Bitton walking to house, too far for today.
+Jan 04, 2015 12:51:22 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting sync
+Jan 04, 2015 12:51:22 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting take from queue
+Jan 04, 2015 12:51:24 AM assignment3.RunnableClerk run
+INFO: Ken Harush got to the house
+Jan 04, 2015 12:51:24 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush started a shift.
+Jan 04, 2015 12:51:24 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 1 - simulating stay
+Jan 04, 2015 12:51:24 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting sync
+Jan 04, 2015 12:51:24 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 1 - created customer: Customer: Name:Customer 1	Vandlism:ARBITRARY	Damage:[10.0:20.0]
+Jan 04, 2015 12:51:24 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 1 - created customer: Customer: Name:Customer 2	Vandlism:FIXED	Damage:[1.0:9.0]
+Jan 04, 2015 12:51:24 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 1 stay in asset: 72 seconds
+Jan 04, 2015 12:51:24 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 1 - created customer: Customer: Name:Customer 3	Vandlism:FIXED	Damage:[1.0:9.0]
+Jan 04, 2015 12:51:24 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 2 stay in asset: 72 seconds
+Jan 04, 2015 12:51:24 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 3 stay in asset: 72 seconds
+Jan 04, 2015 12:51:30 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott got to the house
+Jan 04, 2015 12:51:30 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott finished a shift.
+Jan 04, 2015 12:51:30 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 4 - simulating stay
+Jan 04, 2015 12:51:30 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die finished a shift.
+Jan 04, 2015 12:51:30 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 4 - created customer: Customer: Name:Customer 1	Vandlism:ARBITRARY	Damage:[15.0:25.0]
+Jan 04, 2015 12:51:30 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:51:30 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 4 - created customer: Customer: Name:Customer 2	Vandlism:FIXED	Damage:[0.0:20.0]
+Jan 04, 2015 12:51:30 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 1 stay in asset: 96 seconds
+Jan 04, 2015 12:51:30 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting take from queue
+Jan 04, 2015 12:51:30 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:51:30 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:51:30 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 2 stay in asset: 96 seconds
+Jan 04, 2015 12:51:36 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:51:36 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:51:52 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush started a shift.
+Jan 04, 2015 12:51:52 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I started a shift.
+Jan 04, 2015 12:51:52 AM assignment3.RunnableClerk run
+INFO: Paula Bitton walking to house, too far for today.
+Jan 04, 2015 12:51:52 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott started a shift.
+Jan 04, 2015 12:51:52 AM assignment3.RunnableClerk run
+INFO: Paula Die walking to house, too far for today.
+Jan 04, 2015 12:51:52 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting sync
+Jan 04, 2015 12:51:52 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting sync
+Jan 04, 2015 12:51:52 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting take from queue
+Jan 04, 2015 12:51:52 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott attempting sync
+Jan 04, 2015 12:52:00 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:52:00 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die finished a shift.
+Jan 04, 2015 12:52:00 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:52:00 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott attempting take from queue
+Jan 04, 2015 12:52:00 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:52:08 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:52:08 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting take from queue
+Jan 04, 2015 12:52:08 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott finished a shift.
+Jan 04, 2015 12:52:16 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:52:16 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:52:32 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush started a shift.
+Jan 04, 2015 12:52:32 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott started a shift.
+Jan 04, 2015 12:52:32 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I started a shift.
+Jan 04, 2015 12:52:32 AM assignment3.RunnableClerk run
+INFO: Paula Bitton walking to house, too far for today.
+Jan 04, 2015 12:52:32 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting sync
+Jan 04, 2015 12:52:32 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott attempting sync
+Jan 04, 2015 12:52:32 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting take from queue
+Jan 04, 2015 12:52:32 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting sync
+Jan 04, 2015 12:52:36 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 1	Vandlism:ARBITRARY	Damage:[10.0:20.0]finished stay
+Jan 04, 2015 12:52:36 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 2	Vandlism:FIXED	Damage:[1.0:9.0]finished stay
+Jan 04, 2015 12:52:36 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 3	Vandlism:FIXED	Damage:[1.0:9.0]finished stay
+Jan 04, 2015 12:52:36 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 1 - generating damaged report for damage: 20.09269101387106
+Jan 04, 2015 12:52:36 AM assignment3.Management addDamageReport
+INFO: requests to be fulfilled: 4
+Jan 04, 2015 12:52:36 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 1 - finished cleanly.
+Jan 04, 2015 12:52:38 AM assignment3.RunnableClerk run
+INFO: Paula Die got to the house
+Jan 04, 2015 12:52:38 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die started a shift.
+Jan 04, 2015 12:52:38 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - simulating stay
+Jan 04, 2015 12:52:38 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting sync
+Jan 04, 2015 12:52:38 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 1	Vandlism:FIXED	Damage:[1.0:5.0]
+Jan 04, 2015 12:52:38 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 2	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:52:38 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 1 stay in asset: 72 seconds
+Jan 04, 2015 12:52:38 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 3	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:52:38 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 2 stay in asset: 72 seconds
+Jan 04, 2015 12:52:38 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 4	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:52:38 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 3 stay in asset: 72 seconds
+Jan 04, 2015 12:52:38 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 5	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:52:38 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 4 stay in asset: 72 seconds
+Jan 04, 2015 12:52:38 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 5 stay in asset: 72 seconds
+Jan 04, 2015 12:52:40 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:52:40 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:52:40 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting take from queue
+Jan 04, 2015 12:52:40 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:52:42 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:52:42 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting take from queue
+Jan 04, 2015 12:52:42 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die finished a shift.
+Jan 04, 2015 12:52:50 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott attempting take from queue
+Jan 04, 2015 12:52:50 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:52:50 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:52:58 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:52:58 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott finished a shift.
+Jan 04, 2015 12:53:06 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 1	Vandlism:ARBITRARY	Damage:[15.0:25.0]finished stay
+Jan 04, 2015 12:53:06 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 2	Vandlism:FIXED	Damage:[0.0:20.0]finished stay
+Jan 04, 2015 12:53:06 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 4 - generating damaged report for damage: 30.805329048744625
+Jan 04, 2015 12:53:06 AM assignment3.Management addDamageReport
+INFO: management - created damage report: total damage: 57.680821306839604DamageReport for asset:Asset 1	damage caused:30.805329048744625
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Disinfectant	Quantity:10
+Jan 04, 2015 12:53:06 AM assignment3.Management addDamageReport
+INFO: requests to be fulfilled: 4
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Disinfectant	Quantity:10
+Jan 04, 2015 12:53:06 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 4 - getting new request
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Floor Cleaner	Quantity:15
+Jan 04, 2015 12:53:06 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 4 - adding request to queue: 	RentalRequest ID:13		Type:Apartment		Size:2		Duration:2		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Floor Cleaner	Quantity:15
+Jan 04, 2015 12:53:06 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 4 - waiting for request fullfilement 	RentalRequest ID:13		Type:Apartment		Size:2		Duration:2		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Paper Towel	Quantity:15
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Paper Towel	Quantity:15
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Trash Bag	Quantity:25
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Trash Bag	Quantity:25
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring tools.RepairToolInformation Name:Drill	Quantity:5
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Drill	Quantity:5
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring tools.RepairToolInformation Name:Hammer	Quantity:3
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Hammer	Quantity:3
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring tools.RepairToolInformation Name:Jacksaw	Quantity:2
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Jacksaw	Quantity:2
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring tools.RepairToolInformation Name:Pliers	Quantity:3
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Pliers	Quantity:3
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring tools.RepairToolInformation Name:Screw Driver	Quantity:2
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Screw Driver	Quantity:2
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Disinfectant	Quantity:10
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Disinfectant	Quantity:10
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Floor Cleaner	Quantity:15
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Floor Cleaner	Quantity:15
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Paper Towel	Quantity:15
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Paper Towel	Quantity:15
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Trash Bag	Quantity:25
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Trash Bag	Quantity:25
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Drill	Quantity:5
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Hammer	Quantity:3
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Jacksaw	Quantity:2
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Pliers	Quantity:3
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Screw Driver	Quantity:2
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Nails	Quantity:10
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Nails	Quantity:10
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Screws	Quantity:5
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Screws	Quantity:5
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Hammer	Quantity:1
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Screw Driver	Quantity:2
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Nails	Quantity:10
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Nails	Quantity:10
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Sand Cloth	Quantity:1
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Sand Cloth	Quantity:1
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Screws	Quantity:5
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Screws	Quantity:5
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Drill	Quantity:1
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Hammer	Quantity:1
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Screw Driver	Quantity:2
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Glass Cleaner	Quantity:2
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Glass Cleaner	Quantity:2
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Paper Towel	Quantity:20
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Paper Towel	Quantity:20
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Trash Bag	Quantity:2
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Trash Bag	Quantity:2
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Hammer	Quantity:2
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Pliers	Quantity:2
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Screw Driver	Quantity:2
+Jan 04, 2015 12:53:06 AM assignment3.RunnableMaintanceRequest run
+INFO: Fixing an asset 
+Asset Name: Asset 1	Type:Apartment	Location:[20.0:20.0]
+Status:UNAVAILABLE	Cost:100.0	Size:3 takes 1.3554993007107308 seconds
+Jan 04, 2015 12:53:07 AM assignment3.RunnableMaintanceRequest run
+INFO: Releasing RepairToolInformation Name:Drill	Quantity:5 Drill
+Jan 04, 2015 12:53:07 AM assignment3.RunnableMaintanceRequest run
+INFO: Released RepairToolInformation Name:Drill	Quantity:5 Drill
+Jan 04, 2015 12:53:07 AM assignment3.RunnableMaintanceRequest run
+INFO: Releasing RepairToolInformation Name:Hammer	Quantity:3 Hammer
+Jan 04, 2015 12:53:07 AM assignment3.RunnableMaintanceRequest run
+INFO: Released RepairToolInformation Name:Hammer	Quantity:3 Hammer
+Jan 04, 2015 12:53:07 AM assignment3.RunnableMaintanceRequest run
+INFO: Releasing RepairToolInformation Name:Jacksaw	Quantity:2 Jacksaw
+Jan 04, 2015 12:53:07 AM assignment3.RunnableMaintanceRequest run
+INFO: Released RepairToolInformation Name:Jacksaw	Quantity:2 Jacksaw
+Jan 04, 2015 12:53:07 AM assignment3.RunnableMaintanceRequest run
+INFO: Releasing RepairToolInformation Name:Pliers	Quantity:3 Pliers
+Jan 04, 2015 12:53:07 AM assignment3.RunnableMaintanceRequest run
+INFO: Released RepairToolInformation Name:Pliers	Quantity:3 Pliers
+Jan 04, 2015 12:53:07 AM assignment3.RunnableMaintanceRequest run
+INFO: Releasing RepairToolInformation Name:Screw Driver	Quantity:2 Screw Driver
+Jan 04, 2015 12:53:07 AM assignment3.RunnableMaintanceRequest run
+INFO: Released RepairToolInformation Name:Screw Driver	Quantity:2 Screw Driver
+Jan 04, 2015 12:53:07 AM assignment3.RunnableMaintanceRequest run
+INFO: Returning asset to full health
+Jan 04, 2015 12:53:14 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott started a shift.
+Jan 04, 2015 12:53:14 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott attempting sync
+Jan 04, 2015 12:53:14 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott attempting take from queue
+Jan 04, 2015 12:53:14 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush started a shift.
+Jan 04, 2015 12:53:14 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die started a shift.
+Jan 04, 2015 12:53:14 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I started a shift.
+Jan 04, 2015 12:53:14 AM assignment3.RunnableClerk run
+INFO: Paula Bitton walking to house, too far for today.
+Jan 04, 2015 12:53:14 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting sync
+Jan 04, 2015 12:53:14 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting sync
+Jan 04, 2015 12:53:14 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting sync
+Jan 04, 2015 12:53:14 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott taken from queue
+Jan 04, 2015 12:53:14 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott succeeded sync
+Jan 04, 2015 12:53:14 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting take from queue
+Jan 04, 2015 12:53:14 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott walking to house, too far for today.
+Jan 04, 2015 12:53:22 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:53:22 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:53:22 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting take from queue
+Jan 04, 2015 12:53:22 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die finished a shift.
+Jan 04, 2015 12:53:22 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott finished a shift.
+Jan 04, 2015 12:53:30 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:53:30 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting take from queue
+Jan 04, 2015 12:53:30 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:53:38 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:53:38 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:53:50 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 1	Vandlism:FIXED	Damage:[1.0:5.0]finished stay
+Jan 04, 2015 12:53:50 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 2	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:53:50 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 3	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:53:50 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 4	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:53:50 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 5	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:53:50 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - generating damaged report for damage: 5.0
+Jan 04, 2015 12:53:50 AM assignment3.Management addDamageReport
+INFO: requests to be fulfilled: 3
+Jan 04, 2015 12:53:50 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - getting new request
+Jan 04, 2015 12:53:50 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - adding request to queue: 	RentalRequest ID:7		Type:Cottage		Size:5		Duration:2		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:53:50 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - waiting for request fullfilement 	RentalRequest ID:7		Type:Cottage		Size:5		Duration:2		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:53:54 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush started a shift.
+Jan 04, 2015 12:53:54 AM assignment3.RunnableClerk run
+INFO: Paula Bitton walking to house, too far for today.
+Jan 04, 2015 12:53:54 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I started a shift.
+Jan 04, 2015 12:53:54 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott walking to house, too far for today.
+Jan 04, 2015 12:53:54 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die started a shift.
+Jan 04, 2015 12:53:54 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting sync
+Jan 04, 2015 12:53:54 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting sync
+Jan 04, 2015 12:53:54 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting sync
+Jan 04, 2015 12:53:54 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting take from queue
+Jan 04, 2015 12:53:54 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush taken from queue
+Jan 04, 2015 12:53:54 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush succeeded sync
+Jan 04, 2015 12:53:54 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting take from queue
+Jan 04, 2015 12:53:54 AM assignment3.RunnableClerk run
+INFO: Ken Harush walking to house, too far for today.
+Jan 04, 2015 12:54:02 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:54:02 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott finished a shift.
+Jan 04, 2015 12:54:02 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting take from queue
+Jan 04, 2015 12:54:02 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:54:02 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:54:02 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die finished a shift.
+Jan 04, 2015 12:54:10 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:54:10 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:54:26 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I started a shift.
+Jan 04, 2015 12:54:26 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die started a shift.
+Jan 04, 2015 12:54:26 AM assignment3.RunnableClerk run
+INFO: Paula Bitton walking to house, too far for today.
+Jan 04, 2015 12:54:26 AM assignment3.RunnableClerk run
+INFO: Ken Harush walking to house, too far for today.
+Jan 04, 2015 12:54:26 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott walking to house, too far for today.
+Jan 04, 2015 12:54:26 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting sync
+Jan 04, 2015 12:54:26 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting sync
+Jan 04, 2015 12:54:26 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting take from queue
+Jan 04, 2015 12:54:34 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:54:34 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:54:34 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott finished a shift.
+Jan 04, 2015 12:54:34 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:54:34 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting take from queue
+Jan 04, 2015 12:54:34 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die finished a shift.
+Jan 04, 2015 12:54:42 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:54:42 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:54:58 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I started a shift.
+Jan 04, 2015 12:54:58 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die started a shift.
+Jan 04, 2015 12:54:58 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott walking to house, too far for today.
+Jan 04, 2015 12:54:58 AM assignment3.RunnableClerk run
+INFO: Ken Harush walking to house, too far for today.
+Jan 04, 2015 12:54:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting sync
+Jan 04, 2015 12:54:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting sync
+Jan 04, 2015 12:54:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting take from queue
+Jan 04, 2015 12:55:04 AM assignment3.RunnableClerk run
+INFO: Paula Bitton got to the house
+Jan 04, 2015 12:55:04 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton started a shift.
+Jan 04, 2015 12:55:04 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 5 - simulating stay
+Jan 04, 2015 12:55:04 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 5 - created customer: Customer: Name:Customer 1	Vandlism:ARBITRARY	Damage:[2.0:7.0]
+Jan 04, 2015 12:55:04 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton attempting sync
+Jan 04, 2015 12:55:04 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 1 stay in asset: 72 seconds
+Jan 04, 2015 12:55:04 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 5 - created customer: Customer: Name:Customer 2	Vandlism:ARBITRARY	Damage:[2.0:7.0]
+Jan 04, 2015 12:55:04 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 5 - created customer: Customer: Name:Customer 3	Vandlism:FIXED	Damage:[10.0:20.0]
+Jan 04, 2015 12:55:04 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 2 stay in asset: 72 seconds
+Jan 04, 2015 12:55:04 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 5 - created customer: Customer: Name:Customer 4	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:55:04 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 3 stay in asset: 72 seconds
+Jan 04, 2015 12:55:04 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 5 - created customer: Customer: Name:Customer 5	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:55:04 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 4 stay in asset: 72 seconds
+Jan 04, 2015 12:55:04 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 5 stay in asset: 72 seconds
+Jan 04, 2015 12:55:06 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott finished a shift.
+Jan 04, 2015 12:55:06 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:55:06 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:55:06 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton attempting take from queue
+Jan 04, 2015 12:55:06 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die finished a shift.
+Jan 04, 2015 12:55:08 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:55:08 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:55:08 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting take from queue
+Jan 04, 2015 12:55:16 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:55:16 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:55:32 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I started a shift.
+Jan 04, 2015 12:55:32 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton started a shift.
+Jan 04, 2015 12:55:32 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die started a shift.
+Jan 04, 2015 12:55:32 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott walking to house, too far for today.
+Jan 04, 2015 12:55:32 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting sync
+Jan 04, 2015 12:55:32 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton attempting sync
+Jan 04, 2015 12:55:32 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting sync
+Jan 04, 2015 12:55:32 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting take from queue
+Jan 04, 2015 12:55:38 AM assignment3.RunnableClerk run
+INFO: Ken Harush got to the house
+Jan 04, 2015 12:55:38 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush started a shift.
+Jan 04, 2015 12:55:38 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting sync
+Jan 04, 2015 12:55:38 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - simulating stay
+Jan 04, 2015 12:55:38 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 1	Vandlism:FIXED	Damage:[1.0:5.0]
+Jan 04, 2015 12:55:38 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 2	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:55:38 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 3	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:55:38 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 1 stay in asset: 48 seconds
+Jan 04, 2015 12:55:38 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 3 stay in asset: 48 seconds
+Jan 04, 2015 12:55:38 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 4	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:55:38 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 2 stay in asset: 48 seconds
+Jan 04, 2015 12:55:38 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 5	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:55:38 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 4 stay in asset: 48 seconds
+Jan 04, 2015 12:55:38 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 5 stay in asset: 48 seconds
+Jan 04, 2015 12:55:40 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott finished a shift.
+Jan 04, 2015 12:55:40 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:55:40 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting take from queue
+Jan 04, 2015 12:55:40 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die finished a shift.
+Jan 04, 2015 12:55:42 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting take from queue
+Jan 04, 2015 12:55:42 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:55:42 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:55:50 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton attempting take from queue
+Jan 04, 2015 12:55:50 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:55:50 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:55:58 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:55:58 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:56:14 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton started a shift.
+Jan 04, 2015 12:56:14 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I started a shift.
+Jan 04, 2015 12:56:14 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die started a shift.
+Jan 04, 2015 12:56:14 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush started a shift.
+Jan 04, 2015 12:56:14 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting sync
+Jan 04, 2015 12:56:14 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton attempting sync
+Jan 04, 2015 12:56:14 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting sync
+Jan 04, 2015 12:56:14 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting sync
+Jan 04, 2015 12:56:14 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting take from queue
+Jan 04, 2015 12:56:16 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 1	Vandlism:ARBITRARY	Damage:[2.0:7.0]finished stay
+Jan 04, 2015 12:56:16 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 2	Vandlism:ARBITRARY	Damage:[2.0:7.0]finished stay
+Jan 04, 2015 12:56:16 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 3	Vandlism:FIXED	Damage:[10.0:20.0]finished stay
+Jan 04, 2015 12:56:16 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 4	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:56:16 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 5	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:56:16 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 5 - generating damaged report for damage: 24.950582855150667
+Jan 04, 2015 12:56:16 AM assignment3.Management addDamageReport
+INFO: management - created damage report: total damage: 51.591198072865694DamageReport for asset:Asset 2	damage caused:24.950582855150667
+Jan 04, 2015 12:56:16 AM assignment3.Management addDamageReport
+INFO: requests to be fulfilled: 2
+Jan 04, 2015 12:56:16 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 5 - finished cleanly.
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Disinfectant	Quantity:10
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Disinfectant	Quantity:10
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Floor Cleaner	Quantity:15
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Floor Cleaner	Quantity:15
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Paper Towel	Quantity:15
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Paper Towel	Quantity:15
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Trash Bag	Quantity:25
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Trash Bag	Quantity:25
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring tools.RepairToolInformation Name:Drill	Quantity:5
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Drill	Quantity:5
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring tools.RepairToolInformation Name:Hammer	Quantity:3
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Hammer	Quantity:3
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring tools.RepairToolInformation Name:Jacksaw	Quantity:2
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Jacksaw	Quantity:2
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring tools.RepairToolInformation Name:Pliers	Quantity:3
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Pliers	Quantity:3
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring tools.RepairToolInformation Name:Screw Driver	Quantity:2
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Screw Driver	Quantity:2
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Nails	Quantity:10
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Nails	Quantity:10
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Screws	Quantity:5
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Screws	Quantity:5
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Hammer	Quantity:1
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Screw Driver	Quantity:2
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Glass Cleaner	Quantity:2
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Glass Cleaner	Quantity:2
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Paper Towel	Quantity:20
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Paper Towel	Quantity:20
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Acquiring materials.RepairMaterialInformation Name:Trash Bag	Quantity:2
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Materials acquired.RepairMaterialInformation Name:Trash Bag	Quantity:2
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Hammer	Quantity:2
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Pliers	Quantity:2
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Tools acquired.RepairToolInformation Name:Screw Driver	Quantity:2
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Fixing an asset 
+Asset Name: Asset 2	Type:Loft	Location:[20.0:25.0]
+Status:UNAVAILABLE	Cost:30.0	Size:5 takes 0.30954718843719414 seconds
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Releasing RepairToolInformation Name:Drill	Quantity:5 Drill
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Released RepairToolInformation Name:Drill	Quantity:5 Drill
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Releasing RepairToolInformation Name:Hammer	Quantity:3 Hammer
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Released RepairToolInformation Name:Hammer	Quantity:3 Hammer
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Releasing RepairToolInformation Name:Jacksaw	Quantity:2 Jacksaw
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Released RepairToolInformation Name:Jacksaw	Quantity:2 Jacksaw
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Releasing RepairToolInformation Name:Pliers	Quantity:3 Pliers
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Released RepairToolInformation Name:Pliers	Quantity:3 Pliers
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Releasing RepairToolInformation Name:Screw Driver	Quantity:2 Screw Driver
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Released RepairToolInformation Name:Screw Driver	Quantity:2 Screw Driver
+Jan 04, 2015 12:56:16 AM assignment3.RunnableMaintanceRequest run
+INFO: Returning asset to full health
+Jan 04, 2015 12:56:22 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott got to the house
+Jan 04, 2015 12:56:22 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott finished a shift.
+Jan 04, 2015 12:56:22 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 4 - simulating stay
+Jan 04, 2015 12:56:22 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 4 - created customer: Customer: Name:Customer 1	Vandlism:ARBITRARY	Damage:[15.0:25.0]
+Jan 04, 2015 12:56:22 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 4 - created customer: Customer: Name:Customer 2	Vandlism:FIXED	Damage:[0.0:20.0]
+Jan 04, 2015 12:56:22 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 1 stay in asset: 48 seconds
+Jan 04, 2015 12:56:22 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 2 stay in asset: 48 seconds
+Jan 04, 2015 12:56:22 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:56:22 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting take from queue
+Jan 04, 2015 12:56:22 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:56:26 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 1	Vandlism:FIXED	Damage:[1.0:5.0]finished stay
+Jan 04, 2015 12:56:26 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 3	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:56:26 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 2	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:56:26 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 4	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:56:26 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 5	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:56:26 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - generating damaged report for damage: 5.0
+Jan 04, 2015 12:56:26 AM assignment3.Management addDamageReport
+INFO: requests to be fulfilled: 2
+Jan 04, 2015 12:56:26 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - getting new request
+Jan 04, 2015 12:56:26 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - adding request to queue: 	RentalRequest ID:8		Type:Cottage		Size:5		Duration:2		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:56:26 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - waiting for request fullfilement 	RentalRequest ID:8		Type:Cottage		Size:5		Duration:2		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:56:26 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die taken from queue
+Jan 04, 2015 12:56:26 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die succeeded sync
+Jan 04, 2015 12:56:26 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting take from queue
+Jan 04, 2015 12:56:26 AM assignment3.RunnableClerk run
+INFO: Paula Die walking to house, too far for today.
+Jan 04, 2015 12:56:34 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:56:34 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die finished a shift.
+Jan 04, 2015 12:56:34 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton attempting take from queue
+Jan 04, 2015 12:56:34 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:56:42 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:56:42 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:56:58 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton started a shift.
+Jan 04, 2015 12:56:58 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush started a shift.
+Jan 04, 2015 12:56:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton attempting sync
+Jan 04, 2015 12:56:58 AM assignment3.RunnableClerk run
+INFO: Paula Die walking to house, too far for today.
+Jan 04, 2015 12:56:58 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I started a shift.
+Jan 04, 2015 12:56:58 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott started a shift.
+Jan 04, 2015 12:56:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton attempting take from queue
+Jan 04, 2015 12:56:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting sync
+Jan 04, 2015 12:56:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott attempting sync
+Jan 04, 2015 12:56:58 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting sync
+Jan 04, 2015 12:57:06 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die finished a shift.
+Jan 04, 2015 12:57:06 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:57:06 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:57:06 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting take from queue
+Jan 04, 2015 12:57:10 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 1	Vandlism:ARBITRARY	Damage:[15.0:25.0]finished stay
+Jan 04, 2015 12:57:10 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 2	Vandlism:FIXED	Damage:[0.0:20.0]finished stay
+Jan 04, 2015 12:57:10 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 4 - generating damaged report for damage: 27.23023866541132
+Jan 04, 2015 12:57:10 AM assignment3.Management addDamageReport
+INFO: requests to be fulfilled: 1
+Jan 04, 2015 12:57:10 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 4 - finished cleanly.
+Jan 04, 2015 12:57:14 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:57:14 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott attempting take from queue
+Jan 04, 2015 12:57:14 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:57:22 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:57:22 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting take from queue
+Jan 04, 2015 12:57:22 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott finished a shift.
+Jan 04, 2015 12:57:30 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:57:30 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:57:46 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush started a shift.
+Jan 04, 2015 12:57:46 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott started a shift.
+Jan 04, 2015 12:57:46 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I started a shift.
+Jan 04, 2015 12:57:46 AM assignment3.RunnableClerk run
+INFO: Paula Die walking to house, too far for today.
+Jan 04, 2015 12:57:46 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton started a shift.
+Jan 04, 2015 12:57:46 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott attempting sync
+Jan 04, 2015 12:57:46 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting sync
+Jan 04, 2015 12:57:46 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott attempting take from queue
+Jan 04, 2015 12:57:46 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton attempting sync
+Jan 04, 2015 12:57:46 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting sync
+Jan 04, 2015 12:57:54 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die finished a shift.
+Jan 04, 2015 12:57:54 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting take from queue
+Jan 04, 2015 12:57:54 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:57:54 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott finished a shift.
+Jan 04, 2015 12:58:02 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:58:02 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton attempting take from queue
+Jan 04, 2015 12:58:02 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:58:10 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting take from queue
+Jan 04, 2015 12:58:10 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:58:10 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:58:18 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:58:18 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:58:34 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush started a shift.
+Jan 04, 2015 12:58:34 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton started a shift.
+Jan 04, 2015 12:58:34 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I started a shift.
+Jan 04, 2015 12:58:34 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott started a shift.
+Jan 04, 2015 12:58:34 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton attempting sync
+Jan 04, 2015 12:58:34 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting sync
+Jan 04, 2015 12:58:34 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott attempting sync
+Jan 04, 2015 12:58:34 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting sync
+Jan 04, 2015 12:58:34 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton attempting take from queue
+Jan 04, 2015 12:58:40 AM assignment3.RunnableClerk run
+INFO: Paula Die got to the house
+Jan 04, 2015 12:58:40 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die started a shift.
+Jan 04, 2015 12:58:40 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - simulating stay
+Jan 04, 2015 12:58:40 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting sync
+Jan 04, 2015 12:58:40 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 1	Vandlism:FIXED	Damage:[1.0:5.0]
+Jan 04, 2015 12:58:40 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 2	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:58:40 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 1 stay in asset: 48 seconds
+Jan 04, 2015 12:58:40 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 3	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:58:40 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 4	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:58:40 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 3 stay in asset: 48 seconds
+Jan 04, 2015 12:58:40 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 2 stay in asset: 48 seconds
+Jan 04, 2015 12:58:40 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 5	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 12:58:40 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 4 stay in asset: 48 seconds
+Jan 04, 2015 12:58:40 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 5 stay in asset: 48 seconds
+Jan 04, 2015 12:58:42 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:58:42 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting take from queue
+Jan 04, 2015 12:58:42 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:58:44 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:58:44 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting take from queue
+Jan 04, 2015 12:58:44 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die finished a shift.
+Jan 04, 2015 12:58:52 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:58:52 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott attempting take from queue
+Jan 04, 2015 12:58:52 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:59:00 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting take from queue
+Jan 04, 2015 12:59:00 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:59:00 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott finished a shift.
+Jan 04, 2015 12:59:08 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:59:08 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:59:24 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush started a shift.
+Jan 04, 2015 12:59:24 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott started a shift.
+Jan 04, 2015 12:59:24 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I started a shift.
+Jan 04, 2015 12:59:24 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die started a shift.
+Jan 04, 2015 12:59:24 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton started a shift.
+Jan 04, 2015 12:59:24 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott attempting sync
+Jan 04, 2015 12:59:24 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush attempting sync
+Jan 04, 2015 12:59:24 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I attempting sync
+Jan 04, 2015 12:59:24 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die attempting sync
+Jan 04, 2015 12:59:24 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton attempting sync
+Jan 04, 2015 12:59:24 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott attempting take from queue
+Jan 04, 2015 12:59:28 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 1	Vandlism:FIXED	Damage:[1.0:5.0]finished stay
+Jan 04, 2015 12:59:28 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 3	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:59:28 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 2	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:59:28 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 4	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:59:28 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 5	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 12:59:28 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - generating damaged report for damage: 5.0
+Jan 04, 2015 12:59:28 AM assignment3.Management addDamageReport
+INFO: requests to be fulfilled: 1
+Jan 04, 2015 12:59:28 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - getting new request
+Jan 04, 2015 12:59:28 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - adding request to queue: 	RentalRequest ID:9		Type:Cottage		Size:5		Duration:2		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:59:28 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - waiting for request fullfilement 	RentalRequest ID:9		Type:Cottage		Size:5		Duration:2		Status:INCOMPLETE		Asset:NONE
+Jan 04, 2015 12:59:28 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott taken from queue
+Jan 04, 2015 12:59:28 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott succeeded sync
+Jan 04, 2015 12:59:28 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Die succeeded sync
+Jan 04, 2015 12:59:28 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott walking to house, too far for today.
+Jan 04, 2015 12:59:28 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:59:28 AM assignment3.RunnableClerk getNewReqest
+INFO: Ken Harush succeeded sync
+Jan 04, 2015 12:59:28 AM assignment3.RunnableClerk getNewReqest
+INFO: Leonidas I succeeded sync
+Jan 04, 2015 12:59:28 AM assignment3.RunnableClerk getNewReqest
+INFO: Paula Bitton succeeded sync
+Jan 04, 2015 12:59:28 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:59:28 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:59:28 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Die finished a shift.
+Jan 04, 2015 12:59:28 AM assignment3.RunnableClerk run
+INFO: Clerk Ken Harush finished a shift.
+Jan 04, 2015 12:59:28 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 12:59:28 AM assignment3.RunnableClerk run
+INFO: Clerk Paula Bitton finished a shift.
+Jan 04, 2015 12:59:28 AM assignment3.RunnableClerk run
+INFO: Clerk Leonidas I finished a shift.
+Jan 04, 2015 12:59:36 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott finished a shift.
+Jan 04, 2015 12:59:52 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott walking to house, too far for today.
+Jan 04, 2015 12:59:52 AM assignment3.RunnableClerk run
+INFO: Leonidas I waiting for other clerks to finish.
+Jan 04, 2015 12:59:52 AM assignment3.RunnableClerk run
+INFO: Paula Bitton waiting for other clerks to finish.
+Jan 04, 2015 12:59:52 AM assignment3.RunnableClerk run
+INFO: Paula Die waiting for other clerks to finish.
+Jan 04, 2015 12:59:52 AM assignment3.RunnableClerk run
+INFO: Ken Harush waiting for other clerks to finish.
+Jan 04, 2015 1:00:00 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott finished a shift.
+Jan 04, 2015 1:00:16 AM assignment3.RunnableClerk run
+INFO: Ken Harush waiting for other clerks to finish.
+Jan 04, 2015 1:00:16 AM assignment3.RunnableClerk run
+INFO: Paula Die waiting for other clerks to finish.
+Jan 04, 2015 1:00:16 AM assignment3.RunnableClerk run
+INFO: Paula Bitton waiting for other clerks to finish.
+Jan 04, 2015 1:00:16 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott walking to house, too far for today.
+Jan 04, 2015 1:00:16 AM assignment3.RunnableClerk run
+INFO: Leonidas I waiting for other clerks to finish.
+Jan 04, 2015 1:00:24 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott finished a shift.
+Jan 04, 2015 1:00:40 AM assignment3.RunnableClerk run
+INFO: Ken Harush waiting for other clerks to finish.
+Jan 04, 2015 1:00:40 AM assignment3.RunnableClerk run
+INFO: Leonidas I waiting for other clerks to finish.
+Jan 04, 2015 1:00:40 AM assignment3.RunnableClerk run
+INFO: Paula Bitton waiting for other clerks to finish.
+Jan 04, 2015 1:00:40 AM assignment3.RunnableClerk run
+INFO: Paula Die waiting for other clerks to finish.
+Jan 04, 2015 1:00:46 AM assignment3.RunnableClerk run
+INFO: Wolfgang Eisenkott got to the house
+Jan 04, 2015 1:00:46 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott started a shift.
+Jan 04, 2015 1:00:46 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - simulating stay
+Jan 04, 2015 1:00:46 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott attempting sync
+Jan 04, 2015 1:00:46 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 1	Vandlism:FIXED	Damage:[1.0:5.0]
+Jan 04, 2015 1:00:46 AM assignment3.RunnableClerk getNewReqest
+INFO: Wolfgang Eisenkott succeeded sync
+Jan 04, 2015 1:00:46 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 2	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 1:00:46 AM assignment3.RunnableClerk run
+INFO: No more requests available for clerks.
+Jan 04, 2015 1:00:46 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 1 stay in asset: 48 seconds
+Jan 04, 2015 1:00:46 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 3	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 1:00:46 AM assignment3.RunnableClerk run
+INFO: Clerk Wolfgang Eisenkott finished a shift.
+Jan 04, 2015 1:00:46 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 2 stay in asset: 48 seconds
+Jan 04, 2015 1:00:46 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 4	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 1:00:46 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 3 stay in asset: 48 seconds
+Jan 04, 2015 1:00:46 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 4 stay in asset: 48 seconds
+Jan 04, 2015 1:00:46 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - created customer: Customer: Name:Customer 5	Vandlism:NONE	Damage:[0.0:0.0]
+Jan 04, 2015 1:00:46 AM assignment3.CallableSimulateStayInAsset call
+INFO: Simulating Customer 5 stay in asset: 48 seconds
+Jan 04, 2015 1:01:04 AM assignment3.RunnableClerk run
+INFO: Paula Die waiting for other clerks to finish.
+Jan 04, 2015 1:01:04 AM assignment3.RunnableClerk run
+INFO: Shutting down clerk Paula Bitton
+Jan 04, 2015 1:01:04 AM assignment3.RunnableClerk run
+INFO: Shutting down clerk Leonidas I
+Jan 04, 2015 1:01:04 AM assignment3.RunnableClerk run
+INFO: Shutting down clerk Ken Harush
+Jan 04, 2015 1:01:04 AM assignment3.RunnableClerk run
+INFO: Shutting down clerk Wolfgang Eisenkott
+Jan 04, 2015 1:01:34 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 1	Vandlism:FIXED	Damage:[1.0:5.0]finished stay
+Jan 04, 2015 1:01:34 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 2	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 1:01:34 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 3	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 1:01:34 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 4	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 1:01:34 AM assignment3.CallableSimulateStayInAsset call
+INFO: Customer: Name:Customer 5	Vandlism:NONE	Damage:[0.0:0.0]finished stay
+Jan 04, 2015 1:01:34 AM assignment3.RunnableCustomerGroupManager simulateStay
+INFO: Group 2 - generating damaged report for damage: 5.0
+Jan 04, 2015 1:01:34 AM assignment3.Management addDamageReport
+INFO: requests to be fulfilled: 0
+Jan 04, 2015 1:01:34 AM assignment3.RunnableCustomerGroupManager run
+INFO: Group 2 - finished cleanly.
+Jan 04, 2015 1:01:34 AM assignment3.Management printStatistics
+INFO: printing stats...Statistics 	Money Gained: 12665.0
+	Rental Requests: 
+			RentalRequest ID:3		Type:Cottage		Size:5		Duration:2		Status:COMPLETE		Asset:Asset 5
+			RentalRequest ID:10		Type:House		Size:4		Duration:2		Status:COMPLETE		Asset:Asset 4
+			RentalRequest ID:1		Type:Apartment		Size:3		Duration:5		Status:COMPLETE		Asset:Asset 1
+			RentalRequest ID:4		Type:Cottage		Size:5		Duration:2		Status:COMPLETE		Asset:Asset 5
+			RentalRequest ID:14		Type:House		Size:5		Duration:1		Status:COMPLETE		Asset:Asset 4
+			RentalRequest ID:11		Type:Loft		Size:4		Duration:2		Status:COMPLETE		Asset:Asset 2
+			RentalRequest ID:5		Type:Cottage		Size:5		Duration:1		Status:COMPLETE		Asset:Asset 5
+			RentalRequest ID:2		Type:Hut		Size:3		Duration:3		Status:COMPLETE		Asset:Asset 3
+			RentalRequest ID:12		Type:Apartment		Size:2		Duration:4		Status:COMPLETE		Asset:Asset 1
+			RentalRequest ID:6		Type:Cottage		Size:5		Duration:3		Status:COMPLETE		Asset:Asset 5
+			RentalRequest ID:15		Type:Loft		Size:5		Duration:3		Status:COMPLETE		Asset:Asset 2
+			RentalRequest ID:7		Type:Cottage		Size:5		Duration:2		Status:COMPLETE		Asset:Asset 5
+			RentalRequest ID:13		Type:Apartment		Size:2		Duration:2		Status:COMPLETE		Asset:Asset 1
+			RentalRequest ID:8		Type:Cottage		Size:5		Duration:2		Status:COMPLETE		Asset:Asset 5
+			RentalRequest ID:9		Type:Cottage		Size:5		Duration:2		Status:COMPLETE		Asset:Asset 5
+Tools Used: 
+		Drill : 15
+		Hammer : 9
+		Jacksaw : 6
+		Pliers : 9
+		Screw Driver : 6
+Materials Used: 
+		Disinfectant : 50
+		Floor Cleaner : 75
+		Glass Cleaner : 6
+		Nails : 50
+		Paper Towel : 135
+		Sand Cloth : 2
+		Screws : 25
+		Trash Bag : 131
+

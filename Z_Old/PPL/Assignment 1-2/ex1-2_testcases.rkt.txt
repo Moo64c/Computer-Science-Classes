@@ -1,0 +1,36 @@
+; You should not remove this line for test running. Just use it as is.
+#lang racket
+
+; Load tests runner file
+(require "utils.rkt")
+
+; Load student's solution file
+(require "ex1-2.rkt")
+
+; Setup
+(define add1 (lambda(x)(+ x 1)))
+(define add2 (lambda(x)(+ x 2)))
+
+; 
+(display "simple-calc:\t\t\t")
+(run-tests
+ (test (simple-calc 0 10 20) => 30)
+ (test (simple-calc 1 10 20) => -10))
+
+(display "advanced-calc:\t\t\t")
+(run-tests
+ (test (advanced-calc simple-calc 0 10 20) => 30)
+ (test (advanced-calc simple-calc 5 10 20) => 15))
+
+(display "fun-add:\t\t\t")
+(run-tests
+ (test ((fun-add add1 add2) 0) => 3)
+ (test ((fun-add add1 add2) 5) => 13))
+
+(display "fun-sub:\t\t\t")
+(run-tests
+ (test ((fun-sub add1 add2) 0) => -1)
+ (test ((fun-sub add1 add2) 5) => -1))
+ 
+ 
+

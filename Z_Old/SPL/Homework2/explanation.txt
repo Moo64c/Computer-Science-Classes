@@ -1,0 +1,6 @@
+ This code is dangerous because when SomeFunction() exits, nNumber is deleted
+ from the stack, but pPointer (which is on the heap) still points to nNumber's
+ physical address, which makes the compiler leave that area of memory "locked"
+ and that constitudes a memory leak - a process that if repeated enough can 
+ crash a computer.
+ 

@@ -1,0 +1,24 @@
+# Ignore all
+*
+
+# Unignore all with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
+# Above combination will ignore all files without extension #
+
+*.pdf
+*.zip
+*.doc
+
+*~
+~*
+*.o
+*.out
+*.prefs
+*.classpath
+*build.xml
+*errortrace*
+*.lck

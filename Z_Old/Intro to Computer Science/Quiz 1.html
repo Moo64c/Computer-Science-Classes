@@ -1,0 +1,39 @@
+<html>
+<head>
+<script type='text/javascript' src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script type='text/javascript'>
+$(function() {
+$("button").on('click', function(event) { 
+// Get values.
+var midterm = parseInt($('#midterm').val());
+var quiz = parseInt($('#quiz').val());
+var exam = parseInt($('#exam').val());
+
+var midterm_percentage = 26;
+if (exam > midterm) {
+	if (exam - midterm < 45) {
+        	midterm_percentage = 26 - (exam - midterm) / 3;
+	}
+    	else {
+        	midterm_percentage = 10
+	}
+}
+
+exam_percentage = 76 - (midterm_percentage - 10);
+
+var final_grade = (quiz * 0.14) + (midterm * midterm_percentage / 100) + (exam * exam_percentage / 100);
+$('#inputs').append("<p>The final grade is " + final_grade + "</p>");
+});
+});
+</script>
+</head>
+<body>
+<div id="inputs">
+Midterm <input type="number" id="midterm" /> <br/>
+Exam <input type="number" id="exam" /><br/>
+Quiz <input type="number" id="quiz" /> <br/>
+
+<button type="button" id="check"> Check </button>
+</div>
+</body>
+</html>

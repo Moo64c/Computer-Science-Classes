@@ -1,0 +1,102 @@
+Albany, N.Y.;92;42
+Albuquerque, N.M.;59;35
+Amarillo, Tex.;64;35
+Anchorage, Alaska;16;61
+Atlanta, Ga.;81;33
+Austin, Tex.;68;30
+Baker, Ore.;48;44
+Baltimore, Md.;89;39
+Bangor, Maine;97;44
+Birmingham, Ala.;79;33
+Bismarck, N.D.;65;46
+Boise, Idaho;49;43
+Boston, Mass.;94;42
+Buffalo, N.Y.;87;42
+Calgary, Alba., Can.;51;51
+Carlsbad, N.M.;61;32
+Charleston, S.C.;86;32
+Charleston, W. Va.;84;38
+Charlotte, N.C.;85;35
+Cheyenne, Wyo.;61;41
+Chicago, Ill.;78;41
+Cincinnati, Ohio;81;39
+Cleveland, Ohio;84;41
+Columbia, S.C.;84;34
+Columbus, Ohio;82;40
+Dallas, Tex.;69;32
+Denver, Colo.;60;39
+Des Moines, Iowa;72;41
+Detroit, Mich.;82;42
+Dubuque, Iowa;75;42
+Duluth, Minn.;73;46
+Eastport, Maine;98;44
+Edmonton, Alb., Can.;52;53
+El Centro, Calif.;50;32
+El Paso, Tex.;59;31
+Eugene, Ore.;42;44
+Fargo, N.D.;69;46
+Flagstaff, Ariz.;54;35
+Fort Worth, Tex.;68;32
+Fresno, Calif.;46;36
+Grand Junction, Colo.;57;39
+Grand Rapids, Mich.;80;42
+Havre, Mont.;56;48
+Helena, Mont.;53;46
+Honolulu, Hawaii;8;21
+Hot Springs, Ark.;72;34
+Houston, Tex.;70;29
+Idaho Falls, Idaho;53;43
+Indianapolis, Ind.;79;39
+Jackson, Miss.;75;32
+Jacksonville, Fla.;84;30
+Juneau, Alaska;31;58
+Kansas City, Mo.;71;39
+Key West, Fla.;84;24
+Kingston, Ont., Can.;89;44
+Klamath Falls, Ore.;44;42
+Knoxville, Tenn.;82;35
+Las Vegas, Nev.;50;36
+Lewiston, Idaho;48;46
+Lincoln, Neb.;69;40
+London, Ont., Can.;84;43
+Long Beach, Calif.;47;33
+Los Angeles, Calif.;47;34
+Louisville, Ky.;80;38
+Manchester, N.H.;94;43
+Memphis, Tenn.;75;35
+Miami, Fla.;85;25
+Milwaukee, Wis.;78;43
+Minneapolis, Minn.;72;44
+Mobile, Ala.;77;30
+Montgomery, Ala.;79;32
+Montpelier, Vt.;93;44
+Montreal, Que., Can.;92;45
+Moose Jaw, Sask., Can.;60;50
+Nashville, Tenn.;79;36
+Nelson, B.C., Can.;48;49
+New Haven, Conn.;93;41
+New Orleans, La.;75;29
+New York, N.Y.;92;40
+Newark, N.J.;91;40
+Nome, Alaska;0;64
+Oakland, Calif.;43;37
+Oklahoma City, Okla.;68;35
+Omaha, Neb.;70;41
+Ottawa, Ont., Can.;90;45
+Philadelphia, Pa.;90;39
+Phoenix, Ariz.;53;33
+Pierre, S.D.;65;44
+Pittsburgh, Pa.;86;40
+Portland, Maine;95;43
+Portland, Ore.;43;45
+Providence, R.I.;94;41
+Quebec, Que., Can.;94;46
+Raleigh, N.C.;87;35
+Reno, Nev.;46;39
+Richfield, Utah;53;38
+Richmond, Va.;88;37
+Roanoke, Va.;86;37
+Sacramento, Calif.;44;38
+Salt Lake City, Utah;54;40
+San Antonio, Tex.;67;29
+San Diego, Calif.;48;32

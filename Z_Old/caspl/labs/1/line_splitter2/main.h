@@ -1,0 +1,13 @@
+int isNumber(char c);
+char * read();
+void printLine();
+void workLine(char *line);
+FILE * input;
+FILE * output;
+int flagS;
+int flagD;
+int flagO;
+int currentOutput;
+int lineNum;
+char flag;
+FILE * files[5];
