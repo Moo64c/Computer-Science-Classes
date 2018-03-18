@@ -31,13 +31,18 @@
 
 		connection.onmessage = function(event) {
 			var node = document.createElement("LI");
-			var textnode = document.createTextNode(event.data);
+			var textnode = document.createTextNode( curPos + ":" + event.data);
 
 			node.appendChild(textnode);
 			var list = document.getElementById("log");
 			list.insertBefore(node, list.childNodes[0]);
 
 			curPos++;
+
+			if (curPos > 100) {
+				// Remove last item.
+				list.removeChild(list.lastChild);
+			}
 
 			var msg = JSON.parse(event.data);
 			oldState = state;
