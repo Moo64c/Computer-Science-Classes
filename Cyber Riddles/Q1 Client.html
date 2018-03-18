@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://132.72.23.63:8080/q1client.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Q1 Client Amir A</title>
+<style></style></head>
+<body>
+	<script>
+		var addr = 'ws://132.72.23.63:8080/q1/';
+		var connection = new WebSocket(addr);
+
+		var state = "";
+		var maxRecurringLetters = 0;
+		var maxNumber = 0;
+
+		updateState = function(data) {
+			data = JSON.parse(data);
+			console.log(data)
+			letter = data.letter;
+
+			if (data.numOfRecurringLetters < maxRecurringLetters) {
+				state = state.slice(0, data.numOfRecurringLetters);
+				maxNumber = data.numOfRecurringLetters;
+			}
+			else {
+				maxRecurringLetters = data.numOfRecurringLetters;
+			}
+			posInState = state.indexOf(letter);
+			if (posInState > 0) {
+				// Found the letter. Remove and re-add.
+				state = letter + state.slice(0, posInState) + state.slice(posInState+1);
+				posInState++;
+			}
+			else if (posInState == 0) {
+				// Letter is the first letter in the state string.
+				// Do nothing... :P
+				posInState++
+			}
+			else {
+				// New letter in array.
+				state = letter + state
+				maxNumber++;
+				posInState = maxNumber;
+			}
+
+			console.log("New state:");
+			console.log(state);
+			// This should be the next move.
+			return posInState;
+		}
+
+
+		connection.onmessage = function(event) {
+			//console.log(event.data);
+
+			var node = document.createElement("LI");
+			//var textnode = document.createTextNode(JSON.parse(event.data).txt);
+			var textnode = document.createTextNode(event.data);
+			var result = updateState(event.data);
+
+			// See if this works
+			document.getElementById("num").value = result;
+
+			node.appendChild(textnode);
+			var list = document.getElementById("log");
+			list.insertBefore(node, list.childNodes[0]);
+		}
+
+		send = function() {
+			connection.send(JSON.stringify({
+				num : document.getElementById("num").value
+			}));
+		}
+	</script>
+
+	<p>
+		<input type="number" id="num" value="1"><br>
+		<button type="button" onclick="send()">Send</button>
+	</p>
+
+	<ol  reversed id="log">
+	</ol>
+
+<script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>

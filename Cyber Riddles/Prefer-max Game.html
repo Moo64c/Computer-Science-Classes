@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://132.72.23.63:8080/pref-max-%2Dgame.html -->
+<html class="ui-mobile"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><!--<base href="http://132.72.23.63:8080/pref-max--game.html#pageone">--><base href=".">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./Prefer-max Game_files/jquery.mobile-1.4.5.min.css">
+	<script src="./Prefer-max Game_files/jquery-1.11.3.min.js.download"></script>
+	<script src="./Prefer-max Game_files/jquery.mobile-1.4.5.min.js.download"></script>
+<style>
+	.btn-group button {
+		border:none;
+		background:none;
+		padding:3pt;
+		margin:2pt;
+		width:100%;
+		overflow:visible;
+		text-align:center;
+		border-style: ridge;
+	}
+
+	.btn-group button:not(:last-child) {
+		border-bottom: none; /* Prevent double borders */
+	}
+
+	/* Add a background color on hover */
+	.btn-group button:hover {
+		background-color: #3e8e41;
+	}
+
+	.bar1, .bar2, .bar3 {
+		width: 35px;
+		height: 5px;
+		background-color: #333;
+		margin: 4px 0;
+	}
+	.btn-group .hilight {
+    	background-color: #e7e7e7;
+	}
+</style><style></style><title>Prefer-max Game</title></head>
+
+<body class="ui-mobile-viewport ui-overlay-a">
+	<div data-role="page" id="pageone" data-url="pageone" tabindex="0" class="ui-page ui-page-theme-a ui-page-active" style="min-height: 734px;">
+		<div data-role="panel" id="options" data-display="overlay" class="ui-panel ui-panel-position-left ui-panel-display-overlay ui-body-inherit ui-panel-animate ui-panel-closed">
+			<div class="ui-panel-inner"><h2>Settings</h2><form lpformnum="1">
+				Number of tokens:<br>
+				<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="number" id="nn" value="5" min="2" max="10"></div>
+
+				Maximal number:<br>
+				<div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="number" id="kk" value="2" min="1" max="9"></div>
+
+				<div class="ui-select"><div id="side-button" class="ui-btn ui-icon-carat-d ui-btn-icon-right ui-corner-all ui-shadow"><span>Two players</span><select id="side">
+					<option value="none">Two players</option>
+					<option value="Alice">Computer is Alice</option>
+					<option value="Bob">Computer is Bob</option>
+				</select></div></div>
+			</form><a href="http://132.72.23.63:8080/pref-max--game.html#pageone" data-rel="close" class="ui-btn ui-btn-active" onclick="restart()">Restart Game</a></div>
+
+
+		</div>
+		<div data-role="header" id="header" role="banner" class="ui-header ui-bar-inherit">
+			<a id="menu" href="http://132.72.23.63:8080/pref-max--game.html#options" class="ui-btn-left ui-btn ui-btn-inline ui-shadow ui-corner-all" style="padding:0;background-color:lightgray" data-role="button" role="button">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+				<div class="bar3"></div>
+			</a>
+
+
+
+			<h1 class="ui-title" role="heading" aria-level="1">Prefer-max Game</h1>
+		</div>
+		<canvas id="canvas" style="background-color:#123" height="367" width="1536"></canvas>
+
+		<div id="game-buttons">
+			<text>Bob:</text>
+			<div class="btn-group">
+				<button id="Bob1" ttype="button" onclick="state[curPos]++;shift()" class="ui-btn ui-shadow ui-corner-all">Increase</button>
+				<button id="Bob2" ttype="button" onclick="aliceMove()" class="ui-btn ui-shadow ui-corner-all hilight">Let Alice play</button>
+			</div>
+			<p>
+			<text>Alice:</text>
+			</p><div class="btn-group">
+				<button id="Alice1" type="button" disabled="" onclick="state[curPos]=0;shift()" class="ui-btn ui-shadow ui-corner-all">Put zero </button>
+				<button id="Alice2" type="button" disabled="" onclick="shift()" class="ui-btn ui-shadow ui-corner-all">
+					<span>Do nothing</span></button>
+				</div>
+			</div>
+		</div>
+		<script>
+			var canvas = document.getElementById("canvas");
+			var ctx = canvas.getContext("2d");
+
+			var state,n,max,curPos;
+			restart();
+
+			function restart() {
+				max= parseInt(document.getElementById('kk').value);
+				n= parseInt(document.getElementById('nn').value);
+
+				state = new Array(n).fill(0);
+				state[n-1]=1;
+
+				curPos=n-1;
+				shift();
+			}
+
+			function drawClock() {
+
+				var radius = canvas.height / 2;
+				ctx.translate(window.innerWidth/2, radius);
+
+
+				drawFace(ctx, radius*0.9);
+				drawNumbers(ctx, radius*0.9);
+				drawHand(ctx, curPos*2*Math.PI/n, radius*0.6, radius*0.1);
+				ctx.translate(-window.innerWidth/2, -radius);
+			}
+
+			function drawFace(ctx, radius) {
+				var grad;
+				ctx.beginPath();
+				ctx.arc(0, 0, radius, 0, 2*Math.PI);
+				ctx.fillStyle = 'white';
+				ctx.fill();
+				grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
+				grad.addColorStop(0, '#323');
+				grad.addColorStop(0.5, 'white');
+				grad.addColorStop(1, '#333');
+				ctx.strokeStyle = grad;
+				ctx.lineWidth = radius*0.1;
+				ctx.stroke();
+				ctx.beginPath();
+				ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
+				ctx.fillStyle = '#333';
+				ctx.fill();
+			}
+
+			function drawNumbers(ctx, radius) {
+				var ang;
+				var num;
+				ctx.font = radius*0.25 + "px arial";
+				ctx.textBaseline="middle";
+				ctx.textAlign="center";
+				for(num = 0; num < n; num++){
+					ang = 2 * num * Math.PI / n;
+					ctx.rotate(ang);
+					ctx.translate(0, -radius*0.85);
+					ctx.rotate(-ang);
+					ctx.fillText(state[num].toString(), 0, 0);
+					ctx.rotate(ang);
+					ctx.translate(0, radius*0.85);
+					ctx.rotate(-ang);
+				}
+			}
+
+
+			function drawHand(ctx, pos, length, width) {
+				ctx.beginPath();
+				ctx.lineWidth = width;
+				ctx.lineCap = "round";
+				ctx.moveTo(0,0);
+				ctx.rotate(pos);
+				ctx.lineTo(0, -length);
+
+				ctx.moveTo(0,-length);
+				ctx.lineTo(-length*.2,-length*0.7);
+
+				ctx.moveTo(0,-length);
+				ctx.lineTo(length*.2,-length*0.7);
+
+				ctx.stroke();
+				ctx.rotate(-pos);
+			}
+
+			function shift() {
+				curPos++;
+				curPos = curPos % n;
+				drawClock();
+
+				$('#Bob1').removeClass('hilight');
+				$('#Bob2').removeClass('hilight');
+				$('#Alice1').removeClass('hilight');
+				$('#Alice2').removeClass('hilight');
+
+				if(state[curPos]<max)
+					bobMove();
+				else
+					aliceMove();
+
+
+			}
+
+
+			function isMax(s,curPos) {
+				var rotations = s.map(
+					(o, i) =>
+						s.slice(i,n).concat(s.slice(0, i)).reverse().join("")
+				);
+				var values = rotations.map(
+					st =>
+						parseInt(st, max + 1)
+				);
+				return Math.max(...values) == values[curPos];
+			}
+
+			function isLast(s, curPos) {
+				if( s.every(x => x == 0) ) {
+					// Everyone is 0.
+					return true;
+				}
+
+				var i = curPos;
+				while (s[(i-1+n) % n] == 0) {
+					i = (i-1+n) % n;
+				}
+
+				return isMax(s,i);
+			}
+
+			function aliceMove() {
+
+				document.getElementById("Bob1").disabled = true;
+				document.getElementById("Bob2").disabled = true;
+				document.getElementById("Alice1").disabled = false;
+				document.getElementById("Alice2").disabled = false;
+
+				if( document.getElementById('side').value == 'Alice' ) {
+					if (isLast(state,curPos)) {
+						console.log("isLast("+state.join("")+","+curPos+")");
+						window.setTimeout(function() {$('#Alice1').trigger("click")}, 300);
+					}
+					else {
+						console.log("not isLast("+state.join("")+","+curPos+")");
+						window.setTimeout(function() {$('#Alice2').trigger("click")}, 300);
+					}
+				} else {
+					if (isLast(state,curPos)) {
+						$('#Alice1').addClass('hilight');
+					}
+					else {
+						$('#Alice2').addClass('hilight');
+					}
+				}
+
+			}
+
+			function bobMove() {
+				document.getElementById("Bob1").disabled = false;
+				document.getElementById("Bob2").disabled = false;
+
+				document.getElementById("Alice1").disabled = true;
+				document.getElementById("Alice2").disabled = true;
+
+				var s=state.slice();
+				s[curPos]++;
+
+				if( document.f.value == 'Bob' ) {
+					if (isLast(s,curPos)) {
+						window.setTimeout(function() {$('#Bob1').trigger("click")}, 300);
+					}
+					else {
+						window.setTimeout(function() {$('#Bob2').trigger("click")}, 300);
+					}
+				} else {
+					if (isLast(s,curPos)) {
+						$('#Bob1').addClass('hilight');
+					}
+					else {
+						$('#Bob2').addClass('hilight');
+					}
+				}
+			}
+
+
+			(function() {
+				var gameButtons = document.getElementById('game-buttons'),
+				menu = document.getElementById('header');
+
+                // resize the canvas to fill browser window dynamically
+                window.addEventListener('resize', resizeCanvas, false);
+
+                function resizeCanvas() {
+                	canvas.height = 0.5*window.innerHeight;
+                	canvas.width = window.innerWidth;
+                	gameButtons.style.height = 0.4*window.innerHeight;
+                        //gameButtons.width = window.innerWidth;
+                        menu.style.height = 0.1*window.innerHeight;
+                        drawClock();
+
+                    }
+                    resizeCanvas(true);
+                })();
+
+            </script>
+
+        <div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon-loading"></span><h1>loading</h1></div><div class="ui-panel-dismiss" style=""></div><script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>

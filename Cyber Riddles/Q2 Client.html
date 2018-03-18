@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://132.72.23.63:8080/q2client.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<script src="./Q2 Client_files/jquery-3.3.1.min.js.download"></script><style></style>
+<title>Q2 Example Client</title>
+</head>
+<body>
+	<p>
+		<canvas id="canvas" style="background-color: #123"></canvas>
+		<br> <input type="checkbox" id="player">Player move
+		<button type="button" id="zero" onclick="send(true)">zero</button>
+		<button type="button" id="pass" onclick="send(false)">pass</button>
+		<button type="button" onclick="solveAlice()">solve?</button>
+		<button type="button" onclick="kill = !kill">stop?</button>
+	</p>
+
+	<ol reversed id="log">
+		<li>.</li>
+	</ol>
+
+
+
+	<script>
+		var buttonPass = document.getElementById('pass');
+		var buttonZero = document.getElementById('zero');
+		var addr = 'ws://132.72.23.63:8080/q2/';
+		var connection = new WebSocket(addr);
+		var state = [];
+		var oldState = [];
+		var max = 4;
+
+		connection.onmessage = function(event) {
+			var node = document.createElement("LI");
+			var textnode = document.createTextNode(event.data);
+
+			node.appendChild(textnode);
+			var list = document.getElementById("log");
+			list.insertBefore(node, list.childNodes[0]);
+
+			curPos++;
+
+			var msg = JSON.parse(event.data);
+			oldState = state;
+			state = msg.state.rotate(-curPos);
+
+			drawClock();
+		}
+
+		send = function(move) {
+			connection.send(JSON.stringify({
+				playerMove : move
+			}));
+		}
+
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+
+		var kill = false;
+
+		var lastChanged = [7]
+
+
+		function solveAlice() {
+
+			if (isLast(state, curPos)) {
+				buttonZero.click();
+			}
+			else {
+				buttonPass.click();
+			}
+			window.setTimeout(function() {
+				if (!kill) {
+					solveAlice();
+				}
+			}, 30);
+
+		}
+
+		function isMax(s, curPos) {
+			var rotations = s.map(
+				(o, i) =>
+					s.slice(i, n).concat(s.slice(0, i)).reverse().join("")
+			);
+			var values = rotations.map(
+				st =>
+					parseInt(st, max + 1)
+			);
+
+			return Math.max(...values) == values[curPos % 8];
+		}
+
+		function isLast(s, curPos) {
+			if( s.every(x => x == 0) ) {
+				// Everyone is 0.
+				return true;
+			}
+
+			var i = curPos;
+			while (s[(i - 1 + n) % n] == 0) {
+				i = (i - 1 + n) % n;
+			}
+
+			return isMax(s, i);
+		}
+
+		function start() {
+			n = 8;
+
+			state = new Array(n).fill(0);
+			state[n - 1] = 1;
+
+			curPos = n - 1;
+			drawClock();
+		}
+		start();
+
+		function drawClock() {
+			ctx.resetTransform();
+			var radius = canvas.height / 2;
+			ctx.translate(canvas.width / 2, radius);
+
+			drawFace(ctx, radius * 0.9);
+			drawNumbers(ctx, radius * 0.9);
+			drawHand(ctx, curPos * 2 * Math.PI / n, radius * 0.6, radius * 0.1);
+			ctx.translate(-window.innerWidth / 2, -radius);
+		}
+
+		function drawFace(ctx, radius) {
+			var grad;
+			ctx.beginPath();
+			ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+			ctx.fillStyle = 'white';
+			ctx.fill();
+			grad = ctx.createRadialGradient(0, 0, radius * 0.95, 0, 0,
+					radius * 1.05);
+			grad.addColorStop(0, '#323');
+			grad.addColorStop(0.5, 'white');
+			grad.addColorStop(1, '#333');
+			ctx.strokeStyle = grad;
+			ctx.lineWidth = radius * 0.1;
+			ctx.stroke();
+			ctx.beginPath();
+			ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
+			ctx.fillStyle = '#333';
+			ctx.fill();
+		}
+
+		function drawNumbers(ctx, radius) {
+			var ang;
+			var num;
+			ctx.font = radius * 0.25 + "px arial";
+			ctx.textBaseline = "middle";
+			ctx.textAlign = "center";
+			for (num = 0; num < n; num++) {
+				ang = 2 * num * Math.PI / n;
+				ctx.rotate(ang);
+				ctx.translate(0, -radius * 0.85);
+				ctx.rotate(-ang);
+				ctx.fillText(state[num].toString(), 0, 0);
+				ctx.rotate(ang);
+				ctx.translate(0, radius * 0.85);
+				ctx.rotate(-ang);
+			}
+		}
+
+		function drawHand(ctx, pos, length, width) {
+			ctx.beginPath();
+			ctx.lineWidth = width;
+			ctx.lineCap = "round";
+			ctx.moveTo(0, 0);
+			ctx.rotate(pos);
+			ctx.lineTo(0, -length);
+
+			ctx.moveTo(0, -length);
+			ctx.lineTo(-length * .2, -length * 0.7);
+
+			ctx.moveTo(0, -length);
+			ctx.lineTo(length * .2, -length * 0.7);
+
+			ctx.stroke();
+			ctx.rotate(-pos);
+		}
+
+		Array.prototype.rotate = function(n) {
+		    while (this.length && n < 0) n += this.length;
+		    this.push.apply(this, this.splice(0, n));
+		    return this;
+		}
+	</script>
+
+
+
+
+
+<script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body></html>
