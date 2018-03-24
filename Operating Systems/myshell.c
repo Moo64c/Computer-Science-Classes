@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
-#include <sys/wait.h> 
+#include <sys/wait.h>
 #include "LineParser.h"
 
 typedef struct env_var env_var;
@@ -60,7 +60,7 @@ char * delim;
 FILE * input;
 FILE * output;
 char * dir;
-char * buff; 
+char * buff;
 int save_in;
 int save_out;
 
@@ -79,7 +79,7 @@ int main (int argc , char* argv[], char* envp[]) {
         /* Parse & execute command */
         cmdLine * pCmdLine = parseCmdLines(line);
         if (line) free(line);
-        execute(pCmdLine);  
+        execute(pCmdLine);
     }
     _delete_and_exit(0);
 
@@ -93,15 +93,15 @@ void execute(cmdLine *pCmdLine) {
   if (pCmdLine == NULL) {
       return;
   }
-  
+
   if (pCmdLine->next != NULL) {
   	return execute_with_pipes(pCmdLine);
   }
-	
+
   if (env_vars != NULL) {
-      pCmdLine = apply_vars(pCmdLine); 
+      pCmdLine = apply_vars(pCmdLine);
   }
-	
+
 	if ((pid = fork()) < 0) {     /* fork a child process  */
 	    printf("*** ERROR: forking child process failed\n");
 	    _delete_and_exit(1);
@@ -118,7 +118,7 @@ void execute(cmdLine *pCmdLine) {
 		}
 
 		if (_internal_commands(pCmdLine)	!= 1) {
-	    add_history(pCmdLine); 
+	    add_history(pCmdLine);
       if (execvp(pCmdLine->arguments[0], pCmdLine->arguments) < 0) {     /* execute the command  */
         perror("\nExecution failed");
         _exit(1);
@@ -128,7 +128,7 @@ void execute(cmdLine *pCmdLine) {
   else {
 		if(pCmdLine->blocking == 1) {
 			/* Wait for blocking executions to end. */
-			waitpid(pid, &status, 0); 
+			waitpid(pid, &status, 0);
 		}
   }
 }
@@ -147,10 +147,10 @@ void set_var(char * name, char * value) {
     if (env_vars == NULL) {
         env_var * new_var = (env_var * ) malloc(sizeof(struct env_var));
         new_var->name = cname;
-        new_var->value = cvalue;  
+        new_var->value = cvalue;
         env_vars = new_var;
         new_var->next = NULL;
-        return; 
+        return;
     }
 
     while (it != NULL) {
@@ -168,7 +168,7 @@ void set_var(char * name, char * value) {
     env_var * new_var = (env_var * ) malloc(sizeof(struct env_var));
     b_it->next = new_var;
     new_var->name = cname;
-    new_var->value = cvalue;   
+    new_var->value = cvalue;
     new_var->next = NULL;
 }
 
@@ -348,7 +348,7 @@ char * getFromUser() {
         }
         line[len] = c;
     }
-    
+
     return line;
 }
 
@@ -375,14 +375,14 @@ void execute_with_pipes(cmdLine *pCmdLine) {
   int result = 0, pipeNumber = 0;
   int *clPipe = NULL, *crPipe = NULL;
   int **pipes;
-  
+
   pipeNumber = num_of_pipes(pCmdLine);
   pipes = createPipes(pipeNumber);
-  
+
   while (pCmdLine != NULL)  {
     clPipe = leftPipe(pipes, pCmdLine);
     crPipe = rightPipe(pipes, pCmdLine);
-    
+
 		if((pid = fork()) == -1) {
 			_exit(11);
 			return;
@@ -422,13 +422,13 @@ void execute_with_pipes(cmdLine *pCmdLine) {
 			if (pCmdLine->blocking == 1) {
 				waitpid(pid, &result, 0);
 			}
-		
+
 			pCmdLine = pCmdLine->next;
     }
   }
-  
+
   releasePipes(pipes, pipeNumber);
-  
+
   return;
 }
 
@@ -457,7 +457,7 @@ int *leftPipe(int **pipes, cmdLine *pCmdLine) {
   if (pCmdLine->idx == 0) {
     return NULL;
   }
-  
+
   return pipes[pCmdLine->idx - 1];
 }
 
@@ -470,7 +470,7 @@ int *rightPipe(int **pipes, cmdLine *pCmdLine) {
 
 int _internal_commands(cmdLine *pCmdLine) {
 	int result = 0;
-	
+
 	if (strcmp(pCmdLine->arguments[0], "quit") == 0) {
 		result = 1;
     add_history(pCmdLine);
@@ -482,18 +482,18 @@ int _internal_commands(cmdLine *pCmdLine) {
       add_history(pCmdLine);
       if (applied < 0) {
           perror("Failed changing directory");
-          return 1;	
+          return 1;
       }
       dir = getcwd(buff, 100);
   }
   else if (strcmp(pCmdLine->arguments[0], "history") == 0) {
     	result = 1;
-      add_history(pCmdLine);  
+      add_history(pCmdLine);
       print_history();
   }
   else if (strcmp(pCmdLine->arguments[0], "set") == 0) {
     	result = 1;
-      add_history(pCmdLine);  
+      add_history(pCmdLine);
       int i;
       char value[2048];
       strcpy(value, pCmdLine->arguments[2]);
@@ -505,17 +505,17 @@ int _internal_commands(cmdLine *pCmdLine) {
   }
   else if (strcmp(pCmdLine->arguments[0], "env") == 0) {
 	  	result = 1;
-      add_history(pCmdLine);  
+      add_history(pCmdLine);
       print_vars();
   }
   else if (strcmp(pCmdLine->arguments[0], "rename") == 0) {
 	  	result = 1;
-      add_history(pCmdLine);  
+      add_history(pCmdLine);
       rename_var(pCmdLine->arguments[1], pCmdLine->arguments[2]);
   }
   else if (strcmp(pCmdLine->arguments[0], "delete") == 0) {
 	  	result = 1;
-      add_history(pCmdLine);  
+      add_history(pCmdLine);
       del_var(pCmdLine->arguments[1]);
   }
   else if (pCmdLine->arguments[0][0] == '!') {
@@ -537,4 +537,3 @@ int num_of_pipes(cmdLine *pCmdLine) {
   }
   return i;
 }
-
