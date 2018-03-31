@@ -1,6 +1,19 @@
+/**
+ * Part of the chain to create a bignum.
+ * each link holds up to 18 digits (max size of long)
+ */
+typedef struct link { // sizeof = 24 bit
+    struct link * next;
+    struct link * prev;
+    int num;
+} link;
+
+
 typedef struct bignum {
   long number_of_digits;
-  char *digit;
+  int sign;
+  link *head;
+  link *last;
 } bignum;
 
 typedef struct stack_item {

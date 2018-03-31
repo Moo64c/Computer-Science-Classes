@@ -3,73 +3,97 @@ section .data
   special_counter2: dq 0
 
 section .text
-  global do_Str
-  extern printf
+  global _add_bignums _subtract_bignums
+  extern add_carry sub_borrow
 
-do_Str:
+_add_bignums:
+  ; standard start.
   push rbp
   mov rbp, rsp
-  mov rcx, rdi
+  mov rax, [rdi+24]
+  mov rbx, [rsi+24]
+  mov rcx, [rdi]
+  mov r9, 0
 
-  ; initialize answer
-	mov	qword[special_counter], 0
-	mov	qword[special_counter2], 0
+  loop_add_bignums:
+    ; Get number of in the last link
+    mov rdx, [rax+16]
+    mov r8, [rbx+16]
+    add r8, r9
+    add qword rdx, r8
+    cmp qword rdx, 10
+    jge add_have_carry
+    jmp add_no_carry
 
-	text_loop:
-    mov bl, byte[rcx]
+  add_have_carry:
+    sub rdx, 10
+    mov r9, 1
+    jmp add_next
+  add_no_carry:
+    mov r9, 0
 
-    cmp bl, 40
-    je switch_paranthesis_1
-    cmp bl, 41
-    je switch_paranthesis_2
+  add_next:
+    ; Move to next link.
+    mov qword [rax+16], rdx
+    mov rax, qword [rax+8]
+    mov rbx, qword [rbx+8]
+    loop loop_add_bignums
 
-    ; Check if byte is special character: 0-64, 91-96, 123-127
-    cmp bl, 65
-    jl text_loop_increment
+  cmp r9, 1
+  je add_last_carry
+  jmp end_add
 
-    ; Upper case letter.
-    cmp bl, 91
-    jl text_loop_check
+  add_last_carry:
+    call add_carry
 
-    ; Special characters in between.
-    cmp bl, 97
-    jl text_loop_increment
-
-    ; Lower case letter.
-    cmp bl, 123
-    jl text_loop_lowercase
-
-    ; Other characters
-    jmp text_loop_increment
-
-    text_loop_lowercase:
-       sub bl, 32
-       mov byte[rcx], bl
-       jmp text_loop_check
-
-    text_loop_increment:
-      inc qword[special_counter2]
-
-    text_loop_check:
-    ; increment pointer
-    inc rcx
-    ; check if byte pointed to is zero
-  	cmp byte[rcx], 0
-    ; keep looping until it is null terminated
-    jnz text_loop
+  end_add:
+    mov [rbp-8], rax
+    pop rbp
+    ret
 
 
-  ; return an (returned values are in rax)
-  mov     rax, qword[special_counter2]
-  mov     rsp, rbp
-  pop     rbp
-  ret
+_subtract_bignums:
+  ; standard start.
+  push rbp
+  mov rbp, rsp
+  mov rax, [rdi+24]
+  mov rbx, [rsi+24]
+  mov rcx, [rdi]
+  mov r9, 0
 
+  _subtract_bignums_loop:
+    ; Get number of in the last link
+    mov rdx, [rax+16]
+    mov r8, [rbx+16]
+    sub rdx, r9
+    sub qword rdx, r8
+    cmp qword rdx, 0
+    jl subtract_have_borrow
+    jmp subtract_no_borrow
 
-  switch_paranthesis_1:
-    mov byte[rcx], 60
-    jmp text_loop_increment
+  subtract_have_borrow:
+    add rdx, 10
+    mov r9, 1
+    jmp subtract_next
 
-  switch_paranthesis_2:
-    mov byte[rcx], 62
-    jmp text_loop_increment
+  subtract_no_borrow:
+    mov r9, 0
+
+  subtract_next:
+    ; Move to next link.
+    mov qword [rax+16], rdx
+    mov rax, qword [rax+8]
+    mov rbx, qword [rbx+8]
+    loop _subtract_bignums_loop
+
+  cmp r9, 1
+  je subtract_last_borrow
+  jmp end_sub
+
+  subtract_last_borrow:
+    call sub_borrow
+
+  end_sub:
+    mov [rbp-8], raxs
+    pop rbp
+    ret
