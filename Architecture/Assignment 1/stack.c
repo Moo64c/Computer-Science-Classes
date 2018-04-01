@@ -7,6 +7,7 @@ int word_type(char * word);
 void print_stack();
 void print_bn();
 void clear_bn(bignum * bn);
+void numstack_push_bignum(struct bignum *number);
 
 void numstack_init() {
   top = NULL;
@@ -18,6 +19,15 @@ void numstack_init() {
 void numstack_push(struct stack_item *item) {
   item->next = top;
   top = item;
+}
+
+/**
+ * Push new bignum to stack.
+ */
+void numstack_push_bignum(struct bignum *number) {
+  struct stack_item* result_item = (stack_item *) malloc(sizeof(stack_item));
+  result_item->value = number;
+  numstack_push(result_item);
 }
 
 /**
@@ -145,19 +155,20 @@ struct stack_item * create_number(char * word) {
 
   stack_item* si = (stack_item*) malloc(sizeof(stack_item));
   si->value = bn;
-  if (debug > 1) {
-    printf ("Adding number ");
-    print_bn(bn);
-    printf (" to stack\n");
-  }
   return si;
 }
 
 void print_bn(bignum * bn) {
+  if (bn == NULL || bn->head == NULL) {
+    printf("ERROR: Empty number sent to print_bn\n");
+    return;
+  }
   int zeros = 0;
   link* curr = bn->head;
-  if(bn->sign)
+  if (bn->sign) {
     printf("-");
+  }
+
   while(curr != 0) {
     if(zeros > 0 || curr->num != 0 || curr->next == 0) {
         printf("%i", curr->num);
@@ -169,26 +180,27 @@ void print_bn(bignum * bn) {
 
 // Clears the stack from the memory.
 void clear_numstack() {
-  stack_item * iterator = top;
-  stack_item * last = 0;
+  stack_item * iterator = numstack_pop();
+  stack_item * last = NULL;
 
   while (iterator != NULL) {
-    last = iterator;
     clear_bn(iterator->value);
-    iterator = iterator->next;
-    free(last);
+    free(iterator);
+    iterator = numstack_pop();
   }
+  // Wha?
+  numstack_init();
 }
 
 // Clears a bignum from memory.
 void clear_bn(bignum * bn) {
-  link * current = bn->head;
-  link * last;
-  while(current != NULL) {
-    last = current;
-    current = current->next;
-    free(last);
-  }
+    link *curr = bn->last;
+    link *temp = bn->last;
+    while(curr!=0){
+        temp=curr;
+        curr=curr->prev;
+        free(temp);
+    }
 }
 
 void print_stack() {

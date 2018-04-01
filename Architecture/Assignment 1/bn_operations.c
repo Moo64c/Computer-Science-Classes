@@ -1,34 +1,40 @@
+extern int _subtract_bignums(bignum*, bignum*);
+extern int _add_bignums(bignum*, bignum*);
 
-void equalize_links(bignum* bn1, bignum* bn2);
+void resize_numbers(bignum* bn1, bignum* bn2);
 void add_carry(bignum* bn);
 void sub_borrow(bignum* bn);
 int compare_bignum(bignum* bn1, bignum* bn2);
-void subtract(bignum* num1, bignum* num2);
+void subtract_bignums(bignum* bn1, bignum* bn2);
 
 void add_carry(bignum* bn) {
-    link* newLink = (link*) malloc(sizeof(link));
-    newLink->num = 1;
-    bn->head->prev = newLink;
-    newLink->next = bn->head;
-    bn->head = newLink;
+    link* addedLink = (link*) malloc(sizeof(link));
+    addedLink->num = 1;
+    bn->head->prev = addedLink;
+    addedLink->next = bn->head;
     bn->number_of_digits++;
+    bn->head = addedLink;
 }
 
-void equalize_links(bignum* bn1, bignum* bn2){
-  while(bn1->number_of_digits > bn2->number_of_digits){
-    link* newLink = (link*) malloc(sizeof(link));
-    newLink->num = 0;
-    bn2->head->prev = newLink;
-    newLink->next = bn2->head;
-    bn2->head = newLink;
+void resize_numbers(bignum* bn1, bignum* bn2) {
+
+  while(bn1->number_of_digits > bn2->number_of_digits) {
+    // Add zero before the actual number.
+    link* addedLink = (link*) malloc(sizeof(link));
+    addedLink->num = 0;
+    bn2->head->prev = addedLink;
+    addedLink->next = bn2->head;
     bn2->number_of_digits++;
+    bn2->head = addedLink;
   }
-  while(bn1->number_of_digits < bn2->number_of_digits){
-    link* newLink = (link*) malloc(sizeof(link));
-    newLink->num = 0;
-    bn1->head->prev = newLink;
-    newLink->next = bn1->head;
-    bn1->head = newLink;
+
+  while(bn1->number_of_digits < bn2->number_of_digits) {
+    // Add zero before the actual number.
+    link* addedLink = (link*) malloc(sizeof(link));
+    addedLink->num = 0;
+    bn1->head->prev = addedLink;
+    addedLink->next = bn1->head;
+    bn1->head = addedLink;
     bn1->number_of_digits++;
   }
 }
@@ -37,49 +43,60 @@ void sub_borrow(bignum* bn){
     link* oldLink = bn->head;
     bn->head = bn->head->next;
     free(oldLink);
-    bn->number_of_links --;
+    bn->number_of_digits --;
 }
 
 int compare_bignum(bignum* bn1, bignum* bn2){
-    int ans = (int) (bn1->number_of_links - bn2->number_of_links);
-    equalize_links(bn1,bn2);
-    if (ans!=0)
-        return ans;
-    link* curr1=bn1->head;
-    link* curr2 = bn2->head;
-    while(curr1!=0 && curr1->num == curr2->num){
-        curr1 = curr1->next;
-        curr2 = curr2->next;
-    }
-    if(curr1 == 0)
-        return 0;
-    return curr1->num - curr2->num;
+  int result = (int) (bn1->number_of_digits - bn2->number_of_digits);
 
+  resize_numbers(bn1, bn2);
+  if (result!=0) {
+    return result;
+  }
+  link* bn_iterator_1 = bn1->head;
+  link* bn_iterator_2 = bn2->head;
+  while (bn_iterator_1 != 0 &&
+         bn_iterator_1->num == bn_iterator_2->num)
+  {
+    bn_iterator_1 = bn_iterator_1->next;
+    bn_iterator_2 = bn_iterator_2->next;
+  }
+
+  if (bn_iterator_1 == 0) {
+    return 0;
+  }
+
+  return bn_iterator_1->num - bn_iterator_2->num;
 }
 
-void subtract(bignum* num1, bignum* num2){
-    int comp = compare_bignum(num1,num2);
-    if (comp > 0 && (num1->sign+num2->sign == 0 || num1->sign+num2->sign == 2)) { // 1 6
-        _subtract(num1, num2);
-        push(num1);
-//        free_bigNum(num2);
+void subtract_bignums(bignum* bn1, bignum* bn2) {
+    int comp = compare_bignum(bn1, bn2);
+    if  (comp > 0 &&
+        (bn1->sign + bn2->sign == 0 || bn1->sign + bn2->sign == 2)
+      ) {
+      // Bn1 is larger, but numbers are both positive or both negative.
+      _subtract_bignums(bn1, bn2);
+      numstack_push_bignum(bn1);
     }
-    else if(comp < 0 && (num1->sign+num2->sign == 0 || num1->sign+num2->sign == 2)){ // 2 7
-        _subtract(num2, num1);
-        num2->sign = 1 - num2->sign; // if =1 change to 0 , if =0 change to 1
-        push(num2);
- //       free_bigNum(num1);
+    else if (comp < 0 &&
+            (bn1->sign + bn2->sign == 0 || bn1->sign + bn2->sign == 2)
+      ) {
+      // Bn2 is larger, but numbers are both positive or both negative.
+      _subtract_bignums(bn2, bn1);
+      // Switch sign are for bn2 (since we're subtracting a bigger number).
+      bn2->sign = 1 - bn2->sign;
+      numstack_push_bignum(bn2);
     }
-    else if(num1->sign ^ num2->sign){ // 3 4 5 8
-        _add(num1, num2);
-        push(num1);
-//        free_bigNum(num2);
+    else if (bn1->sign ^ bn2->sign) {
+      // Only one of the numbers is negative and the other is positive.
+      _add_bignums(bn1, bn2);
+      numstack_push_bignum(bn1);
     }
-    else if(comp == 0){
-        _subtract(num1, num2);
-        num1->sign = 0;
-        push(num1);
-//        free_bigNum(num2);
+    else if(comp == 0) {
+      // Numbers are equal.
+      _subtract_bignums(bn1, bn2);
+      bn1->sign = 0;
+      numstack_push_bignum(bn1);
     }
 }
 
@@ -91,5 +108,4 @@ void free_bigNum(bignum * bn){
         curr=curr->prev;
         free(temp);
     }
- //   free(bn);
 }

@@ -1,5 +1,5 @@
 // Global debug variable.
-#define debug 1
+#define debug 2
 
 #include <stdio.h>
 #include <string.h>
@@ -16,8 +16,6 @@
 #define OP_MULTIPLY '*'
 #define OP_DIVIDE '/'
 
-extern int _add_bignums(bignum*, bignum*);
-extern int _subtract_bignums(bignum*, bignum*);
 char** split_string(char* buffer);
 void clear_wordstack();
 
@@ -44,22 +42,35 @@ int main(void) {
     if (current_word_type == 0 || current_word_type == 1) {
       // tis a number
       // Add this to the number stack.
-      numstack_push(create_number(stack[index]));
+      struct stack_item * newItem = create_number(stack[index]);
+      numstack_push(newItem);
     }
 
     if (current_word_type == 2) {
       // Add.
-      if (debug) {
+      if (debug > 1) {
         printf("adding numbers\n");
       }
-      bignum* num1 = numstack_pop(stack, top)->value;
+
       bignum* num2 = numstack_pop(stack, top)->value;
+      bignum* num1 = numstack_pop(stack, top)->value;
       bignum* result;
 
-      _add_bignums(num1, num2);
-      stack_item * result_item = (stack_item *) malloc(sizeof(stack_item));
-      result_item->value = num1;
-      numstack_push(result_item);
+      resize_numbers(num1, num2);
+
+      if (!num2->sign && num1->sign) {
+          num1->sign = 0;
+          subtract_bignums(num2, num1);
+      }
+      else if (!num1->sign && num2->sign) {
+          num2->sign = 0;
+          subtract_bignums(num1, num2);
+      }
+      else {
+        _add_bignums(num1, num2);
+      }
+
+      numstack_push_bignum(num1);
     }
 
     if (current_word_type == 6) {
@@ -71,7 +82,6 @@ int main(void) {
     if (current_word_type == 7) {
       // Clear stack.
       clear_numstack();
-      numstack_init();
     }
 
     if (current_word_type == 8) {
@@ -135,5 +145,4 @@ void clear_wordstack() {
   for (int index = 0; index < stack_size; index++) {
     free(stack[index]);
   }
-  free(stack);
 }

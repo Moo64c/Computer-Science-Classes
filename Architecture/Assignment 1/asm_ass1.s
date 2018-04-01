@@ -3,9 +3,10 @@ section .data
   special_counter2: dq 0
 
 section .text
-  global _add_bignums _subtract_bignums
-  extern add_carry sub_borrow
+  global _add_bignums, _subtract_bignums
+  extern add_carry, sub_borrow
 
+;================ ADD ============================ 
 _add_bignums:
   ; standard start.
   push rbp
@@ -51,7 +52,7 @@ _add_bignums:
     pop rbp
     ret
 
-
+;================ SUBTRACT ============================
 _subtract_bignums:
   ; standard start.
   push rbp
@@ -94,6 +95,6 @@ _subtract_bignums:
     call sub_borrow
 
   end_sub:
-    mov [rbp-8], raxs
+    mov [rbp-8], rax
     pop rbp
     ret
