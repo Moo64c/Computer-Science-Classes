@@ -146,6 +146,7 @@ struct stack_item * create_number(char * word) {
   bn->head->num = (word[index] - '0');
   bn->last = bn->head;
   bn->head->prev = NULL;
+  bn->head->next = NULL;
   index++;
 
   for ( ; index < bn->number_of_digits; index++) {

@@ -26,7 +26,7 @@ int main(void) {
 
   char str_buf[MAX_LEN];
   for (int initIndex = 0; initIndex < MAX_LEN; initIndex++) {
-    str_buf[initIndex] = '\0';
+    str_buf[initIndex] = 0;
   }
   numstack_init();
 
@@ -127,7 +127,8 @@ char** split_string(char* buffer) {
   }
 
   // Start up a neat little words array.
-  char** words = (char **) malloc((wordcount) * (sizeof (char*)));
+  char** words = (char **) malloc((wordcount+1) * (sizeof (char*)));
+
   char *pch = strtok (buffer, " \n");
   index = 0;
   while (pch != NULL)
