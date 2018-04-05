@@ -204,7 +204,6 @@ void clear_numstack() {
 void clear_bn(bignum * bn) {
     link *curr = bn->last;
     link *temp = bn->last;
-    free(bn);
 
     while(curr != NULL) {
         temp = curr;
@@ -214,6 +213,7 @@ void clear_bn(bignum * bn) {
     bn->number_of_digits = 0;
     bn->head = NULL;
     bn->last = NULL;
+    free(bn);
 }
 
 void print_stack() {
