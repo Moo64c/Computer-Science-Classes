@@ -60,11 +60,13 @@ struct stack_item *numstack_pop() {
 // 999 - unknown
 // 9999 - Empty word.
 int word_type(char * word) {
-  if (strlen(word) < 1) {
+  int word_length = strlen(word);
+
+  if (word_length < 1) {
     // Empty word.
     return 9999;
   }
-  if (strlen(word) == 1) {
+  if (word_length == 1) {
     if (word[0] == '+') {
       return 2;
     }
@@ -100,7 +102,7 @@ int word_type(char * word) {
     return 999;
   }
 
-  for (int index = 1; index < strlen(word); index++) {
+  for (int index = 1; index < word_length; index++) {
     if(word[index] < '0' || word[index] > '9') {
       // Not a number.
       return 999;
@@ -113,25 +115,26 @@ int word_type(char * word) {
 // Receives a number as a string, creates a bignum and wraps it as a stack_item.
 struct stack_item * create_number(char * word) {
   int index = 0;
+  int word_length = strlen(word);
 
-  if (strlen(word) < 1) {
+  if (word_length < 1) {
     // Empty word.
     return create_number("0");
   }
 
   if (debug > 1) {
-    printf("creating number from %s, length %d\n", word, (int) strlen(word));
+    printf("creating number from %s, length %d\n", word, word_length);
   }
 
   bignum* bn = (bignum*) malloc(sizeof(bignum));
-  bn->number_of_digits = strlen(word);
+  bn->number_of_digits = word_length;
   bn->sign = 0;
 
   if (word[0] == '_') {
     // negative number.
     bn->sign = 1;
     index = 1;
-    if (strlen(word) == 1) {
+    if (word_length == 1) {
       // recreate these steps for the number 0.
       free(bn);
       return create_number("0");
@@ -142,6 +145,7 @@ struct stack_item * create_number(char * word) {
   bn->head = (link *) malloc(sizeof(link));
   bn->head->num = (word[index] - '0');
   bn->last = bn->head;
+  bn->head->prev = NULL;
   index++;
 
   for ( ; index < bn->number_of_digits; index++) {
@@ -165,11 +169,12 @@ void print_bn(bignum * bn) {
   }
   int zeros = 0;
   link* curr = bn->head;
+
   if (bn->sign) {
     printf("-");
   }
 
-  while(curr != 0) {
+  while(curr != NULL) {
     if(zeros > 0 || curr->num != 0 || curr->next == 0) {
         printf("%i", curr->num);
         zeros = 1;
@@ -180,27 +185,34 @@ void print_bn(bignum * bn) {
 
 // Clears the stack from the memory.
 void clear_numstack() {
+  if (debug > 0) {
+    printf("clearing stack \n");
+    print_stack();
+  }
+
   stack_item * iterator = numstack_pop();
-  stack_item * last = NULL;
 
   while (iterator != NULL) {
     clear_bn(iterator->value);
     free(iterator);
     iterator = numstack_pop();
   }
-  // Wha?
-  numstack_init();
 }
 
 // Clears a bignum from memory.
 void clear_bn(bignum * bn) {
     link *curr = bn->last;
     link *temp = bn->last;
-    while(curr!=0){
-        temp=curr;
-        curr=curr->prev;
+    free(bn);
+
+    while(curr != NULL) {
+        temp = curr;
+        curr = curr->prev;
         free(temp);
     }
+    bn->number_of_digits = 0;
+    bn->head = NULL;
+    bn->last = NULL;
 }
 
 void print_stack() {

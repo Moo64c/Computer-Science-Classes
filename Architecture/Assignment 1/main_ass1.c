@@ -1,5 +1,5 @@
 // Global debug variable.
-#define debug 2
+#define debug 0
 
 #include <stdio.h>
 #include <string.h>
@@ -17,22 +17,21 @@
 #define OP_DIVIDE '/'
 
 char** split_string(char* buffer);
-void clear_wordstack();
+void clear_wordstack(char ** stack);
 
 int stack_size = 0;
-char ** stack = 0;
 
 int main(void) {
-  numstack_init();
+  char ** stack = 0;
 
   char str_buf[MAX_LEN];
-  int counter = 0;
+  for (int initIndex = 0; initIndex < MAX_LEN; initIndex++) {
+    str_buf[initIndex] = '\0';
+  }
+  numstack_init();
 
   /* Read user's command line string */
   fgets(str_buf, MAX_LEN, stdin);
-  // Do the calculation
-  // somefunc();
-  //counter = do_Str (str_buf);
   // Create stack.
   stack = split_string(str_buf);
 
@@ -54,7 +53,6 @@ int main(void) {
 
       bignum* num2 = numstack_pop(stack, top)->value;
       bignum* num1 = numstack_pop(stack, top)->value;
-      bignum* result;
 
       resize_numbers(num1, num2);
 
@@ -73,10 +71,20 @@ int main(void) {
       numstack_push_bignum(num1);
     }
 
+    if (current_word_type == 3) {
+      // Subtract.
+      bignum* bn2 = numstack_pop(stack, top)->value;
+      bignum* bn1 = numstack_pop(stack, top)->value;
+
+      subtract_bignums(bn1, bn2);
+    }
+
     if (current_word_type == 6) {
       // Print action.
-      print_bn(top->value);
-      printf("\n");
+      if (top != NULL) {
+        print_bn(top->value);
+        printf("\n");
+      }
     }
 
     if (current_word_type == 7) {
@@ -96,24 +104,30 @@ int main(void) {
 
   // Clean the stacks.
   clear_numstack();
-  clear_wordstack();
+  clear_wordstack(stack);
   return 0;
 }
 
 char** split_string(char* buffer) {
+  int string_length = strlen(buffer);
   int index;
   int wordcount = 0;
   char ch;
 
-  for (index = 0; index < strlen(buffer); index ++){
+  for (index = 0; index < string_length; index ++) {
       ch = buffer[index];
-      if(ch == ' ' || (ch == '\0')){                   // if the character is blank, or null byte add 1 to the wordcounter
-          wordcount += 1;
+      if (ch == ' ' || (ch == '\0')) {
+        // if the character is blank, or null byte add 1 to the wordcounter
+        wordcount++;
       }
   }
 
+  if (debug > 1) {
+    printf("Found %i words\n", wordcount);
+  }
+
   // Start up a neat little words array.
-  char** words = (char **) malloc((wordcount+1) * (sizeof (char*)));
+  char** words = (char **) malloc((wordcount) * (sizeof (char*)));
   char *pch = strtok (buffer, " \n");
   index = 0;
   while (pch != NULL)
@@ -125,8 +139,8 @@ char** split_string(char* buffer) {
       break;
     }
     // Create space for the new string.
-    words[index] = malloc((strlen(pch)) * sizeof(char));
-    strncpy(words[index], pch, strlen(pch));
+    words[index] = malloc((strlen(pch) + 1) * sizeof(char));
+    strcpy(words[index], pch);
 
     // Print for good measure.
     if (debug > 1) {
@@ -141,7 +155,7 @@ char** split_string(char* buffer) {
 }
 
 // Clean the memory from the stack variables.
-void clear_wordstack() {
+void clear_wordstack(char ** stack) {
   for (int index = 0; index < stack_size; index++) {
     free(stack[index]);
   }

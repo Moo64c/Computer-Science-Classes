@@ -6,7 +6,7 @@ section .text
   global _add_bignums, _subtract_bignums
   extern add_carry, sub_borrow
 
-;================ ADD ============================ 
+;================ ADD ============================
 _add_bignums:
   ; standard start.
   push rbp
