@@ -51,24 +51,26 @@ int main(void) {
         printf("adding numbers\n");
       }
 
-      bignum* num2 = numstack_pop(stack, top)->value;
-      bignum* num1 = numstack_pop(stack, top)->value;
+      stack_item * si2 = numstack_pop(stack, top);
+      stack_item * si1 = numstack_pop(stack, top);
+      bignum* bn2 = si2->value;
+      bignum* bn1 = si1->value;
 
-      resize_numbers(num1, num2);
+      resize_numbers(bn1, bn2);
 
-      if (!num2->sign && num1->sign) {
-          num1->sign = 0;
-          subtract_bignums(num2, num1);
+      if (!bn2->sign && bn1->sign) {
+        bn1->sign = 0;
+        subtract_bignums(bn2, bn1);
       }
-      else if (!num1->sign && num2->sign) {
-          num2->sign = 0;
-          subtract_bignums(num1, num2);
+      else if (!bn1->sign && bn2->sign) {
+        bn2->sign = 0;
+        subtract_bignums(bn1, bn2);
       }
       else {
-        _add_bignums(num1, num2);
+        _add_bignums(bn1, bn2);
       }
 
-      numstack_push_bignum(num1);
+      numstack_push_bignum(bn1);
     }
 
     if (current_word_type == 3) {
@@ -160,4 +162,5 @@ void clear_wordstack(char ** stack) {
   for (int index = 0; index < stack_size; index++) {
     free(stack[index]);
   }
+  free(stack);
 }

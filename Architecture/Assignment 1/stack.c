@@ -6,6 +6,7 @@ struct stack_item *top;
 int word_type(char * word);
 void print_stack();
 void print_bn();
+void clear_stack_item(stack_item * si);
 void clear_bn(bignum * bn);
 void numstack_push_bignum(struct bignum *number);
 
@@ -186,18 +187,17 @@ void print_bn(bignum * bn) {
 
 // Clears the stack from the memory.
 void clear_numstack() {
-  if (debug > 0) {
-    printf("clearing stack \n");
-    print_stack();
-  }
-
   stack_item * iterator = numstack_pop();
 
   while (iterator != NULL) {
-    clear_bn(iterator->value);
-    free(iterator);
+    clear_stack_item(iterator);
     iterator = numstack_pop();
   }
+}
+
+void clear_stack_item(stack_item * si) {
+  clear_bn(si->value);
+  free(si);
 }
 
 // Clears a bignum from memory.
@@ -210,9 +210,6 @@ void clear_bn(bignum * bn) {
         curr = curr->prev;
         free(temp);
     }
-    bn->number_of_digits = 0;
-    bn->head = NULL;
-    bn->last = NULL;
     free(bn);
 }
 
