@@ -9,6 +9,7 @@ void print_bn();
 void clear_stack_item(stack_item * si);
 void clear_bn(bignum * bn);
 void numstack_push_bignum(struct bignum *number);
+void after_operation_cleanup(int which, stack_item *si1, stack_item *si2);
 
 void numstack_init() {
   top = NULL;
@@ -130,12 +131,16 @@ struct stack_item * create_number(char * word) {
   bignum* bn = (bignum*) malloc(sizeof(bignum));
   bn->number_of_digits = word_length;
   bn->sign = 0;
+  bn->head = NULL;
+  bn->last = NULL;
 
   if (word[0] == '_') {
     // negative number.
     bn->sign = 1;
     index = 1;
-    if (word_length == 1) {
+    word_length--;
+    bn->number_of_digits--;
+    if (word_length == 0) {
       // recreate these steps for the number 0.
       free(bn);
       return create_number("0");
@@ -222,4 +227,18 @@ void print_stack() {
     printf("\n");
   }
   printf("==============================\n\n");
+}
+
+void after_operation_cleanup(int which_to_free, stack_item *si1, stack_item *si2) {
+  if (debug > 1) {
+    fprintf(stderr, "freeing si%d\n", which_to_free);
+  }
+  if (which_to_free == 1) {
+    clear_stack_item(si1);
+    numstack_push(si2);
+  }
+  if (which_to_free == 2) {
+    clear_stack_item(si2);
+    numstack_push(si1);
+  }
 }

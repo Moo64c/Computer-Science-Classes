@@ -2,10 +2,11 @@ extern int _subtract_bignums(bignum*, bignum*);
 extern int _add_bignums(bignum*, bignum*);
 
 void resize_numbers(bignum* bn1, bignum* bn2);
+void add_wrapper();
 void add_carry(bignum* bn);
 void sub_borrow(bignum* bn);
 int compare_bignum(bignum* bn1, bignum* bn2);
-void subtract_bignums(bignum* bn1, bignum* bn2);
+int subtract_bignums(bignum* bn1, bignum* bn2);
 
 void add_carry(bignum* bn) {
     link* addedLink = (link*) malloc(sizeof(link));
@@ -46,11 +47,20 @@ void sub_borrow(bignum* bn){
     bn->number_of_digits --;
 }
 
+/**
+ * Compare bignum values (ignore sign).
+ * @param  bn1
+ * @param  bn2
+ * @return
+ *  - 0 on same value.
+ *  - positive value if bn1 is bigger.
+ *  - negative value if bn2 is bigger.
+ */
 int compare_bignum(bignum* bn1, bignum* bn2){
   int result = (int) (bn1->number_of_digits - bn2->number_of_digits);
 
   resize_numbers(bn1, bn2);
-  if (result!=0) {
+  if (result != 0) {
     return result;
   }
   link* bn_iterator_1 = bn1->head;
@@ -69,14 +79,20 @@ int compare_bignum(bignum* bn1, bignum* bn2){
   return bn_iterator_1->num - bn_iterator_2->num;
 }
 
-void subtract_bignums(bignum* bn1, bignum* bn2) {
+/**
+ * Subtracts bn1 from bn2.
+ * @param  bn1
+ * @param  bn2
+ * @return 1/2 number of the bignum to free.
+ */
+int subtract_bignums(bignum* bn1, bignum* bn2) {
     int comp = compare_bignum(bn1, bn2);
     if  (comp > 0 &&
         (bn1->sign + bn2->sign == 0 || bn1->sign + bn2->sign == 2)
       ) {
       // Bn1 is larger, but numbers are both positive or both negative.
       _subtract_bignums(bn1, bn2);
-      numstack_push_bignum(bn1);
+      return 2;
     }
     else if (comp < 0 &&
             (bn1->sign + bn2->sign == 0 || bn1->sign + bn2->sign == 2)
@@ -85,27 +101,81 @@ void subtract_bignums(bignum* bn1, bignum* bn2) {
       _subtract_bignums(bn2, bn1);
       // Switch sign are for bn2 (since we're subtracting a bigger number).
       bn2->sign = 1 - bn2->sign;
-      numstack_push_bignum(bn2);
+      return 1;
     }
     else if (bn1->sign ^ bn2->sign) {
       // Only one of the numbers is negative and the other is positive.
       _add_bignums(bn1, bn2);
-      numstack_push_bignum(bn1);
+      return 2;
     }
     else if(comp == 0) {
       // Numbers are equal.
       _subtract_bignums(bn1, bn2);
       bn1->sign = 0;
-      numstack_push_bignum(bn1);
+      return 2;
     }
+    // Error.
+    return -1;
 }
 
-void free_bigNum(bignum * bn){
-    link *curr = bn->last;
-    link *temp = bn->last;
-    while(curr!=0){
-        temp=curr;
-        curr=curr->prev;
-        free(temp);
+// Adds two numbers, pushes the result, and frees the unused variable.
+void add_wrapper() {
+  stack_item * si2 = numstack_pop();
+  stack_item * si1 = numstack_pop();
+
+  bignum* bn2 = si2->value;
+  bignum* bn1 = si1->value;
+
+  // Resize variables.
+  resize_numbers(bn1, bn2);
+  // Compare bignums.
+  int comp = compare_bignum(bn1, bn2);
+
+  int which_to_free = 0;
+  if (bn1->sign == 0) {
+    // BN1 is positive.
+    if (bn2->sign == 0) {
+      // BN2 is positive.
+      // Just add.
+      _add_bignums(bn1, bn2);
+      which_to_free = 2;
     }
+    else {
+      // BN2 is negative.
+      // Subtract BN2 from BN1.
+      bn2->sign = 0;
+      _subtract_bignums(bn1, bn2);
+      if (comp < 0) {
+        // BN2 is bigger, so the sign should be negative.
+        bn1->sign = 1;
+      }
+      which_to_free = 2;
+    }
+  }
+  else if (bn1->sign == 1) {
+    // BN1 is negative
+    if (bn2->sign == 0) {
+      // BN2 is positive.
+      // Subtract BN1 from BN2.
+      bn1->sign = 0;
+      _subtract_bignums(bn2, bn1);
+      if (comp < 0) {
+        // BN2 is bigger than BN1. We should return a positive number.
+        bn2->sign = 0;
+      }
+      which_to_free = 1;
+    }
+    else {
+      // Both numbers are negative.
+      // Just add.
+      _add_bignums(bn1, bn2);
+      which_to_free = 2;
+    }
+  }
+  else {
+    // Error.
+    printf("Error with sign in bn1, pushing bn1.\n");
+    return;
+  }
+  after_operation_cleanup(which_to_free, si1, si2);
 }

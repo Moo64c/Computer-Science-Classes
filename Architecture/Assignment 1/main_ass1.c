@@ -24,6 +24,7 @@ int stack_size = 0;
 int main(void) {
   char ** stack = 0;
 
+  // Set starting values for valgrind reasons.
   char str_buf[MAX_LEN];
   for (int initIndex = 0; initIndex < MAX_LEN; initIndex++) {
     str_buf[initIndex] = 0;
@@ -50,35 +51,18 @@ int main(void) {
       if (debug > 1) {
         printf("adding numbers\n");
       }
-
-      stack_item * si2 = numstack_pop(stack, top);
-      stack_item * si1 = numstack_pop(stack, top);
-      bignum* bn2 = si2->value;
-      bignum* bn1 = si1->value;
-
-      resize_numbers(bn1, bn2);
-
-      if (!bn2->sign && bn1->sign) {
-        bn1->sign = 0;
-        subtract_bignums(bn2, bn1);
-      }
-      else if (!bn1->sign && bn2->sign) {
-        bn2->sign = 0;
-        subtract_bignums(bn1, bn2);
-      }
-      else {
-        _add_bignums(bn1, bn2);
-      }
-
-      numstack_push_bignum(bn1);
+      add_wrapper();
     }
 
     if (current_word_type == 3) {
       // Subtract.
-      bignum* bn2 = numstack_pop(stack, top)->value;
-      bignum* bn1 = numstack_pop(stack, top)->value;
+      stack_item * si2 = numstack_pop();
+      stack_item * si1 = numstack_pop();
+      bignum* bn2 = si2->value;
+      bignum* bn1 = si1->value;
 
-      subtract_bignums(bn1, bn2);
+      int which = subtract_bignums(bn1, bn2);
+      after_operation_cleanup(which, si1, si2);
     }
 
     if (current_word_type == 6) {
