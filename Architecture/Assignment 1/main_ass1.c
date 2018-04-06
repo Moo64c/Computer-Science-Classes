@@ -52,7 +52,6 @@ int main(void) {
         printf("adding numbers\n");
       }
       add_wrapper();
-      print_stack();
     }
 
     if (current_word_type == 3) {

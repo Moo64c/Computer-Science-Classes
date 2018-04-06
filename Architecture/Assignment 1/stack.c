@@ -159,6 +159,7 @@ struct stack_item * create_number(char * word) {
     // Add another link in the chain.
     link* newLink = (link*) malloc(sizeof(link));
     newLink->prev = bn->last;
+    newLink->next = NULL;
     newLink->num = word[index] - '0';
     bn->last->next = newLink;
     bn->last = newLink;

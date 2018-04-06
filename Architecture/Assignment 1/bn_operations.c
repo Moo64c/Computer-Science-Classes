@@ -33,6 +33,7 @@ void resize_numbers(bignum* bn1, bignum* bn2) {
     // Add zero before the actual number.
     link* addedLink = (link*) malloc(sizeof(link));
     addedLink->num = 0;
+    addedLink->prev = NULL;
     bn1->head->prev = addedLink;
     addedLink->next = bn1->head;
     bn1->head = addedLink;
