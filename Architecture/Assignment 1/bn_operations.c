@@ -158,12 +158,12 @@ void add_wrapper() {
       // BN2 is positive.
       // Subtract BN1 from BN2.
       bn1->sign = 0;
-      _subtract_bignums(bn2, bn1);
-      if (comp < 0) {
-        // BN2 is bigger than BN1. We should return a positive number.
-        bn2->sign = 0;
+      _subtract_bignums(bn1, bn2);
+      if (comp > 0) {
+        // BN1 is bigger than BN2. We should return a negative number.
+        bn1->sign = 1;
       }
-      which_to_free = 1;
+      which_to_free = 2;
     }
     else {
       // Both numbers are negative.
@@ -174,7 +174,7 @@ void add_wrapper() {
   }
   else {
     // Error.
-    printf("Error with sign in bn1, pushing bn1.\n");
+    printf("Error with sign in bn1.\n");
     return;
   }
   after_operation_cleanup(which_to_free, si1, si2);
