@@ -1,20 +1,21 @@
-%define num1_ptr r13
-%define num2_ptr rbx
+;defines for multiply.
+%define current_digit_result r14
+%define current_digit_1 rax
+%define current_digit_2 rbx
+%define p_result r8
 %define carry r9
-%define links_count1 r12
-%define links_count2 r11
-%define result_ptr r8
-%define digit1 rax
-%define digit2 r10
-%define result_curr r14
+%define p_bn1 r10
+%define digits_bn1 r11
+%define p_bn2 r12
+%define digits_bn2 r13
 
 section .data
   special_counter: dq 0
   special_counter2: dq 0
 
 section .text
-  global _add_bignums, _subtract_bignums, _multiply_bignums
-  extern add_carry, sub_borrow
+  global _add_bignums, _subtract_bignums, _multiply_bignums, _divide
+  extern add_carry, sub_borrow, compare_for_div
 
 ;================ ADD ============================
 _add_bignums:
@@ -139,19 +140,6 @@ _subtract_end_sub:
   pop rbp
   ret
 
-  %define num1_ptr r13
-  %define num2_ptr rbx
-  %define carry r9
-  %define links_count1 r12
-  %define links_count2 r11
-  %define result_ptr r8
-  %define digit1 rax
-  %define digit2 r10
-  %define result_curr r14
-
-  section .text
-  global _multiply
-
 _multiply_bignums:
   ;start and save registers.
   push rbp
@@ -168,55 +156,55 @@ _multiply_bignums:
   push r14
 
   ; Get variables.
-  mov qword num1_ptr, [rdi+24]
-  mov num2_ptr, [rsi+24]
-  mov result_ptr, [rdx+24]
-  mov result_curr, [rdx+24]
+  mov qword p_bn1, [rdi+24]
+  mov p_bn2, [rsi+24]
+  mov p_result, [rdx+24]
+  mov current_digit_result, [rdx+24]
   ; Number of digits.
-  mov links_count1, [rdi]
-  mov links_count2, [rsi]
+  mov digits_bn1, [rdi]
+  mov digits_bn2, [rsi]
   mov carry, 0
   mov rcx, 10
   xor rax, rax
 
   _multiply_num2_loop:
     ;get the number from the link of the secound number
-    mov digit2, [num2_ptr+16]
+    mov current_digit_2, [p_bn2+16]
 
   _multiply_num1_loop:
     ;get the number from the link of the first number
-    mov digit1, [num1_ptr+16]
-    mul digit2
-    add digit1, carry
-    add digit1, qword[result_ptr+16]
+    mov current_digit_1, [p_bn1+16]
+    mul current_digit_2
+    add current_digit_1, carry
+    add current_digit_1, qword[p_result+16]
     ; carry -> handle the addition of the carry
     jmp _multiply_carry_handle
 
   _multiply_get_next_num1_digit:
     ; get next link of first number
-    mov num1_ptr, qword [num1_ptr+8]
+    mov p_bn1, qword [p_bn1+8]
     jmp _multiply_end_of_num1_check
 
   _multiply_end_of_num1_check:
     ; reached the end of iteration over num1
-    cmp num1_ptr, 0
+    cmp p_bn1, 0
     ; call fucntion to handle the case were we need to add a add/mull carry
     je _multiply_handle_end_of_num1
     jmp _multiply_num1_loop_end
 
   ; decreasing counters
   _multiply_num1_loop_end:
-    dec links_count1
+    dec digits_bn1
     ; get next link of result number
-    mov result_ptr, qword [result_ptr+8]
-    cmp links_count1, 0
+    mov p_result, qword [p_result+8]
+    cmp digits_bn1, 0
     jnz _multiply_num1_loop
 
 
   _multiply_num2_loop_end:
     ; prepere next digit of num2
-    mov num2_ptr, qword[num2_ptr+8]
-    cmp num2_ptr, 0
+    mov p_bn2, qword[p_bn2+8]
+    cmp p_bn2, 0
     ; check if we have reached the end of num2
     je _multiply_handle_end_of_num2
     ; if not, prepere for next iteration
@@ -224,19 +212,19 @@ _multiply_bignums:
 
   _multiply_prepare_for_next_iteration:
     ; reset num1 to first digit
-    mov qword num1_ptr, [rdi+24]
+    mov qword p_bn1, [rdi+24]
     ; start add from the next digit
-    mov result_curr, [result_curr+8]
+    mov current_digit_result, [current_digit_result+8]
     ; get new starting digit for addtion
-    mov result_ptr, result_curr
+    mov p_result, current_digit_result
     ; carry = 0
     mov carry, 0
-    ; reset links_count1
-    mov links_count1, [rdi]
+    ; reset digits_bn1
+    mov digits_bn1, [rdi]
 
     ; decreasing counters
-    dec links_count2
-    cmp links_count2, 0
+    dec digits_bn2
+    cmp digits_bn2, 0
     jnz _multiply_num2_loop
     jmp _multiply_end
 
@@ -248,33 +236,33 @@ _multiply_bignums:
 
 
   _multiply_add_at_the_end:
-    mov result_ptr, qword [result_ptr+8]
-    mov qword [result_ptr+16], carry
-    mov result_ptr, qword[result_ptr]
+    mov p_result, qword [p_result+8]
+    mov qword [p_result+16], carry
+    mov p_result, qword[p_result]
     mov carry, 0
     jmp _multiply_num1_loop_end
 
 
   _multiply_carry_handle:
-    ; operate division: digit1=digit1/10 and rdx=remeinder
+    ; operate division: current_digit_1=current_digit_1/10 and rdx=remeinder
     idiv rcx
-    mov [result_ptr+16], rdx
+    mov [p_result+16], rdx
     ; store carry
-    mov carry, digit1
+    mov carry, current_digit_1
     jmp _multiply_get_next_num1_digit
 
 
   _multiply_add_at_the_end_of_num2:
-    mov digit1, qword[result_ptr+16]
+    mov current_digit_1, qword[p_result+16]
     idiv rcx
-    mov [result_ptr+16], rdx
-    mov result_ptr, qword [result_ptr+8]
-    add qword [result_ptr+16], digit1
+    mov [p_result+16], rdx
+    mov p_result, qword [p_result+8]
+    add qword [p_result+16], current_digit_1
     jmp _multiply_end
 
   _multiply_handle_end_of_num2:
-    add qword [result_ptr+16], carry
-    cmp qword [result_ptr+16], 10
+    add qword [p_result+16], carry
+    cmp qword [p_result+16], 10
     jge _multiply_add_at_the_end_of_num2
     jmp _multiply_end
 
@@ -289,6 +277,124 @@ _multiply_bignums:
     pop rbx
     pop rcx
     pop rdx
-    mov [rbp-8], digit1
+    mov [rbp-8], current_digit_1
+    pop rbp
+    ret
+
+; ============================ DIVIDE =================
+
+; USING MAYER's algorithm
+; Idea behind the algorith.
+; Recusively (incrementing x) find if dividing bn1 by 2^x
+; reduces it below bn2.
+; if so, add 2^(x -1) to a "divisor list" that's added together.
+; remove the part that can be divided from bn1 for future calculations.
+; EXAMPLE (bn1, bn2, result, factor)
+; 2000 / 15 : (2000, 15, 0, 1)
+; -> (2000, 30, 0, 2) -> (2000, 60, 0, 4) -> (2000, 120, 0, 8)
+; -> (2000, 240, 0 , 16) -> (2000, 480, 0 , 32) -> (2000, 960, 0, 64)
+; -> (2000, 1920, 0, 128) -> (2000, 3840, 0, 256) --- FOUND
+; (2000 - 1920 = 80, 3840, 0 + (256 / 2), 256) = (80, 3840, 128, 256)
+; (bn1 < bn2 - keep going back in divisors until bn1 > bn2).
+; -> .... -> (80, 60, 128, 8) FOUND!
+; -> (80-60, 60, 128+(8/2), 8) = (20, 60, 132, 8)
+; (bn1 < bn2 - keep going back in divisors until bn1 > bn2).
+; -> ... -> (20 - 15, 15, 132 + (1 /2), 1) =  (5, 15, 132.5, 1)
+; (there's a remainder... if we continue we should get 133+1/3)
+
+_divide_bignums:
+  ; Start the function.
+  push rbp
+  mov rbp, rsp
+
+  ; bn1's head
+  mov r10, [rdi+16]
+  ; bn2's last
+  mov rbx, [rsi+24]
+  ; Result's last
+  mov r11, [rdx+24]
+  ; copy Bn2's last.
+  mov r15, [rcx+24]
+  mov r9, 0
+  ; rax = 0.
+  xor rax, rax
+
+  _divide_main_loop:
+    mov rbx, [rsi+24]
+    mov r15, [rcx+24]
+    jmp _divide_compare_div
+
+  _divide_loop:
+    ; Get the value in the last link.
+    mov r12, [rbx+16]
+    mov r8, [rbx+16]
+    add r8, r9
+    add qword r12, r8
+    cmp qword r12, 10
+    jge _divide_have_carry
+    jmp _divide_no_carry
+
+  _divide_have_carry:
+    sub r12, 10
+    mov r9, 1
+    jmp _divide_next
+
+  _divide_no_carry:
+    mov r9, 0
+
+  _divide_next:
+    mov qword [rbx+16], r12
+    ; Increment link.
+    mov rbx, qword [rbx+8]
+    mov rbx, qword [rbx+8]
+    cmp rbx, 0
+    je _divide_end_add
+
+    cmp r9, 1
+    je _divide_last_carry
+    jmp _divide_end_add
+
+  _divide_last_carry:
+    call add_carry
+
+  _divide_end_add:
+  jmp _divide_main_loop
+
+  _divide_inc_count:
+    inc qword [r11+16]
+    cmp qword [r11+16], 10
+    jge _divide_count_carry
+    jmp _divide_end_inc
+
+  _divide_count_carry:
+    sub qword [r11+16], 10
+    mov r11, qword [r11+8]
+    jmp _divide_inc_count
+
+  _divide_end_inc:
+    mov r11, [rdx+24]
+    jmp _divide_loop
+
+  _divide_compare_div:
+    mov rbx, [rsi+16]
+    mov r12, [r10+16]
+    mov r13, [rbx+16]
+    cmp r12, r13
+    jl _divide_end_div
+    jg _divide_num1_is_bigger
+
+  mov r10, [r10]
+  mov rbx, [rbx]
+  cmp rbx, 0
+  je  _divide_inc_count
+  jmp _divide_compare_div
+
+  _divide_num1_is_bigger:
+    mov rbx, [rsi+24]
+    jmp _divide_inc_count
+
+  _divide_end_div:
+    ; Restore and return.
+    mov [rbp-8], rax
     pop rbp
     ret
