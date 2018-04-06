@@ -123,7 +123,6 @@ int subtract_bignums(bignum* bn1, bignum* bn2) {
 void add_wrapper() {
   stack_item * si2 = numstack_pop();
   stack_item * si1 = numstack_pop();
-
   bignum* bn2 = si2->value;
   bignum* bn1 = si1->value;
 

@@ -206,12 +206,12 @@ void clear_stack_item(stack_item * si) {
 
 // Clears a bignum from memory.
 void clear_bn(bignum * bn) {
-    link *curr = bn->last;
-    link *temp = bn->last;
+    link *curr = bn->head;
+    link *temp = curr;
 
     while(curr != NULL) {
         temp = curr;
-        curr = curr->prev;
+        curr = curr->next;
         free(temp);
     }
     free(bn);
