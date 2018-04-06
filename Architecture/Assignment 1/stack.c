@@ -10,6 +10,7 @@ void clear_stack_item(stack_item * si);
 void clear_bn(bignum * bn);
 void numstack_push_bignum(struct bignum *number);
 void after_operation_cleanup(int which, stack_item *si1, stack_item *si2);
+struct link * createLink(char c);
 
 void numstack_init() {
   top = NULL;
@@ -116,58 +117,55 @@ int word_type(char * word) {
 
 // Receives a number as a string, creates a bignum and wraps it as a stack_item.
 struct stack_item * create_number(char * word) {
-  int index = 0;
   int word_length = strlen(word);
-
   if (word_length < 1) {
-    // Empty word.
+    // Nothing?
     return create_number("0");
   }
-
-  if (debug > 1) {
-    printf("creating number from %s, length %d\n", word, word_length);
-  }
-
-  bignum* bn = (bignum*) malloc(sizeof(bignum));
-  bn->number_of_digits = word_length;
-  bn->sign = 0;
-  bn->head = NULL;
-  bn->last = NULL;
+  int wordIndex = 0;
 
   if (word[0] == '_') {
-    // negative number.
-    bn->sign = 1;
-    index = 1;
-    word_length--;
-    bn->number_of_digits--;
-    if (word_length == 0) {
-      // recreate these steps for the number 0.
-      free(bn);
-      return create_number("0");
+    // Skip first char when creating number.
+    wordIndex++;
+  }
+  bignum * newBn = (bignum *) malloc(sizeof(bignum));
+  newBn->number_of_digits = word_length - wordIndex;
+  newBn->sign = wordIndex;
+  newBn->head = NULL;
+  newBn->last = NULL;
+
+  int runUntil = (newBn->number_of_digits + newBn->sign);
+  for ( ; wordIndex < runUntil; wordIndex++) {
+    // Create links for the bignum.
+    link * newLink = createLink(word[wordIndex]);
+    if (newBn->head == NULL) {
+      // First link.
+      newBn->head = newLink;
+      newBn->last = newBn->head;
+    }
+    else {
+      newLink->prev = newBn->last;
+      newBn->last->next = newLink;
+      newBn->last = newLink;
     }
   }
 
-  // Create first number.
-  bn->head = (link *) malloc(sizeof(link));
-  bn->head->num = (word[index] - '0');
-  bn->last = bn->head;
-  bn->head->prev = NULL;
-  bn->head->next = NULL;
-  index++;
-
-  for ( ; index < bn->number_of_digits; index++) {
-    // Add another link in the chain.
-    link* newLink = (link*) malloc(sizeof(link));
-    newLink->prev = bn->last;
-    newLink->next = NULL;
-    newLink->num = word[index] - '0';
-    bn->last->next = newLink;
-    bn->last = newLink;
-  }
-
   stack_item* si = (stack_item*) malloc(sizeof(stack_item));
-  si->value = bn;
+  si->value = newBn;
   return si;
+}
+
+/**
+ * Creates a new link for number creation.
+ * @param  c number char to add.
+ * @return pointer to the new link.
+ */
+struct link * createLink(char c) {
+  link* newLink = (link*) malloc(sizeof(link));
+  newLink->num = c - '0';
+  newLink->prev = NULL;
+  newLink->next = NULL;
+  return newLink;
 }
 
 void print_bn(bignum * bn) {
@@ -184,8 +182,8 @@ void print_bn(bignum * bn) {
 
   while(curr != NULL) {
     if(zeros > 0 || curr->num != 0 || curr->next == 0) {
-        printf("%i", curr->num);
-        zeros = 1;
+      printf("%i", curr->num);
+      zeros = 1;
     }
     curr = curr->next;
   }
