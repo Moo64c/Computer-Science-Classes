@@ -68,6 +68,10 @@ int main(void) {
       // Multiply.
       multiply_wrapper();
     }
+    if (current_word_type == 5) {
+      // Multiply.
+      divide_wrapper();
+    }
 
     if (current_word_type == 6) {
       // Print action.

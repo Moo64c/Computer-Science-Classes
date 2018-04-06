@@ -228,3 +228,36 @@ bignum* create_result_container(bignum* bn1, bignum* bn2) {
 
   return result;
 }
+
+void divide_wrapper() {
+  stack_item * si2 = numstack_pop();
+  stack_item * si1 = numstack_pop();
+  bignum* bn2 = si2->value;
+  bignum* bn1 = si1->value;
+
+  resize_numbers(bn1,bn1);
+
+  Q = create_result_container();
+  R = create_result_container();
+  bignum* F = init_mul_ptr(num1->number_of_links/2);
+  F->last->num = 1;
+  if(is_zero(num2)) {
+      printf("divide by zero\n");
+      push(num2);
+  }
+  else if(compare_for_div(num1,num2) < 0)
+      push(Q);
+  else if(compare_for_div(num1,num2) == 0)
+      push(F);
+  else {
+      div_helper(num1, num2,F);
+      bignum * ans = copy_bignum(Q);
+      if(num1->sign ^ num2->sign && is_zero(ans)!=1)
+          ans->sign=1;
+      //free_bigNum(num1);
+      //free_bigNum(num2);
+      //free_bigNum(Q);
+      push(ans);
+  }
+  continue;
+}
