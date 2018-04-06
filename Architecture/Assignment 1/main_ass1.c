@@ -8,7 +8,6 @@
 #include "stack.c"
 #include "bn_operations.c"
 
-
 /* Maximal line size */
 #define MAX_LEN 10000
 
@@ -64,6 +63,10 @@ int main(void) {
 
       int which = subtract_bignums(bn1, bn2);
       after_operation_cleanup(which, si1, si2);
+    }
+    if (current_word_type == 4) {
+      // Multiply.
+      multiply_wrapper();
     }
 
     if (current_word_type == 6) {

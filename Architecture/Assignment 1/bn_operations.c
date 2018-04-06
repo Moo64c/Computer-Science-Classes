@@ -1,5 +1,6 @@
 extern int _subtract_bignums(bignum*, bignum*);
 extern int _add_bignums(bignum*, bignum*);
+extern int _multiply_bignums(bignum*, bignum*, bignum*);
 
 void resize_numbers(bignum* bn1, bignum* bn2);
 void add_wrapper();
@@ -7,6 +8,7 @@ void add_carry(bignum* bn);
 void sub_borrow(bignum* bn);
 int compare_bignum(bignum* bn1, bignum* bn2);
 int subtract_bignums(bignum* bn1, bignum* bn2);
+bignum* create_result_container(bignum* bn1, bignum* bn2);
 
 void add_carry(bignum* bn) {
     link* addedLink = (link*) malloc(sizeof(link));
@@ -178,4 +180,51 @@ void add_wrapper() {
     return;
   }
   after_operation_cleanup(which_to_free, si1, si2);
+}
+
+void multiply_wrapper() {
+  stack_item * si2 = numstack_pop();
+  stack_item * si1 = numstack_pop();
+  bignum* bn2 = si2->value;
+  bignum* bn1 = si1->value;
+
+  bignum* result = create_result_container(bn1, bn2);
+
+  resize_numbers(bn1,bn1);
+  _multiply_bignums(bn1, bn2, result);
+  numstack_push_bignum(result);
+
+  // Set them bytes free!!!!11
+  clear_stack_item(si1);
+  clear_stack_item(si2);
+
+}
+
+bignum* create_result_container(bignum* bn1, bignum* bn2) {
+  long length_bn1 = bn1->number_of_digits;
+  long length_bn2 = bn2->number_of_digits;
+
+  // Create empty bignum.
+  long length = ((length_bn1 >= length_bn2) ? length_bn1 : length_bn2) * 2;
+  bignum* result = (bignum*) malloc(sizeof(bignum));
+  result->number_of_digits = length;
+  result->sign = bn1->sign == bn2->sign ? 0 : 1;
+  result->head = NULL;
+  result->last = NULL;
+  for (int wordIndex = 0; wordIndex < length; wordIndex++) {
+    // Create links for the bignum.
+    link * newLink = createLink('0');
+    if (result->head == NULL) {
+      // First link.
+      result->head = newLink;
+      result->last = result->head;
+    }
+    else {
+      newLink->prev = result->last;
+      result->last->next = newLink;
+      result->last = newLink;
+    }
+  }
+
+  return result;
 }
