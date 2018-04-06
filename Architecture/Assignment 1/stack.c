@@ -91,6 +91,9 @@ int word_type(char * word) {
     if (word[0] == 'q') {
       return 8;
     }
+    if (word[0] == 'd') {
+      return 9;
+    }
   }
 
   int type;

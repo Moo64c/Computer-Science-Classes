@@ -86,6 +86,10 @@ int main(void) {
       // Exit.
       break;
     }
+    if (current_word_type == 9) {
+      // Special debug.
+      print_stack();
+    }
   }
 
   if (debug > 1) {
