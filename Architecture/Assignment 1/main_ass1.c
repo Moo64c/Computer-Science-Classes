@@ -1,5 +1,6 @@
 // Global debug variable.
 #define debug 0
+#define print_all_digits 0
 
 #include <stdio.h>
 #include <string.h>

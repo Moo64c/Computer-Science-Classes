@@ -181,7 +181,11 @@ void print_bn(bignum * bn) {
   }
 
   while(curr != NULL) {
-    if(zeros > 0 || curr->num != 0 || curr->next == 0) {
+    if (print_all_digits) {
+      printf("%i", curr->num);
+    }
+
+    if(!print_all_digits && (zeros > 0 || curr->num != 0 || curr->next == 0)) {
       printf("%i", curr->num);
       zeros = 1;
     }
