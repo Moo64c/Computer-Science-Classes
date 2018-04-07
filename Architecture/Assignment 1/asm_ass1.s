@@ -14,8 +14,8 @@ section .data
   special_counter2: dq 0
 
 section .text
-  global _add_bignums, _subtract_bignums, _multiply_bignums, _divide
-  extern add_carry, sub_borrow, compare_for_div
+  global _add_bignums, _subtract_bignums, _multiply_bignums, _divide_bignums
+  extern add_carry, sub_borrow
 
 ;================ ADD ============================
 _add_bignums:
@@ -282,25 +282,6 @@ _multiply_bignums:
     ret
 
 ; ============================ DIVIDE =================
-
-; USING MAYER's algorithm
-; Idea behind the algorith.
-; Recusively (incrementing x) find if dividing bn1 by 2^x
-; reduces it below bn2.
-; if so, add 2^(x -1) to a "divisor list" that's added together.
-; remove the part that can be divided from bn1 for future calculations.
-; EXAMPLE (bn1, bn2, result, factor)
-; 2000 / 15 : (2000, 15, 0, 1)
-; -> (2000, 30, 0, 2) -> (2000, 60, 0, 4) -> (2000, 120, 0, 8)
-; -> (2000, 240, 0 , 16) -> (2000, 480, 0 , 32) -> (2000, 960, 0, 64)
-; -> (2000, 1920, 0, 128) -> (2000, 3840, 0, 256) --- FOUND
-; (2000 - 1920 = 80, 3840, 0 + (256 / 2), 256) = (80, 3840, 128, 256)
-; (bn1 < bn2 - keep going back in divisors until bn1 > bn2).
-; -> .... -> (80, 60, 128, 8) FOUND!
-; -> (80-60, 60, 128+(8/2), 8) = (20, 60, 132, 8)
-; (bn1 < bn2 - keep going back in divisors until bn1 > bn2).
-; -> ... -> (20 - 15, 15, 132 + (1 /2), 1) =  (5, 15, 132.5, 1)
-; (there's a remainder... if we continue we should get 133+1/3)
 
 _divide_bignums:
   ; Start the function.

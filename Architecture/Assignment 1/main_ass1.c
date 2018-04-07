@@ -69,7 +69,7 @@ int main(void) {
       multiply_wrapper();
     }
     if (current_word_type == 5) {
-      // Multiply.
+      // Divide.
       divide_wrapper();
     }
 

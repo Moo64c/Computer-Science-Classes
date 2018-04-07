@@ -11,6 +11,8 @@ void clear_bn(bignum * bn);
 void numstack_push_bignum(struct bignum *number);
 void after_operation_cleanup(int which, stack_item *si1, stack_item *si2);
 struct link * createLink(char c);
+bignum* create_result_container_wrapper(bignum* bn1, bignum* bn2);
+bignum* create_result_container(long length);
 
 void numstack_init() {
   top = NULL;
@@ -213,15 +215,19 @@ void clear_stack_item(stack_item * si) {
 
 // Clears a bignum from memory.
 void clear_bn(bignum * bn) {
-    link *curr = bn->head;
-    link *temp = curr;
+  if (bn == NULL) {
+    // Already cleared.
+    return;
+  }
+  link *curr = bn->head;
+  link *temp = curr;
 
-    while(curr != NULL) {
-        temp = curr;
-        curr = curr->next;
-        free(temp);
-    }
-    free(bn);
+  while(curr != NULL) {
+      temp = curr;
+      curr = curr->next;
+      free(temp);
+  }
+  free(bn);
 }
 
 void print_stack() {
@@ -247,4 +253,61 @@ void after_operation_cleanup(int which_to_free, stack_item *si1, stack_item *si2
     clear_stack_item(si2);
     numstack_push(si1);
   }
+}
+
+bignum* clone_bignum(bignum* bn) {
+  bignum * clone = (bignum *) malloc(sizeof(bignum));
+  clone->number_of_digits = bn->number_of_digits;
+  clone->sign = bn->sign;
+  clone->head = NULL;
+  clone->last = NULL;
+
+  link * iterator = bn->head;
+  while(iterator != NULL) {
+    // Create links for the clone.
+    link * newLink = createLink('0' + iterator->num);
+    if (clone->head == NULL) {
+      // First link.
+      clone->head = newLink;
+      clone->last = clone->head;
+    }
+    else {
+      newLink->prev = clone->last;
+      clone->last->next = newLink;
+      clone->last = newLink;
+    }
+    iterator = iterator->next;
+  }
+  return clone;
+}
+
+bignum* create_result_container_wrapper (bignum* bn1, bignum* bn2) {
+  long length_bn1 = bn1->number_of_digits;
+  long length_bn2 = bn2->number_of_digits;
+  // Create empty bignum.
+  long length = ((length_bn1 >= length_bn2) ? length_bn1 : length_bn2) * 2;
+  return create_result_container(length);
+}
+
+bignum* create_result_container(long length) {
+  bignum* result = (bignum*) malloc(sizeof(bignum));
+  result->number_of_digits = length;
+  result->head = NULL;
+  result->last = NULL;
+
+  for (int index = 0; index < length; index++) {
+    // Create links for the bignum.
+    link * newLink = createLink('0');
+    if (result->head == NULL) {
+      // First link.
+      result->head = newLink;
+      result->last = result->head;
+    }
+    else {
+      newLink->prev = result->last;
+      result->last->next = newLink;
+      result->last = newLink;
+    }
+  }
+  return result;
 }
