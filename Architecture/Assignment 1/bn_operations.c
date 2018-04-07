@@ -7,7 +7,7 @@ void add_wrapper();
 void add_carry(bignum* bn);
 void sub_borrow(bignum* bn);
 int compare_bignum(bignum* bn1, bignum* bn2);
-int compare_for_div(bignum * bn1,bignum * bn2);
+int div_comparer(bignum * bn1,bignum * bn2);
 int subtract_bignums(bignum* bn1, bignum* bn2);
 void div_algorithm(bignum *bn1, bignum *bn2, bignum * divFactor);
 int bn_is_zero(bignum* bn1);
@@ -23,6 +23,24 @@ void add_carry(bignum* bn) {
     bn->number_of_digits++;
     bn->head = addedLink;
 }
+
+
+ bignum* init_mul_ptr(long length){
+     long new_length = length*2;
+     bignum* result= (bignum*) malloc(sizeof(bignum));
+     result->number_of_digits = new_length;
+     result->head = (link*) malloc(sizeof(link));
+     result->last = result->head;
+     result->last->num = 0;
+     for(int i=0; i<new_length;i++){
+         link* newLink = (link*) malloc(sizeof(link));
+         newLink->num = 0;
+         newLink->prev = result->last;
+         result->last->next = newLink;
+         result->last = newLink;
+     }
+     return result;
+ }
 
 void resize_numbers(bignum* bn1, bignum* bn2) {
 
@@ -217,10 +235,9 @@ void divide_wrapper() {
   bignum* bn1 = si1->value;
 
   resize_numbers(bn1, bn2);
-
-  divQuotiant  = create_result_container(bn1->number_of_digits / 2);
-  divRemainder = create_result_container(bn1->number_of_digits / 2);
-  bignum* divFactor = create_result_container(bn1->number_of_digits / 2);
+  divQuotiant = create_result_container(bn1->number_of_digits);
+  divRemainder = create_result_container(bn1->number_of_digits);
+  bignum* divFactor = create_result_container(bn1->number_of_digits);
 
   // Start factor at 1.
   divFactor->last->num = 1;
@@ -228,37 +245,29 @@ void divide_wrapper() {
       printf("Error: divide by zero.\n");
       numstack_push(si2);
   }
-  if(compare_for_div(bn1, bn2) < 0) {
+  else if(div_comparer(bn1, bn2) < 0) {
     // Bn2 is bigger - push 0.
     numstack_push_bignum(divQuotiant);
     // Clean up.
     clear_bn(divFactor);
   }
-  if(compare_for_div(bn1, bn2) == 0) {
+  else if (div_comparer(bn1, bn2) == 0) {
     // Bignums are equal - push 1.
     numstack_push_bignum(divFactor);
     // Clean up.
     clear_bn(divQuotiant);
   }
   else {
-    // Start division algorithm (see explanation in assembly file).
+    // Start division algorithm (see explanation below).
     div_algorithm(bn1, bn2, divFactor);
     bignum * result = clone_bignum(divQuotiant);
-
-    if(bn1->sign ^ bn2->sign && bn_is_zero(result) != 1) {
-      // Fix sign.
+    if(bn1->sign ^ bn2->sign && !bn_is_zero(result)) {
       result->sign = 1;
     }
-    // Push item.
     numstack_push_bignum(result);
-
-    // Clean up.
-    clear_bn(divQuotiant);
+    // Cleanup.
     clear_bn(divFactor);
   }
-  // Clean up.
-  clear_bn(divRemainder);
-  clear_stack_item(si2);
 }
 
 int bn_is_zero(bignum* bn1) {
@@ -293,41 +302,35 @@ int bn_is_zero(bignum* bn1) {
   ; -> ... -> (20 - 15, 15, 132 + (1 /2), 1) =  (5, 15, 132.5, 1)
   ; (there's a remainder... if we continue we should get 133+1/3)
   */
-
 void div_algorithm(bignum *bn1, bignum *bn2, bignum * divFactor) {
-  if(compare_for_div(bn1, bn2) < 0) {
-    // BN2 is bigger.
-    clear_bn(divQuotiant);
-    clear_bn(divRemainder);
-
-    divQuotiant = create_result_container(bn1->number_of_digits / 2);
+  if(div_comparer(bn1, bn2) < 0){
     divRemainder = bn1;
+    divQuotiant = create_result_container(bn1->number_of_digits);
   }
   else {
-    bignum * newBn1 = clone_bignum(bn2);
-    bignum * newFactor = clone_bignum(divFactor);
-    _add_bignums(newBn1, bn2);
-    _add_bignums(newFactor, divFactor);
-    div_algorithm(bn1, newBn1, newFactor);
-    if(compare_for_div(divRemainder, bn2) >= 0) {
+    bignum * first = clone_bignum(bn2);
+    bignum * second = clone_bignum(divFactor);
+    _add_bignums(second, divFactor);
+    _add_bignums(first, bn2);
+    div_algorithm(bn1, first, second);
+
+    if(div_comparer(divRemainder, bn2) >= 0 ) {
       _add_bignums(divQuotiant, divFactor);
       _subtract_bignums(divRemainder, bn2);
     }
-    // Clean up.
-    clear_bn(newFactor);
-    clear_bn(newBn1);
   }
 }
 
-int compare_for_div(bignum * bn1, bignum * bn2) {
-    resize_numbers(bn1, bn2);
-    link* curr1 = bn1->head;
-    link* curr2 = bn2->head;
-    while(curr1!=0 && curr1->num == curr2->num){
-        curr1 = curr1->next;
-        curr2 = curr2->next;
-    }
-    if(curr1 == NULL)
-        return 0;
-    return curr1->num - curr2->num;
+int div_comparer(bignum * bn1, bignum * bn2) {
+  resize_numbers(bn1, bn2);
+  link* bn1_link = bn1->head;
+  link* bn2_link = bn2->head;
+  while (bn1_link != 0 && bn1_link->num == bn2_link->num) {
+      bn1_link = bn1_link->next;
+      bn2_link = bn2_link->next;
+  }
+  if (bn1_link == NULL) {
+    return 0;
+  }
+  return bn1_link->num - bn2_link->num;
 }
