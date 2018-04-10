@@ -1,11 +1,15 @@
+# ### Ignore exectuables.
 # Ignore all
 *
-
 # Unignore all with extensions
 !*.*
-
 # Unignore all dirs
 !*/
+!*Makefile
+# ###############
+
+*.exe
+*.msi
 
 # Above combination will ignore all files without extension #
 
