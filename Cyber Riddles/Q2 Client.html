@@ -27,9 +27,11 @@
 		var connection = new WebSocket(addr);
 		var state = [];
 		var oldState = [];
-		var max = 4;
+		var max = 3;
+		var ready = false;
 
 		connection.onmessage = function(event) {
+			ready = true;
 			var node = document.createElement("LI");
 			var textnode = document.createTextNode( curPos + ":" + event.data);
 
@@ -59,14 +61,12 @@
 
 		var canvas = document.getElementById("canvas");
 		var ctx = canvas.getContext("2d");
-
 		var kill = false;
-
 		var lastChanged = [7]
 
 
 		function solveAlice() {
-
+			ready = false;
 			if (isLast(state, curPos)) {
 				buttonZero.click();
 			}
@@ -74,14 +74,22 @@
 				buttonPass.click();
 			}
 			window.setTimeout(function() {
-				if (!kill) {
+				if (!kill && ready) {
 					solveAlice();
+				}
+				else {
+					if (!kill) {
+						window.setTimeout(function() {
+							ready = true;
+							solveAlice()
+						}, 100);
+					}
 				}
 			}, 30);
 
 		}
 
-		function isMax(s, curPos) {
+		function isMax(s, maxIndex) {
 			var rotations = s.map(
 				(o, i) =>
 					s.slice(i, n).concat(s.slice(0, i)).reverse().join("")
@@ -91,16 +99,18 @@
 					parseInt(st, max + 1)
 			);
 
-			return Math.max(...values) == values[curPos % 8];
+			return Math.max(...values) == values[maxIndex % 8];
 		}
 
-		function isLast(s, curPos) {
+		function isLast(s, lastPos) {
 			if( s.every(x => x == 0) ) {
+				kill = true;
+				alert('done?');
 				// Everyone is 0.
 				return true;
 			}
 
-			var i = curPos;
+			var i = lastPos;
 			while (s[(i - 1 + n) % n] == 0) {
 				i = (i - 1 + n) % n;
 			}
