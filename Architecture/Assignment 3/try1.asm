@@ -4,6 +4,9 @@ sbn index, one, +1
 sbn B, index, +1
 sbn index, one, +1
 sbn C, index, +1
+sbn A, neg_start_of_memory, +1
+sbn B, neg_start_of_memory, +1
+sbn C, neg_start_of_memory, +1
 
 ; Check A == 0 && B == 0 && C == 0
 ; if so, exit program.
@@ -65,14 +68,22 @@ re_loop: 23
 exit:
   sbn 0, 0, 0
 
-zero: 0 99
-neg_one: -1 100
-one: 1 101
-index: 0 102
-A: 0 103
-B: 0 104
-C: 0 105
-start_of_memory: 106
+three: 3
+zero: 0
+neg_one: -1
+one: 1
+index: 0
+; TODO
+Aval: 0
+A: 0
+Areturn: neg_one, zero, return_address
+Bval: 0
+B: 0
+Breturn: neg_one, zero, return_address
+Cval: 0
+C: 0
+Creturn: neg_one, zero, return_address
+start_of_memory: 423432
 neg_start_of_memory: -423432
 
 
@@ -93,43 +104,40 @@ neg_start_of_memory: -423432
 
 
 
-
-
-
-
-102, 106, 3
-103, 102, 6
-102, 101, 9
-104, 102, 12
-102, 101, 15
-105, 102, 18
-103, 101, 27
-103, 100, 57
-100, 99, 57
-103, 100, 57
-104, 101, 39
-104, 100, 57
-100, 99, 57
-104, 100, 57
-105, 101, 51
-105, 100, 57
-100, 99, 57
-105, 100, 57
-100, 99, 96
-103, 104, 63
-102, 101, 69
-102, 102, 66
-102, 105, 69
-103, 103, 72
-103, 102, 75
-102, 101, 78
-104, 104, 81
-104, 102, 84
-102, 101, 87
-105, 105, 90
-105, 102, 93
-100, 99, 18
+index, start_of_memory, 3
+A, index, 6
+index, one, 9
+B, index, 12
+index, one, 15
+C, index, 18
+A, one, 27
+A, neg_one, 57
+neg_one, zero, 57
+A, neg_one, 57
+B, one, 39
+B, neg_one, 57
+neg_one, zero, 57
+B, neg_one, 57
+C, one,
+C, neg_one, 19
+neg_one, zero, 19
+C, neg_one, 19
+neg_one, zero, exit
+A, B, 21
+index, one, 23
+index, index, 22
+index, C, 23
+A, A, 24
+A, index, 25
+index, one, 26
+B, B, 27
+B, index, 28
+index, one, 29
+C, C, 30
+C, index, 31
+neg_one, zero, 6
 0, 0, 0
+3
 0
 -1
 1

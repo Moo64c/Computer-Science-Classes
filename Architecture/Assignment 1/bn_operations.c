@@ -308,11 +308,11 @@ void div_algorithm(bignum *bn1, bignum *bn2, bignum * divFactor) {
     divQuotiant = create_result_container(bn1->number_of_digits);
   }
   else {
-    bignum * first = clone_bignum(bn2);
-    bignum * second = clone_bignum(divFactor);
-    _add_bignums(second, divFactor);
-    _add_bignums(first, bn2);
-    div_algorithm(bn1, first, second);
+    bignum * second = clone_bignum(bn2);
+    bignum * factor = clone_bignum(divFactor);
+    _add_bignums(factor, divFactor);
+    _add_bignums(second, bn2);
+    div_algorithm(bn1, second, factor);
 
     if(div_comparer(divRemainder, bn2) >= 0 ) {
       _add_bignums(divQuotiant, divFactor);
