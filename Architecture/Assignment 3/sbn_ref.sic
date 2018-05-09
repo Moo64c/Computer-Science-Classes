@@ -1,0 +1,13 @@
+
+
+
+check_zero:
+  sbn A, one, check_zero_2
+
+
+
+
+
+zero: 0
+neg_one: -1
+one: 1
