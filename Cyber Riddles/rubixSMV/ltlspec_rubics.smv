@@ -1,0 +1,30 @@
+-- Submitted by: Amir Arbel
+-- This is a partial solution for the size 4 rubics cube.
+-- Mostly the LTLSPEC, with var assignment for clarity.
+-- to make this work, need to add ASSIGN statement with case for each of the actions
+-- Each action will rotate the values around...
+-- Obviously not implemented..
+
+VAR
+  -- Cube is 6 sides. We have the sides:
+  front : array 0..3 of {red, green, blue, white, orange, yellow};
+  back : array 0..3 of {red, green, blue, white, orange, yellow};
+  up : array 0..3 of {red, green, blue, white, orange, yellow};
+  down : array 0..3 of {red, green, blue, white, orange, yellow};
+  left : array 0..3 of {red, green, blue, white, orange, yellow};
+  right : array 0..3 of {red, green, blue, white, orange, yellow};
+  -- Action: which action should happen at step ...
+  action : {f, f_r, b, b_r, u, u_r, d, d_r, l, l_r, r, r_r}
+
+LTLSPEC
+  -- Fails if the cube is solved.
+  G(
+    !(
+      (front[0] = front[1] & front[1] = front[2] & front[2] = front[3]) &
+      (back[0] = back[1] & back[1] = back[2] & back[2] = back[3]) &
+      (up[0] = up[1] & up[1] = up[2] & up[2] = up[3]) &
+      (down[0] = down[1] & down[1] = down[2] & down[2] = down[3]) &
+      (left[0] = left[1] & left[1] = left[2] & left[2] = left[3]) &
+      (right[0] = right[1] & right[1] = right[2] & right[2] = right[3])
+    )
+  )
