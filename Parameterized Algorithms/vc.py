@@ -25,11 +25,11 @@ def min_vc(graph_name):
             break;
         print result;
         k += 1;
+    print result;
 
 
     benchmark.display();
-    # Return approx result.
-    # TODO
+    # TODO Return approx result.
     return -1;
 
 
@@ -39,7 +39,7 @@ def vc(original_graph, k):
         "success": False,
         "k": k
     };
-    graph = original_graph;
+    graph = original_graph.copy();
 
     # Apply VC 1 & 2.
     removed = 1;
@@ -49,10 +49,12 @@ def vc(original_graph, k):
         removed = len(reduction_result["removed"]);
         solution += reduction_result["in_vertex_cover"];
         k = k - len(reduction_result["in_vertex_cover"]);
+        print graph.nodes();
 
     # Check if a solution is possible according to VC.3:
     if (k < 0 and (len(graph.nodes()) > (k*k + k)) or (len(graph.edges()) > k*k)):
         # Failed.
+        result["vertex_cover"] = solution;
         return result;
 
     # Apply the Crown Lemma to the graph.
