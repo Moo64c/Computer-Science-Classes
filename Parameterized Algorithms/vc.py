@@ -2,6 +2,7 @@ import networkx as nx
 import networkx.algorithms.approximation as app
 import networkx.readwrite.gml as gml
 import matplotlib.pyplot as plt
+from scipy.optimize import *
 from reductions import *
 from benchmark import *
 
@@ -15,6 +16,12 @@ def min_vc(graph_name):
     # Load graph.
     graph = gml.read_gml(graph_name, "label", destringizer);
     benchmark.add("loading");
+    kernel = get_lp_kernel(graph);
+    benchmark.add("get kernel");
+    kernel.x = map(lambda x: round(x, 2), kernel.x);
+    print kernel.x;
+    print sum(kernel.x);
+    return -1;
 
     # Start MINIMUM VERTEX COVER algorithm.
     k = 1;
@@ -23,7 +30,6 @@ def min_vc(graph_name):
         result = vc(graph, k);
         if (result["success"]):
             break;
-        print result;
         k += 1;
     print result;
 
@@ -49,7 +55,6 @@ def vc(original_graph, k):
         removed = len(reduction_result["removed"]);
         solution += reduction_result["in_vertex_cover"];
         k = k - len(reduction_result["in_vertex_cover"]);
-        print graph.nodes();
 
     # Check if a solution is possible according to VC.3:
     if (k < 0 and (len(graph.nodes()) > (k*k + k)) or (len(graph.edges()) > k*k)):
@@ -61,6 +66,23 @@ def vc(original_graph, k):
     after_crown = crown_lemma(graph, k);
     result["vertex_cover"] = after_crown;
     return result;
+
+def get_lp_kernel(graph):
+    cons = [];
+    bnds = [];
+    x0 = [];
+
+    for n in graph.nodes():
+        bnds.append((0, 1));
+        x0.append(1);
+
+    for u,v in graph.edges():
+        cons.append({'type': 'ineq', 'fun': lambda x, i=u, j=v:  x[i] + x[j] - 1});
+
+    fun = lambda x: sum(x);
+    res = minimize(fun, x0, method = 'SLSQP', bounds=bnds, constraints=cons, options={'disp':True});
+    return res;
+
 
 
 # FIXME Temp; remove
