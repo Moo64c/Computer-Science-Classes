@@ -4,38 +4,27 @@ import networkx.readwrite.gml as gml
 import matplotlib.pyplot as plt
 from scipy.optimize import *
 from reductions import *
+from vc_kernel import *
 from benchmark import *
+
+debug = False;
+graph_name = "100_0.05.gml";
 
 def destringizer(str):
     return int(str);
 
 def min_vc(graph_name):
-    # Benchmarking start.
-    benchmark = benchmarker(graph_name);
-
     # Load graph.
     graph = gml.read_gml(graph_name, "label", destringizer);
     benchmark.add("loading");
-    kernel = get_lp_kernel(graph);
-    benchmark.add("get kernel");
-    kernel.x = map(lambda x: round(x, 2), kernel.x);
-    print kernel.x;
-    print sum(kernel.x);
-    return -1;
-
-    # Start MINIMUM VERTEX COVER algorithm.
-    k = 1;
-    # Remove vertices according to VC1 & VC2.
-    while(k < len(graph.nodes())):
-        result = vc(graph, k);
-        if (result["success"]):
-            break;
-        k += 1;
-    print result;
-
-
+    # Get kernel for solution.
+    kernel = get_lp_kernel(graph, benchmark, debug);
+    benchmark.add("kernel found.");
+    cleaned_kernel = [xv for v, xv in kernel]
+    k = sum(cleaned_kernel)
+    # result = vc(graph, k);
+    print cleaned_kernel, k;
     benchmark.display();
-    # TODO Return approx result.
     return -1;
 
 
@@ -51,7 +40,7 @@ def vc(original_graph, k):
     removed = 1;
     solution = [];
     while (removed > 0):
-        reduction_result = reduction_vc_1_2(graph, k);
+        reduction_result = reduction_vc_1_2(graph , k);
         removed = len(reduction_result["removed"]);
         solution += reduction_result["in_vertex_cover"];
         k = k - len(reduction_result["in_vertex_cover"]);
@@ -64,27 +53,10 @@ def vc(original_graph, k):
 
     # Apply the Crown Lemma to the graph.
     after_crown = crown_lemma(graph, k);
+    benchmark.add("crown_lemma");
     result["vertex_cover"] = after_crown;
     return result;
 
-def get_lp_kernel(graph):
-    cons = [];
-    bnds = [];
-    x0 = [];
-
-    for n in graph.nodes():
-        bnds.append((0, 1));
-        x0.append(1);
-
-    for u,v in graph.edges():
-        cons.append({'type': 'ineq', 'fun': lambda x, i=u, j=v:  x[i] + x[j] - 1});
-
-    fun = lambda x: sum(x);
-    res = minimize(fun, x0, method = 'SLSQP', bounds=bnds, constraints=cons, options={'disp':True});
-    return res;
-
-
-
 # FIXME Temp; remove
-graph_name = "test_graph.gml"
+benchmark = benchmarker(graph_name);
 min_vc(graph_name);
