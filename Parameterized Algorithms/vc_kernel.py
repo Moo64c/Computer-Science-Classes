@@ -31,7 +31,7 @@ def _create_bipartite(original_graph, benchmark, debug = False):
         edges.append((u, v + size));
         edges.append((v, u + size));
 
-    # graph.add_nodes_from(nodes);
+    graph.add_nodes_from(nodes);
     graph.add_edges_from(edges);
     benchmark.add("bipartite split");
 
@@ -47,20 +47,17 @@ def get_lp_kernel(graph, benchmark, debug = False):
         print "is bipartite?", algorithms.bipartite.basic.is_bipartite(bipartite_graph);
         print "sets:", algorithms.bipartite.basic.sets(bipartite_graph, original_nodes);
 
-    for node in bipartite_graph.nodes():
-        if len(bipartite_graph[node]) <= 1:
-            print "foo"
-
     # M = hk_matching(bipartite)
     matching = algorithms.bipartite.matching.hopcroft_karp_matching(bipartite_graph, top_nodes=original_nodes);
     benchmark.add("Hopcroft Karp matching");
     # X - vertex cover using the matching found with HK.
-    cover = algorithms.bipartite.matching.to_vertex_cover(bipartite_graph, matching);
+    cover = algorithms.bipartite.matching.to_vertex_cover(bipartite_graph, matching, top_nodes=original_nodes);
     benchmark.add("Hopcroft Karp matching to vertex cover");
 
     if (debug):
         print cover;
 
+    # Kernel items added as (v, xv) tuples.
     kernel = [];
     size = len(graph.nodes());
     for node in graph.nodes():
@@ -70,4 +67,9 @@ def get_lp_kernel(graph, benchmark, debug = False):
         if node + size in cover:
             item += 0.5;
         kernel.append((node, item));
+
+    cleaned_kernel = [xv for v, xv in kernel]
+    if debug:
+        print "Kernel found:", kernel, "Sum:", sum(cleaned_kernel);
+
     return kernel;
