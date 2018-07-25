@@ -30,7 +30,7 @@ def min_vc(graph_name):
     cleaned_kernel = [xv for v, xv in kernel];
     k = sum(cleaned_kernel);
     # Use the kernel: branching.
-    cover = vertex_cover_from_kernel(graph, kernel, 2k);
+    cover = vertex_cover_from_kernel(graph, kernel, 2 * k);
     print len(cover);
     benchmark.add("vertex cover from kernel.");
 
