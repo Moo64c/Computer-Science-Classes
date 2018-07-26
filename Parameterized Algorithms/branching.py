@@ -3,7 +3,7 @@ import networkx.algorithms as algorithms
 import matplotlib.pyplot as plt
 import sys
 
-def get_max_degree_node(graph):
+def get_max_degree_node(graph, debug = 0):
     max_node = 0;
     max_degree = 0;
     for node, degree in graph.degree:
@@ -15,7 +15,7 @@ def get_max_degree_node(graph):
 
 # Create a graph from kernel by removing vertecies with xv 0 and 1,
 # we only need to decide on the 0.5 ones.
-def from_lp_kernel(graph, kernel):
+def from_lp_kernel(graph, kernel, debug = 0):
     nodes = [];
     cover = [];
     removed = [];
@@ -30,10 +30,11 @@ def from_lp_kernel(graph, kernel):
     new_graph = graph.copy();
     for node in removed:
         new_graph.remove_node(node);
-    print "Prepared a graph for kernel ", kernel, "with cover", cover
+    if (debug > 0):
+        print "Prepared a graph for kernel ", kernel, "with cover", cover
     return new_graph, cover;
 
-def bar_fight_iterative(graph, k):
+def bar_fight_iterative(graph, k, debug = 0):
     result = {
         "cover": [],
         "success": False
@@ -42,7 +43,7 @@ def bar_fight_iterative(graph, k):
         # failed.
         return result;
 
-    (max_node, degree) = get_max_degree_node(graph);
+    (max_node, degree) = get_max_degree_node(graph, debug);
     cover = [];
     if degree <= 1:
         # Trivial case - choose one of each edge. The rest are discarded.
@@ -69,7 +70,7 @@ def bar_fight_iterative(graph, k):
     neighbors = graph.adj[max_node];
     nv_graph = base_graph.copy();
     nv_graph.remove_nodes_from(neighbors);
-    nv_result = bar_fight_iterative(nv_graph, (k - len(neighbors)));
+    nv_result = bar_fight_iterative(nv_graph, (k - len(neighbors)), debug);
     cover_nv = list(neighbors) + nv_result["cover"];
 
     if (nv_result["success"]):
@@ -82,7 +83,7 @@ def bar_fight_iterative(graph, k):
     # v branch.
     v_graph = base_graph.copy();
     v_graph.remove_node(max_node);
-    v_result = bar_fight_iterative(v_graph, k - 1);
+    v_result = bar_fight_iterative(v_graph, k - 1, debug);
     cover_v = [max_node] + v_result["cover"];
 
     if (v_result["success"]):
@@ -95,11 +96,11 @@ def bar_fight_iterative(graph, k):
     # No-instance.
     return result;
 
-def vertex_cover_from_kernel(graph, kernel, k):
-    ready_graph, cover = from_lp_kernel(graph, kernel);
+def vertex_cover_from_kernel(graph, kernel, k, debug = 0):
+    ready_graph, cover = from_lp_kernel(graph, kernel, debug);
     k = k - len(cover);
     print "Starting iterations for k: ", k;
-    result = bar_fight_iterative(ready_graph, k);
+    result = bar_fight_iterative(ready_graph, k, debug);
 
     if result["success"]:
         return cover + result["cover"];

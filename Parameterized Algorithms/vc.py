@@ -9,30 +9,33 @@ from vc_kernel import *
 from branching import *
 from benchmark import *
 
-debug = False;
-graph_name = "100_0.05.gml";
+debug = 0;
+graph_name = "1000_0.1.gml";
 # graph_name = "test_graph.gml"
 
 def destringizer(str):
     return int(str);
 
-def min_vc(graph_name):
+def vc(graph_name):
 
     # Load graph.
-    graph = gml.read_gml(graph_name, "label", destringizer);
+    # graph = gml.read_gml(graph_name, "label", destringizer);
+    graph = nx.star_graph(1000);
     benchmark.add("loading");
-    c = algorithms.approximation.vertex_cover.min_weighted_vertex_cover(graph);
-    benchmark.add("Networkx vertex cover approximation algorithm: " + str(len(c)) + " nodes in cover.");
+    # Run the included approximation algoritm for comparison.
+    approx_cover = algorithms.approximation.vertex_cover.min_weighted_vertex_cover(graph);
+    benchmark.add("Networkx vertex cover approximation algorithm: " + str(len(approx_cover)) + " nodes in cover.");
 
     # Get kernel for solution.
     kernel = get_lp_kernel(graph, benchmark, debug);
-    benchmark.add("kernel found.");
+    benchmark.add("kernel found");
     cleaned_kernel = [xv for v, xv in kernel];
     k = sum(cleaned_kernel);
+
     # Use the kernel: branching.
-    cover = vertex_cover_from_kernel(graph, kernel, 2 * k);
-    print len(cover);
-    benchmark.add("vertex cover from kernel.");
+    # TODO: Can we reduce from 2 * k?
+    cover = vertex_cover_from_kernel(graph, kernel, 2 * k, debug);
+    benchmark.add("vertex cover from kernel");
 
     print "Calculated", len(cover), "vertex cover: ", cover;
     benchmark.display();
@@ -63,4 +66,4 @@ def show_result(graph, cover):
 
 # FIXME Temp; remove
 benchmark = benchmarker(graph_name);
-min_vc(graph_name);
+vc(graph_name);

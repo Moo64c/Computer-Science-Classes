@@ -14,7 +14,7 @@ debug = True;
 def reduction_vc_1_2(graph, k):
     # Can not remove nodes while iterating over it.
     removed = set();
-    in_vertex_cover = [];
+    cover = [];
     for vertice in graph:
         if (graph.degree[vertice] == 0):
             # Vertice does not have any neighbors. Can be safetly deleted from graph.
@@ -22,7 +22,7 @@ def reduction_vc_1_2(graph, k):
         if (graph.degree[vertice] > k):
              # Vertice is of degree k+1 or more. Always in VC.
              removed.add(vertice);
-             in_vertex_cover.append(vertice);
+             cover.append(vertice);
 
     for item in removed:
         if (debug):
@@ -31,68 +31,40 @@ def reduction_vc_1_2(graph, k):
 
     return {
         "removed" : removed,
-        "in_vertex_cover": in_vertex_cover
+        "cover": cover
     };
 
-def _crown_decompose(bipartite_graph):
-    #Todo: move the functionality here.
-    return ((), (), ());
 
-def crown_lemma(graph, k):
-    result = {
-        "result" : [],
-        "k" : k,
-        "success": False
-    };
-    # Get a maximal matching for the graph.
-    # Built-in greedy algorithm from networkx. Runs in O(|E|).
-    matching = algorithms.maximal_matching(graph);
-    if (len(matching) > k):
-        # Nothing to be done.
-        result["result"] = matching;
-        print "Too many matching for k:", k
-        return result;
-    # |matching| <= k.
-    # Generate bipartite graph between Vm (Vertices of the matching set) and
-    # the remainder of the vertices in the Graph (G\Vm).
-    Vm = set();
-    for u, v in matching:
-        Vm.add(u);
-        Vm.add(v);
+def reduction_vc_4(graph, kernel, k):
+    nodes = [];
+    cover = [];
+    removed = [];
 
-    # I = V(G) \ Vm
-    remainder = [node for node in graph.nodes() if node not in list(Vm)];
-    if debug:
-        print "Remainder:", remainder, " Vm:", list(Vm);
-    # Filter edges to the remainder and Vm node sets.
-    edges = set();
-    for edge in graph.edges():
-        # Only take edges between Vm and R - creating a bipartite graph.
-        if ((edge[0] in remainder and edge[1] in Vm) or
-            (edge[1] in remainder and edge[0] in Vm)):
-            edges.add(edge);
+    kernel_sum = sum([xv for v,xv in kernel]);
+    if (kernel_sum > k):
+        # No-instance.
+        return {"success": False};
 
-    bipartite_graph = nx.Graph();
-    bipartite_graph.add_edges_from(edges);
-    # (c, h, r) = _crown_decompose(bipartite_graph);
-    # M = hk_matching(bipartite)
-    matching = algorithms.bipartite.matching.hopcroft_karp_matching(bipartite_graph);
-    # X - vertex cover using the matching found with HK.
-    cover = algorithms.bipartite.matching.to_vertex_cover(bipartite_graph, matching);
-    if (len(matching) > k):
-        # Wonder if this could even happen (no solution).
-        result["result"] = matching;
-        return result;
-
-    # X intersection Vm
-    cover_and_vm = [e for e in matching if e in Vm and e in cover];
-    print " cover_and_vm:", cover_and_vm;
-    # M* (where e in M* iff e in M' and if e = (u,v) then only one of u,v is in (X and Vm))
-
-
-    result["result"] = cover_and_vm;
-    return result;
-
+    for v, xv in kernel:
+        if xv == 0.5:
+            nodes.append(v);
+        else:
+            # Either 0 or 1 - remove both.
+            removed.append(v);
+            if xv == 1:
+                # Part of V_1 group - in cover.
+                cover.append(v);
+    
+    new_graph = graph.copy();
+    for node in removed:
+        new_graph.remove_node(node);
+    if (debug > 0):
+        print "Prepared a graph for kernel ", kernel, "with cover", cover
+    return {
+        "success": True,
+        "graph": new_graph,
+        "cover": cover
+    }
 
 #======================================= Tests for reductions.
 # Testing for Reduction VC.1

@@ -15,7 +15,7 @@ def _bipartite_draw(B, nodes):
     plt.show();
 
 # Create bipartite graph for kernel construction (according to lemma 2.22)
-def _create_bipartite(original_graph, benchmark, debug = False):
+def _create_bipartite(original_graph, benchmark, debug = 0):
     graph = nx.Graph();
     original_nodes = original_graph.nodes();
     nodes = [];
@@ -35,26 +35,32 @@ def _create_bipartite(original_graph, benchmark, debug = False):
     graph.add_edges_from(edges);
     benchmark.add("bipartite split");
 
-    if debug:
+    if debug > 1:
         _bipartite_draw(graph, original_nodes);
 
     return graph;
 
-def get_lp_kernel(graph, benchmark, debug = False):
+# Implementation of Proposition 2.24.
+# This kernel can also be called a half-integral solution X if any of the results are weighted with 0.5 value.
+# (For the 3.4 algorithm).
+def get_lp_kernel(graph, benchmark, debug = 0):
     original_nodes = graph.nodes();
     bipartite_graph = _create_bipartite(graph, benchmark, debug);
-    if debug:
+    if debug > 0:
         print "is bipartite?", algorithms.bipartite.basic.is_bipartite(bipartite_graph);
         print "sets:", algorithms.bipartite.basic.sets(bipartite_graph, original_nodes);
 
     # M = hk_matching(bipartite)
+    # Should run at O(|E|*sqrt(|V|)) time.
     matching = algorithms.bipartite.matching.hopcroft_karp_matching(bipartite_graph, top_nodes=original_nodes);
     benchmark.add("Hopcroft Karp matching");
-    # X - vertex cover using the matching found with HK.
+
+    # X - vertex cover (bipartite graph) using the matching found with HK.
+    # In bipartite graph, |M| = |X| by Konig's theorem - which shows how to get the vertex cover.
     cover = algorithms.bipartite.matching.to_vertex_cover(bipartite_graph, matching, top_nodes=original_nodes);
     benchmark.add("Hopcroft Karp matching to vertex cover");
 
-    if (debug):
+    if debug > 0:
         print cover;
 
     # Kernel items added as (v, xv) tuples.
@@ -69,7 +75,7 @@ def get_lp_kernel(graph, benchmark, debug = False):
         kernel.append((node, item));
 
     cleaned_kernel = [xv for v, xv in kernel]
-    if debug:
+    if debug > 0:
         print "Kernel found:", kernel, "Sum:", sum(cleaned_kernel);
 
     return kernel;
