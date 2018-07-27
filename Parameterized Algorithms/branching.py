@@ -3,6 +3,29 @@ import networkx.algorithms as algorithms
 import matplotlib.pyplot as plt
 import sys
 
+def show_result(graph, cover):
+    # Color nodes in cover as blue.
+    node_colors = [];
+    for node in graph.nodes():
+        if node in cover:
+            node_colors.append('blue');
+        else:
+            node_colors.append('red');
+
+    # Color covered edges in blue.
+    edge_colors = [];
+    for u, v in graph.edges():
+        if u in cover or v in cover:
+            edge_colors.append('blue');
+        else:
+            edge_colors.append('red');
+
+    pos = nx.circular_layout(graph);
+    nx.draw(graph, pos=pos, node_color=node_colors, edge_color=edge_colors, with_labels=True);
+    mng = plt.get_current_fig_manager()
+    mng.resize(*mng.window.maxsize())
+    plt.show();
+
 def get_max_degree_node(graph, debug = 0):
     max_node = 0;
     max_degree = 0;

@@ -11,26 +11,6 @@ import argparse
 def destringizer(str):
     return int(str);
 
-def show_result(graph, cover):
-    # Color nodes in cover as blue.
-    node_colors = [];
-    for node in graph.nodes():
-        if node in cover:
-            node_colors.append('blue');
-        else:
-            node_colors.append('red');
-
-    # Color covered edges in blue.
-    edge_colors = [];
-    for u, v in graph.edges():
-        if u in cover or v in cover:
-            edge_colors.append('blue');
-        else:
-            edge_colors.append('red');
-
-    pos = nx.circular_layout(graph);
-    nx.draw(graph, pos=pos, node_color=node_colors, edge_color=edge_colors, with_labels=True);
-    plt.show();
 
 def start_vc(file_name, k = -1, debug = 0):
     benchmark = benchmarker(file_name);

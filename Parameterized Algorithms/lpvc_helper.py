@@ -106,8 +106,9 @@ def lpvc_algorithm(graph, k, benchmark, debug = 0):
             cover += branch_cover["cover"];
             return graph, cover;
         # Added removed some items from the graph.
-        for node in result["removed"]:
-            working_graph.remove_node(node);
         working_k = working_k - len(result["cover"]);
         removed += result["removed"];
         cover += result["cover"];
+        # show_result(graph, cover);
+        for node in result["removed"]:
+            working_graph.remove_node(node);
