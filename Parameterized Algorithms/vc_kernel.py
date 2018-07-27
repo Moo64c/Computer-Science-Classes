@@ -20,7 +20,7 @@ def _create_bipartite(original_graph, benchmark, debug = 0):
     original_nodes = original_graph.nodes();
     nodes = [];
     edges = [];
-    size = len(original_nodes);
+    size = max(original_nodes) + 1;
     # Every vertex V split into v_1, v_2; v_2 is the number of v_1 plus the original size.
     for node in original_nodes:
         nodes.append(node);
@@ -33,9 +33,9 @@ def _create_bipartite(original_graph, benchmark, debug = 0):
 
     graph.add_nodes_from(nodes);
     graph.add_edges_from(edges);
-    benchmark.add("bipartite split");
 
     if debug > 1:
+        benchmark.add("bipartite split");
         _bipartite_draw(graph, original_nodes);
 
     return graph;
@@ -45,6 +45,11 @@ def _create_bipartite(original_graph, benchmark, debug = 0):
 # (For the 3.4 algorithm).
 def get_lp_kernel(graph, benchmark, debug = 0):
     original_nodes = graph.nodes();
+    if not (original_nodes):
+        #Empty graph?
+        if (debug > 0):
+            print "Trying to get kernel of an empty graph.";
+        return [];
     bipartite_graph = _create_bipartite(graph, benchmark, debug);
     if debug > 0:
         print "is bipartite?", algorithms.bipartite.basic.is_bipartite(bipartite_graph);
@@ -53,14 +58,13 @@ def get_lp_kernel(graph, benchmark, debug = 0):
     # M = hk_matching(bipartite)
     # Should run at O(|E|*sqrt(|V|)) time.
     matching = algorithms.bipartite.matching.hopcroft_karp_matching(bipartite_graph, top_nodes=original_nodes);
-    benchmark.add("Hopcroft Karp matching");
 
     # X - vertex cover (bipartite graph) using the matching found with HK.
     # In bipartite graph, |M| = |X| by Konig's theorem - which shows how to get the vertex cover.
     cover = algorithms.bipartite.matching.to_vertex_cover(bipartite_graph, matching, top_nodes=original_nodes);
-    benchmark.add("Hopcroft Karp matching to vertex cover");
 
     if debug > 0:
+        benchmark.add("Hopcroft Karp matching and coversion to vertex cover");
         print cover;
 
     # Kernel items added as (v, xv) tuples.

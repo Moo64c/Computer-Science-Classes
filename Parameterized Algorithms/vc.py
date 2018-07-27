@@ -1,42 +1,15 @@
 import networkx as nx
-import networkx.algorithms.approximation as app
 import networkx.readwrite.gml as gml
 import matplotlib.pyplot as plt
-from scipy.optimize import *
 import math
-from reductions import *
-from vc_kernel import *
-from branching import *
+# from reductions import *
+from vc_helper import *
+from lpvc_helper import *
 from benchmark import *
 import argparse
 
 def destringizer(str):
     return int(str);
-
-def vc(graph, benchmark, k, debug):
-
-    # Run the included approximation algoritm for comparison.
-    approx_cover = algorithms.approximation.vertex_cover.min_weighted_vertex_cover(graph);
-    benchmark.add("Networkx vertex cover approximation algorithm: " + str(len(approx_cover)) + " nodes in cover.");
-
-    # Get kernel for solution.
-    kernel = get_lp_kernel(graph, benchmark, debug);
-    benchmark.add("kernel found");
-    cleaned_kernel = [xv for v, xv in kernel];
-    if (k == -1):
-        # Unspecified k variable.
-        # TODO: Can we reduce from 2 * k?
-        k = 2 * sum(cleaned_kernel);
-
-    # Use the kernel: branching.
-    cover = vertex_cover_from_kernel(graph, kernel, k, debug);
-    benchmark.add("vertex cover from kernel");
-
-    print "Calculated", len(cover), "vertex cover: ", cover;
-    benchmark.display();
-    # Color the graph nicely and display.
-    show_result(graph, cover);
-    return -1;
 
 def show_result(graph, cover):
     # Color nodes in cover as blue.
@@ -65,13 +38,36 @@ def start_vc(file_name, k = -1, debug = 0):
     # Load graph.
     graph = gml.read_gml(file_name, "label", destringizer);
     benchmark.add("loading");
-    vc(graph = graph, benchmark=benchmark, debug=debug, k=k);
+    graph, cover = vc(graph = graph, benchmark=benchmark, debug=debug, k=k);
+
+    print "Calculated", len(cover), "vertex cover: ", cover;
+    benchmark.display();
+    # Color the graph nicely and display.
+    show_result(graph, cover);
 
 
-def start_lpvc(file_name, debug = 0):
-    # Todo
+def start_lpvc(file_name , debug = 0, k = -1):
+    # benchmark = benchmarker(file_name);
+    #
+    # # Load graph.
+    # graph = gml.read_gml(file_name, "label", destringizer);
+    # benchmark.add("loading");
+    # removed, cover, k = apply_vc_5(graph = graph, benchmark=benchmark, debug=debug, k=k);
+    # benchmark.add("Finding an optimum LPVC(G)");
+    # # Perform branching on a reduced graph.
+    # branching_graph = graph.copy();
+    # branching_graph.remove_nodes_from(removed);
+    # kernel = get_lp_kernel(branching_graph, benchmark, debug);
+    # print [xv for v,xv in kernel];
+    # added_cover = vertex_cover_from_kernel(branching_graph, kernel, k, debug);
+    # cover += added_cover;
+    # print "Calculated", len(cover), "vertex cover: ", cover;
+    # benchmark.display();
+    # # Color the graph nicely and display.
+    # show_result(graph, cover);
     pass
 
+# Start program.
 parser = argparse.ArgumentParser(description='Start vertex cover algorithm.');
 parser.add_argument('file',
                     help=".gml file to process.",
