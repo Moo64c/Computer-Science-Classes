@@ -8,20 +8,13 @@ from reductions import *
 from vc_kernel import *
 from branching import *
 from benchmark import *
-
-debug = 0;
-graph_name = "1000_0.1.gml";
-# graph_name = "test_graph.gml"
+import argparse
 
 def destringizer(str):
     return int(str);
 
-def vc(graph_name):
+def vc(graph, benchmark, k, debug):
 
-    # Load graph.
-    # graph = gml.read_gml(graph_name, "label", destringizer);
-    graph = nx.star_graph(1000);
-    benchmark.add("loading");
     # Run the included approximation algoritm for comparison.
     approx_cover = algorithms.approximation.vertex_cover.min_weighted_vertex_cover(graph);
     benchmark.add("Networkx vertex cover approximation algorithm: " + str(len(approx_cover)) + " nodes in cover.");
@@ -30,11 +23,13 @@ def vc(graph_name):
     kernel = get_lp_kernel(graph, benchmark, debug);
     benchmark.add("kernel found");
     cleaned_kernel = [xv for v, xv in kernel];
-    k = sum(cleaned_kernel);
+    if (k == -1):
+        # Unspecified k variable.
+        # TODO: Can we reduce from 2 * k?
+        k = 2 * sum(cleaned_kernel);
 
     # Use the kernel: branching.
-    # TODO: Can we reduce from 2 * k?
-    cover = vertex_cover_from_kernel(graph, kernel, 2 * k, debug);
+    cover = vertex_cover_from_kernel(graph, kernel, k, debug);
     benchmark.add("vertex cover from kernel");
 
     print "Calculated", len(cover), "vertex cover: ", cover;
@@ -64,6 +59,32 @@ def show_result(graph, cover):
     nx.draw(graph, pos=pos, node_color=node_colors, edge_color=edge_colors, with_labels=True);
     plt.show();
 
-# FIXME Temp; remove
-benchmark = benchmarker(graph_name);
-vc(graph_name);
+def start_vc(file_name, k = -1, debug = 0):
+    benchmark = benchmarker(file_name);
+
+    # Load graph.
+    graph = gml.read_gml(file_name, "label", destringizer);
+    benchmark.add("loading");
+    vc(graph = graph, benchmark=benchmark, debug=debug, k=k);
+
+
+def start_lpvc(file_name, debug = 0):
+    # Todo
+    pass
+
+parser = argparse.ArgumentParser(description='Start vertex cover algorithm.');
+parser.add_argument('file',
+                    help=".gml file to process.",
+                    type = str, default = "test_graph.gml");
+parser.add_argument('--k',
+                    help="Limit vertex cover by k.",
+                    type = int, default = "-1");
+parser.add_argument('--debug',
+                    help="Debug level integer. 0 For none, 1 for messages, 2 for graphs.",
+                    type = int, default = 0);
+parser.add_argument('--lpvc', dest='start', action="store_const",
+                   const = start_lpvc, default = start_vc,
+                   help = 'Use lpvc algorithm (Theorem 3.4).');
+
+args = parser.parse_args();
+args.start(file_name=args.file, debug=args.debug, k=args.k);
