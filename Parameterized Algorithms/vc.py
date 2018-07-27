@@ -47,24 +47,17 @@ def start_vc(file_name, k = -1, debug = 0):
 
 
 def start_lpvc(file_name , debug = 0, k = -1):
-    # benchmark = benchmarker(file_name);
-    #
-    # # Load graph.
-    # graph = gml.read_gml(file_name, "label", destringizer);
-    # benchmark.add("loading");
-    # removed, cover, k = apply_vc_5(graph = graph, benchmark=benchmark, debug=debug, k=k);
-    # benchmark.add("Finding an optimum LPVC(G)");
-    # # Perform branching on a reduced graph.
-    # branching_graph = graph.copy();
-    # branching_graph.remove_nodes_from(removed);
-    # kernel = get_lp_kernel(branching_graph, benchmark, debug);
-    # print [xv for v,xv in kernel];
-    # added_cover = vertex_cover_from_kernel(branching_graph, kernel, k, debug);
-    # cover += added_cover;
-    # print "Calculated", len(cover), "vertex cover: ", cover;
-    # benchmark.display();
-    # # Color the graph nicely and display.
-    # show_result(graph, cover);
+    benchmark = benchmarker(file_name);
+
+    # Load graph.
+    graph = gml.read_gml(file_name, "label", destringizer);
+    benchmark.add("loading");
+    graph, cover = lpvc_algorithm(graph, k, benchmark, debug);
+    benchmark.add("Finding an optimum LPVC(G)");
+    print "Calculated", len(cover), "vertex cover: ", cover;
+    benchmark.display();
+    # Color the graph nicely and display.
+    show_result(graph, cover);
     pass
 
 # Start program.

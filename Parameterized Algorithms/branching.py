@@ -39,7 +39,7 @@ def bar_fight_iterative(graph, k, debug = 0):
         "cover": [],
         "success": False
     };
-    if (k < 0):
+    if (k <= 0):
         # failed.
         return result;
 
