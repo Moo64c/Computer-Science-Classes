@@ -32,8 +32,12 @@ def start_lpvc(file_name , debug = 0, k = -1):
     # Load graph.
     graph = gml.read_gml(file_name, "label", destringizer);
     benchmark.add("loading");
+
     graph, cover = lpvc_algorithm(graph, k, benchmark, debug);
     benchmark.add("Finding an optimum LPVC(G)");
+    if not graph:
+        print "Failed creating a vertex cover.";
+        return;
     print "Calculated", len(cover), "vertex cover: ", cover;
     benchmark.display();
     # Color the graph nicely and display.

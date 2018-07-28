@@ -16,6 +16,8 @@ def lpvc_reduction_vc_4(graph, k, kernel, debug = 0):
     kernel_sum = sum([xv for v, xv in kernel]);
     if (kernel_sum > k):
         # Failed the vertex cover for (G,k).
+        if (debug > 0):
+            print "Failed - kernel sum was:", kernel_sum, " for k of size ", k;
         return {"success" : False};
 
     for node, xv in kernel:
@@ -38,7 +40,7 @@ def _is_all_half(kernel):
     return True;
 
 def _kernel_weight(kernel):
-    return sum([xv for v,xv in kerenl]);
+    return sum([xv for v,xv in kernel]);
 
 
 # Lemma 3.7.
@@ -75,6 +77,7 @@ def lpvc_reduction_vc_5(graph, k, benchmark, debug = 0):
         # Apply reduction vc 4.
         result = lpvc_reduction_vc_4(graph, k, kernel, debug);
         if not result["success"]:
+            show_result(graph, []);
             print "No vertex cover solution for graph and specified k:", k;
         return result;
     # Either empty or all-1/2 solution.
@@ -94,7 +97,7 @@ def lpvc_algorithm(graph, k, benchmark, debug = 0):
         result = lpvc_reduction_vc_5(working_graph, working_k, benchmark, debug);
         if not result["success"]:
             print "LPVC algorithm failed.";
-            return False;
+            return False, False;
         # Successful result:
         if not(result["removed"]):
             # Nothing was removed. This is the final result. Either an empty graph, or all-1/2 solution.
@@ -102,13 +105,13 @@ def lpvc_algorithm(graph, k, benchmark, debug = 0):
             branch_cover = bar_fight_iterative(working_graph, working_k);
             if not branch_cover["success"]:
                 print "LPVC algorithm failed on branching part.";
-                return False;
+                return False, False;
             cover += branch_cover["cover"];
             return graph, cover;
         # Added removed some items from the graph.
-        working_k = working_k - len(result["cover"]);
+        working_k -= len(result["cover"]);
         removed += result["removed"];
         cover += result["cover"];
-        # show_result(graph, cover);
+        show_result(graph, cover, removed+cover);
         for node in result["removed"]:
             working_graph.remove_node(node);

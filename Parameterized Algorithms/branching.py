@@ -3,14 +3,20 @@ import networkx.algorithms as algorithms
 import matplotlib.pyplot as plt
 import sys
 
-def show_result(graph, cover):
+def show_result(graph, cover, removed = []):
+    if not removed:
+        removed = cover;
     # Color nodes in cover as blue.
     node_colors = [];
     for node in graph.nodes():
-        if node in cover:
-            node_colors.append('blue');
+        if node in removed:
+            if node in cover:
+                node_colors.append('blue');
+            else:
+                node_colors.append('red');
         else:
-            node_colors.append('red');
+            node_colors.append('green');
+
 
     # Color covered edges in blue.
     edge_colors = [];

@@ -34,7 +34,7 @@ def _create_bipartite(original_graph, benchmark, debug = 0):
     graph.add_nodes_from(nodes);
     graph.add_edges_from(edges);
 
-    if debug > 1:
+    if debug > 0:
         benchmark.add("bipartite split");
         _bipartite_draw(graph, original_nodes);
 
