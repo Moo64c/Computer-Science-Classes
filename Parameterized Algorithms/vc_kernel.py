@@ -34,7 +34,7 @@ def _create_bipartite(original_graph, benchmark, debug = 0):
     graph.add_nodes_from(nodes);
     graph.add_edges_from(edges);
 
-    if debug > 0:
+    if debug > 1:
         benchmark.add("bipartite split");
         _bipartite_draw(graph, original_nodes);
 
@@ -69,7 +69,7 @@ def get_lp_kernel(graph, benchmark, debug = 0):
 
     # Kernel items added as (v, xv) tuples.
     kernel = [];
-    size = len(graph.nodes());
+    size = max(original_nodes) + 1;
     for node in graph.nodes():
         item = 0;
         if node in cover:
